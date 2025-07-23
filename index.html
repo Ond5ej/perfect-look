@@ -15,6 +15,21 @@
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
 </head>
 <body>
+
+  <!-- Login Box -->
+  <div id="loginBox" style="margin:120px auto;width:320px;padding:30px;background:#fff;border-radius:12px;box-shadow:0 2px 16px #0002;">
+    <h2>Přihlášení</h2>
+    <div class="error" id="errorMsg" style="color:red;margin-bottom:12px;"></div>
+    <form id="loginForm" autocomplete="off">
+      <label for="username">Uživatel:</label>
+      <input type="text" id="username" autocomplete="off" style="width:95%;padding:7px;margin-bottom:18px;border:1px solid #ccc;border-radius:6px;">
+      <label for="password">Heslo:</label>
+      <input type="password" id="password" autocomplete="off" style="width:95%;padding:7px;margin-bottom:18px;border:1px solid #ccc;border-radius:6px;">
+      <button type="submit" style="padding:8px 20px;border:none;background:#1e90ff;color:#fff;border-radius:7px;font-size:1rem;">Přihlásit se</button>
+    </form>
+  </div>
+
+  <div id="secretContent" style="display:none;">
   <!-- Header & Navigation -->
   <header>
     <div class="navbar">
@@ -188,7 +203,7 @@
   <footer>
     &copy; 2025 Studio Veronique Zlín &ndash; Permanentní make-up & beauty
   </footer>
-
+</div><!---- HESLO LOGIN -->
   <script>
     // Kontakt – jednoduchý alert, žádné skutečné odeslání
     document.querySelector('.contact-form').addEventListener('submit', function(e){
@@ -224,6 +239,30 @@
     js.src = 'https://connect.facebook.net/cs_CZ/sdk/xfbml.customerchat.js';
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
+  
+  
+
+//************************** VYVOJ
+    // Nastav své přihlašovací údaje zde:
+    const CORRECT_USER = "admin";
+    const CORRECT_PASS = "tajneheslo";
+
+    const loginForm = document.getElementById('loginForm');
+    const errorMsg = document.getElementById('errorMsg');
+    const loginBox = document.getElementById('loginBox');
+    const secretContent = document.getElementById('secretContent');
+
+    loginForm.onsubmit = function(e) {
+      e.preventDefault();
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+      if (user === CORRECT_USER && pass === CORRECT_PASS) {
+        loginBox.style.display = 'none';
+        secretContent.style.display = 'block';
+      } else {
+        errorMsg.textContent = "Nesprávné jméno nebo heslo.";
+      }
+    }
 
   </script>
   

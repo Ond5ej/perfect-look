@@ -8,6 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap" rel="stylesheet">
+
   
 
   <link rel="stylesheet" href="style.css">
@@ -34,17 +36,40 @@
   <header>
     <div class="navbar">
     
+    <!--------- MENU ------->
       <nav class="navbar-menu">
         <ul>
-          <li><a href="#" class="active">Úvod</a></li>
-          <li><a href="#sluzby">Služby</a></li>
-          <li><a href="#cenik">Ceník</a></li>
-          <li><a href="#reference">Reference</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href="#" class="active">ÚVOD</a></li>
+          <li class="has-dropdown">
+            <a href="#sluzby" class="dropdown-toggle">
+              SLUŽBY
+              <span class="dropdown-arrow">&#9662;</span> <!-- Malý dolů trouhelník -->
+            </a>
+            <ul class="dropdown">
+              <li>
+                <a href="#permanentni-make-up"><b>Permanetní make-up</b></a>
+                <ul class="submenu">
+                  <li><a href="#oboci">Obočí</a></li>
+                  <li><a href="#oboci">Oční linky</a></li>
+                  <li><a href="#rty">Rty</a></li>                  
+                </ul>
+              </li>
+              <li>
+                <a href="#kosmetika"><b>Kosmetika</b></a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#cenik">CENÍK</a></li>
+          <li><a href="#reference">REFERENCE</a></li>
+          <li><a href="#kontakt">KONTAKT</a></li>
         </ul>
       </nav>
+
+
+
       
-      <img src="./logo.png" alt="Logo" style="width:161px; border: solid 2px black;">
+      <!--<img src="./img/logo.svg" alt="Logo" style="width: 144px; padding: 6px 38px; border: solid 1px black; border-radius: 16px;">-->
+      <img src="./img/logo-with-border.svg" alt="Logo" style="width:240px;">
       
       <div class="navbar-contact">
         <div class="navbar-contact-social">
@@ -74,40 +99,91 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <h1>Permanentní make-up & beauty studio</h1>
+    <h1>Permanentní make-up | beauty studio</h1>
     <p>Přirozenost, profesionalita a individuální přístup – to je Veronique Zlín. Obočí, rty i řasy v péči zkušené specialistky v moderním a příjemném prostředí studia v centru Zlína.</p>
   </section>
 
   <!-- Služby -->
-  <section class="section" id="sluzby">
-    <h2 class="section-title">Naše služby</h2>
-    <div class="services-list">
-      <div class="service-card">
-        <img src="https://img.icons8.com/ios-filled/100/ffd859/eyebrow.png" alt="Obočí">
-        <h3>Permanentní make-up obočí</h3>
-        <p>Přirozené a dokonale tvarované obočí díky technikám powder brows, hairstroke i kombinovaným metodám.</p>
+  <section class="section" id="permanentni-make-up">
+    <h2 class="section-title">Permanentní make-up</h2>
+    <div class="services">      
+      <div class="property-card">
+        <div class="property-image img-oboci">
+          <div class="property-image-title">
+            <h5> Card Title </h5>
+          </div>
+        </div>
+        <div class="property-description">      
+          <span>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</span>
+        </div>
       </div>
-      <div class="service-card">
-        <img src="https://img.icons8.com/ios-filled/100/ffd859/eyebrow.png" alt="Obočí">
-        <h3>Permanentní make-up obočí</h3>
-        <p>Přirozené a dokonale tvarované obočí díky technikám powder brows, hairstroke i kombinovaným metodám.</p>
+      
+      <div class="property-card">
+        <div class="property-image img-ocni-linky">
+          <div class="property-image-title">
+            <h5> Card Title </h5>
+          </div>
+        </div>
+        <div class="property-description">      
+          <span>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</span>
+        </div>
       </div>
-      <div class="service-card">
-        <img src="https://img.icons8.com/ios-filled/100/ffd859/eyebrow.png" alt="Obočí">
-        <h3>Permanentní make-up obočí</h3>
-        <p>Přirozené a dokonale tvarované obočí díky technikám powder brows, hairstroke i kombinovaným metodám.</p>
+      
+      <div class="property-card">      
+        <div class="property-image img-rty">
+          <div class="property-image-title">
+            <h5> Card Title </h5>
+          </div>
+        </div>
+        <div class="property-description">
+          <span>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</span>
+        </div>
       </div>
-      <div class="service-card">
-        <img src="https://img.icons8.com/ios-filled/100/ffd859/lips.png" alt="Rty">
-        <h3>Permanentní make-up rtů</h3>
-        <p>Krásně plné a barevné rty po celý den. Vybereme odstín i styl, který vám bude slušet nejvíc.</p>
+           
+    </div>
+  </section>
+  <section class="section" id="kosmetika">
+    <h2 class="section-title">Kosmetika</h2>
+    <div class="services">
+      <div class="property-card">      
+        <div class="property-image img-rty">
+          <div class="property-image-title">
+            <h5> Card Title </h5>
+          </div>
+        </div>
+        <div class="property-description">
+          <span>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</span>
+        </div>
+      </div>
+      
+      <div class="property-card">
+        <div class="property-image img-oboci">
+          <div class="property-image-title">
+            <h5> Card Title </h5>
+          </div>
+        </div>
+        <div class="property-description">      
+          <span>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</span>
+        </div>
+      </div>
+      
+      <div class="property-card">
+        <div class="property-image img-ocni-linky">
+          <div class="property-image-title">
+            <h5> Card Title </h5>
+          </div>
+        </div>
+        <div class="property-description">      
+          <span>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Ceník -->
+
+  <!----------------------------------- Ceník -------------------------------->
   <section class="price-section" id="cenik">
-    <h2 class="price-title">Ceník služeb</h2>
+    <h2 class="section-title dark-text">Ceník služeb</h2>
     <table class="price-table">
       <tr>
         <th>Služba</th>
@@ -136,24 +212,33 @@
     </table>
   </section>
 
-  <!-- Reference -->
-  <section class="section" id="reference">
-    <h2 class="section-title">Reference klientek</h2>
-    <div class="references">
-      <div class="reference-card">
-        Skvělý přístup, výborné výsledky a krásné prostředí. Byla jsem moc spokojená a doporučuji všem!
-        <strong>– Lucie K.</strong>
-      </div>
-      <div class="reference-card">
-        Po zákroku jsem měla nádherné, přirozené obočí. Vše mi bylo jasně vysvětleno. Ráda se budu vracet!
-        <strong>– Petra Z.</strong>
-      </div>
-      <div class="reference-card">
-        Profesionální přístup, bezbolestné provedení a úžasný výsledek. Děkuji za krásné rty!
-        <strong>– Andrea M.</strong>
-      </div>
+  <!---------------------------- Reference ----------------------------------->
+<section class="section" id="reference">
+  <h2 class="section-title">Reference klientek</h2>
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <div class="reference-card">Skvělý zážitek od začátku do konce. Petra je velmi pečlivá a profesionální. Moje nové obočí vypadá naprosto přirozeně!<strong>– Martina P.</strong></div>
+      <div class="reference-card">Nechala jsem si udělat permanentní linky a jsem nadšená! Už žádné každodenní líčení. Doporučuji každé ženě, co chce ušetřit čas.<strong>– Eva D.</strong></div>
+      <div class="reference-card">Petra má zlaté ruce! Obočí i rty jsou perfektní. Přesně pochopila, co chci, a výsledek je lepší, než jsem si představovala.<strong>– Lucie V.</strong></div>
+      <div class="reference-card">Úžasný přístup, krásné prostředí a naprostá preciznost. Jsem maximálně spokojená.<strong>– Andrea M.</strong></div>
+      <div class="reference-card">Měla jsem obavy z bolesti, ale díky citlivému přístupu Petry bylo vše naprosto v pohodě. Rty vypadají fantasticky!<strong>– Kristýna L.</strong></div>
+      <div class="reference-card">Permanentní make-up mi doslova změnil život. Vypadám svěže hned po probuzení. Moc děkuji!<strong>– Tereza K.</strong></div>
+      <div class="reference-card">Petra byla milá, vše mi dopodrobna vysvětlila a během zákroku jsem se cítila bezpečně. Výsledek? Perfektní!<strong>– Monika S.</strong></div>
+      <div class="reference-card">Po několika nepovedených zkušenostech jinde jsem konečně našla profesionálku. Moje nové obočí mi každý chválí.<strong>– Renata N.</strong></div>
+      <div class="reference-card">Rty jsou jemné, plné a barva nádherná. Všechno proběhlo rychle a bez komplikací.<strong>– Veronika H.</strong></div>
+      <div class="reference-card">Díky permanentnímu make-upu se cítím sebevědomější. Nejlepší rozhodnutí! Petra odvedla úžasnou práci.<strong>– Alena J.</strong></div>
+      <div class="reference-card">Byla jsem mile překvapená, jak pohodlný byl celý proces. Výsledek stojí za to!<strong>– Simona B.</strong></div>
+      <div class="reference-card">Petra je naprosto profesionální a přitom lidská. Její práce je precizní a citlivá k přání klientek.<strong>– Denisa R.</strong></div>
+      <div class="reference-card">Make-up vydrží celý den a vypadá velmi přirozeně. Investice, která se opravdu vyplatila.<strong>– Klára E.</strong></div>
+      <div class="reference-card">Už se nebudím s rozmazaným obočím. Permanent od Petry je top. Přijdu zase!<strong>– Barbora C.</strong></div>
+      <div class="reference-card">Děkuji za nádherné linky! Petra mě přesvědčila, že krása může být i bez starostí. Jsem nadšená.<strong>– Iveta F.</strong></div>
     </div>
-  </section>
+  </div>
+  <div class="carousel-controls">
+    <button id="prev">&#10094;</button>
+    <button id="next">&#10095;</button>
+  </div>
+</section>
 
   <!-- Kontakt + FAQ -->
   <section class="contact-faq-section" id="kontakt">
@@ -203,24 +288,120 @@
   <footer>
     &copy; 2025 Studio Veronique Zlín &ndash; Permanentní make-up & beauty
   </footer>
-</div><!---- HESLO LOGIN -->
-  <script>
-    // Kontakt – jednoduchý alert, žádné skutečné odeslání
-    document.querySelector('.contact-form').addEventListener('submit', function(e){
-      e.preventDefault();
-      alert('Děkujeme za zprávu! Brzy se vám ozveme.');
-      this.reset();
-    });
+</div>
+<script>
+  //********************** REFERENCE Carousel
+  const track = document.querySelector('.carousel-track');
+  const cards = document.querySelectorAll('.reference-card');
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
 
-    // FAQ rozbalování/skrývání
-    document.querySelectorAll('.faq-q').forEach(function(q){
-      q.addEventListener('click', function(){
-        var item = this.parentElement;
-        item.classList.toggle('open');
+  let cardsPerSlide = getCardsPerSlide();
+  let currentSlide = 0;
+
+  function getCardsPerSlide() {
+    if (window.innerWidth < 768) return 1;
+    if (window.innerWidth < 1024) return 2;
+    return 3;
+  }
+
+  function updateCarousel() {
+    const cardWidth = cards[0].offsetWidth;
+    const gap = 32; // odpovídá gap: 2rem
+    const totalOffset = currentSlide * (cardWidth + gap) * cardsPerSlide;
+    track.style.transform = `translateX(-${totalOffset}px)`;
+  }
+
+  function getMaxSlide() {
+    return Math.ceil(cards.length / cardsPerSlide) - 1;
+  }
+
+  nextBtn.addEventListener('click', () => {
+    const maxSlide = getMaxSlide();
+    currentSlide = currentSlide < maxSlide ? currentSlide + 1 : 0;
+    updateCarousel();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    const maxSlide = getMaxSlide();
+    currentSlide = currentSlide > 0 ? currentSlide - 1 : maxSlide;
+    updateCarousel();
+  });
+
+  // Automatický posun každých 20 sekund
+  setInterval(() => {
+    nextBtn.click();
+  }, 20000);
+
+  // Přizpůsobení při změně velikosti okna
+  window.addEventListener('resize', () => {
+    const newCardsPerSlide = getCardsPerSlide();
+    if (newCardsPerSlide !== cardsPerSlide) {
+      cardsPerSlide = newCardsPerSlide;
+      currentSlide = 0; // reset na začátek při změně layoutu
+      updateCarousel();
+    }
+  });
+
+  // Inicializace
+  updateCarousel();
+
+
+  
+  // ******************** MENU ovládání
+  document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      var parent = this.parentElement;
+      // Zavři jiné otevřené dropdowny
+      document.querySelectorAll('.has-dropdown').forEach(function(item) {
+        if (item !== parent) item.classList.remove('show');
       });
+      // Přepni třídu .show na kliknuté položce
+      parent.classList.toggle('show');
     });
+  });
+
+  // Zavře dropdown když klikneš mimo menu
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.navbar-menu')) {
+      document.querySelectorAll('.has-dropdown').forEach(function(item) {
+        item.classList.remove('show');
+      });
+    }
+  });
+  
+  // menu přepínání 
+  document.querySelectorAll('.navbar-menu > ul > li > a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      document.querySelectorAll('.navbar-menu > ul > li > a.active').forEach(active => {
+        active.classList.remove('active');
+      });
+      this.classList.add('active');
+    });
+  });
+
+
+
+
+  // Kontakt – jednoduchý alert, žádné skutečné odeslání
+  document.querySelector('.contact-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    alert('Děkujeme za zprávu! Brzy se vám ozveme.');
+    this.reset();
+  });
+
+
+  // FAQ rozbalování/skrývání
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    q.addEventListener('click', function(){
+      var item = this.parentElement;
+      item.classList.toggle('open');
+    });
+  });
     
 
+//******************************* FB chat
   var chatbox = document.getElementById('fb-customer-chat');
   chatbox.setAttribute("page_id", "612589358612782");
   chatbox.setAttribute("attribution", "biz_inbox");
@@ -242,15 +423,20 @@
   
   
 
-//************************** VYVOJ
+//************************** VYVOJ <!---- HESLO LOGIN -->
+  let needPass = true;
+      const loginBox = document.getElementById('loginBox');
+    const secretContent = document.getElementById('secretContent');
+    
+  if(needPass){
+  
     // Nastav své přihlašovací údaje zde:
     const CORRECT_USER = "admin";
     const CORRECT_PASS = "tajneheslo";
 
     const loginForm = document.getElementById('loginForm');
     const errorMsg = document.getElementById('errorMsg');
-    const loginBox = document.getElementById('loginBox');
-    const secretContent = document.getElementById('secretContent');
+
 
     loginForm.onsubmit = function(e) {
       e.preventDefault();
@@ -263,6 +449,10 @@
         errorMsg.textContent = "Nesprávné jméno nebo heslo.";
       }
     }
+  }else{
+      loginBox.style.display = 'none';
+      secretContent.style.display = 'block';
+  }
 
   </script>
   

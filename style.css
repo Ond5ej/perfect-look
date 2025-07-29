@@ -1,22 +1,44 @@
+/*:root {
+  --font-title: 'Playfair Display', Arial, sans-serif;
+  --font-main: 'Playfair Display', Arial, sans-serif;
+}*/
+  /*--font-title: 'Baskervville', serif;*/
 
 :root {
-  --yellow: #fffde7;          /* Jemné žluté pozadí (sekce) */
-  --yellow-dark: #ffd600;     /* Sytá žlutá, hlavní akcent */
-  --gray-light: #f1f1f1;      /* Světlá šedá na pozadí boxů */
-  --gray: #bdbdbd;            /* Neutrální šedá, okraje, border */
-  --gray-dark: #232323;       /* Opravdu tmavý text, menu, dark prvky */
-  --white: #fff;              /* Čistá bílá */
-  --black: #111;              /* Super tmavá, můžeš použít pro některé nadpisy */
-  --accent: #d3af37;          /* Akcent žlutá pro tlačítka, linky, zvýraznění */
-  --font-title: 'Baskervville', serif;
-  --font-main: 'Noto Serif Display', Arial, sans-serif;
+  /* Základní barvy */
+  --beige-light: #f5f0e6;      /* světlá béžová, připomíná světlé dřevo */
+  --beige: #d8c7a3;            /* teplejší neutrální odstín */
+  --wood: #cbb894;             /* světlé dřevo / přírodní tón */
+  
+  /* Šedé odstíny */
+  --gray-light: #9e9e9e; /*#e0e0e0;*/
+  --gray: #9e9e9e;
+  --gray-dark: #3a3a3a; /* není použitá */
+  --antracit: #3a3a42;
+
+  /* Tmavé tóny */
+  --black: #111111;/* není použitá */
+  --off-black: #1e1e1e;
+
+  /* Akcentní barva – decentní zlatá */
+  --accent: #bfa76f;
+
+  /* Bílé odstíny */
+  --white: #ffffff;
+  --off-white: #fdfbf7;
+
+  /* Původní žlutá už sem moc nepatří, proto ji vynechávám */
+
+  /* Fonty */
+  --font-title: 'Playfair Display', serif;
+  --font-main: 'Inter', sans-serif; /* nebo můžeš ponechat Playfair, ale Inter je čitelnější pro odstavce */
 }
 
 body {
   margin: 0;
   font-family: var(--font-main);
-  background: var(--gray-light);
-  color: var(--black);
+  background: var(--antracit);
+  color: var(--beige-light);
   line-height: 1.7;
 }
 
@@ -27,41 +49,105 @@ header {
   top: 0;
   z-index: 50;
 }
+
+#rty, #oboci, #permanentni-make-up, #kosmetika, #cenik, #reference, #kontakt {
+  scroll-margin-top: 80px; /* nastav výšku podle své lišty */
+}
+
+.dark-text{
+    color: var(--antracit);
+}
+
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1150px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding:  0rem 1rem;
+  padding: 0rem 1rem;
   position: relative;
   min-height: 115px;
 }
 
-/* LOGO přesně na střed */
-.logo {
-  text-align: center;
-  font-family: var(--font-title);
-  font-size: 2rem;
-  letter-spacing: 2px;
-  color: var(--gray-dark);
-  font-weight: 700;
+.navbar-menu ul {
+  list-style: none;
+  padding: 0;
   margin: 0;
-  z-index: 2;
-  background: var(--yellow);
-  padding: 0 3px;
-  pointer-events: none;
-  user-select: none;
-  border:1px solid var(--black);
-  flex: 0 1 auto;
 }
-.logo img {
-  height: 100px;
-  width: auto;
+
+.navbar-menu > ul > li {
+  display: inline-block; /* vodorovné hlavní menu */
+  position: relative;
+}
+
+.navbar-menu a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 16px;
   display: block;
 }
 
-/* MENU vlevo */
+.navbar-menu .has-dropdown .dropdown-arrow {
+  font-size: 1em;
+  margin-left: 3px;
+  transition: transform 0.2s;
+}
+
+/* Dropdown */
+.navbar-menu .dropdown {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  min-width: 220px;
+  padding: 8px 0;
+  z-index: 999;
+}
+
+.navbar-menu li.show > .dropdown {
+  display: block;
+}
+
+/* Dropdown vertikální seznam */
+.navbar-menu .dropdown > li {
+  position: relative;
+  padding: 0 16px;
+}
+
+/* submenu (pod sekcí Permanentní make-up) */
+.navbar-menu .submenu {
+  list-style: none;
+  padding-left: 20px;
+  margin: 4px 0 8px 0;
+}
+
+.navbar-menu .submenu li a {
+  font-weight: normal;
+  font-size: 0.96em;
+  padding: 6px 0;
+}
+
+/* Tučné sekce */
+.navbar-menu .dropdown > li > a {
+  font-weight: bold;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+/* Změna směru šipky při otevření menu */
+.navbar-menu li.show .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.navbar-menu .dropdown a:hover,
+.navbar-menu .submenu a:hover {
+  background: #f0f0f0;
+  border-radius: 3px;
+}
+
+
 .navbar-menu {
   flex: 1;
 }
@@ -74,7 +160,7 @@ header {
   justify-content: flex-start;
 }
 .navbar-menu a {
-  color: var(--gray-dark);
+  color: var(--antracit);
   text-decoration: none;
   font-weight: 500;
   font-size: 0.97rem;
@@ -103,12 +189,11 @@ header {
   width: 100%;
 }
 
-/* Kontakty vpravo: 2 řádky, na každém ikona sítě */
 .navbar-contact {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   min-width: 170px;
 }
 .navbar-contact-social {
@@ -122,13 +207,13 @@ header {
 }
 .contact-row .icon {
   font-size: 1.1em;
-  color: var(--gray-dark);
+  color: var(--antracit);
   margin: 0 0.3em;
 }
 .contact-row a {
-  color: var(--gray-dark);
+  color: var(--antracit);
   text-decoration: none;
-  font-size: 0.97rem;
+  font-size: 1.1rem;
   font-weight: 500;
   transition: color .18s;
   display: flex;
@@ -137,7 +222,6 @@ header {
 .contact-row a:hover,
 .contact-row a:hover .icon {
   color: var(--accent);
-  
 }
 .contact-row .instagram i {
   background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
@@ -147,21 +231,18 @@ header {
   text-fill-color: transparent;
 }
 .contact-row .facebook i {
-  color: #1877F3;  
+  color: #1877F3;
 }
-/* Vizuální oddělení ikon od textu */
 .contact-row .instagram,
 .contact-row .facebook {
   margin-left: 0.36em;
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
-/* Hover efekt pro sítě */
 .contact-row .instagram:hover i,
 .contact-row .facebook:hover i {
   filter: brightness(1.18) drop-shadow(0 0 4px rgba(0,0,0,0.13));
 }
 
-/* Responsivita */
 @media (max-width: 950px) {
   .navbar {
     flex-direction: column;
@@ -170,15 +251,6 @@ header {
     text-align: center;
     position: static;
     min-height: unset;
-  }
-  .logo {
-    position: static;
-    transform: none;
-    margin: 1rem 0 0.5rem 0;
-    padding: 0;
-    background: none;
-    pointer-events: auto;
-    user-select: auto;
   }
   .navbar-menu ul {
     justify-content: center;
@@ -200,12 +272,10 @@ header {
   }
 }
 
-
-
 /* Hero sekce */
 .hero {
-  background: var(--yellow);
-  padding: 5rem 2rem 3rem 2rem;
+  background: var(--beige-light);
+  padding: 3rem 2rem;
   text-align: center;
   min-height: 380px;
   display: flex;
@@ -215,7 +285,7 @@ header {
 .hero h1 {
   font-family: var(--font-title);
   font-size: 2.7rem;
-  color: var(--black);
+  color: var(--antracit);
   margin-bottom: 1.2rem;
   letter-spacing: 1.5px;
 }
@@ -223,76 +293,27 @@ header {
   max-width: 650px;
   margin: 0 auto 2rem auto;
   font-size: 1.22rem;
-  color: var(--gray-dark);
+  color: var(--antracit);
 }
 
 /* Sekce */
 .section {
   margin: 0 auto;
-  padding: 3rem 2rem 2rem 2rem;
+  padding: 3rem 2rem;
 }
 .section-title {
   text-align: center;
   font-family: var(--font-title);
   font-size: 2rem;
-  color: var(--black);
   margin-bottom: 2.3rem;
   letter-spacing: 1px;
 }
 
 
-/* Služby */
-.services-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-}
-.service-card {
-  background: var(--white);
-  border-radius: 14px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-  width: 320px;
-  max-width: 95vw;
-  padding: 2rem 1.3rem 1.3rem 1.3rem;
-  margin-bottom: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  border: 1.5px solid var(--yellow-dark);
-  transition: box-shadow .17s, transform .14s;
-}
-.service-card:hover {
-  box-shadow: 0 8px 24px rgba(255,216,89,0.17);
-  transform: translateY(-4px) scale(1.025);
-}
-.service-card img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  margin-bottom: 1.1rem;
-  border-radius: 10px;
-  background: var(--gray-dark);
-  border: 1.5px solid var(--gray);
-}
-.service-card h3 {
-  font-family: var(--font-title);
-  color: var(--gray-dark);
-  font-size: 1.25rem;
-  margin-bottom: .6rem;
-  margin-top: .1rem;
-}
-.service-card p {
-  font-size: 1rem;
-  color: var(--black);
-}
-
-
 /* Ceník */
 .price-section {
-  background: var(--yellow);
-  width: 100vw;                /* přes celou šířku okna */
+  background: var(--beige-light);
+  width: 100vw;
   position: relative;
   left: 50%;
   right: 50%;
@@ -301,14 +322,15 @@ header {
   margin-top: 2.5rem;
   margin-bottom: 3rem;
   padding: 3rem 0 2.5rem 0;
-  border: none;                /* bez okraje */
-  border-radius: 0;            /* bez zaoblení */
-  box-shadow: none;            /* bez stínu */
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  color: var(--antracit);
 }
 .price-title {
   text-align: center;
   font-family: var(--font-title);
-  color: var(--black);
+  color: var(--antracit);
   font-size: 1.5rem;
   margin-bottom: 1.2rem;
 }
@@ -330,7 +352,7 @@ table.price-table {
 }
 .price-table th {
   background: var(--accent);
-  color: var(--black);
+  color: var(--antracit);
   font-weight: 700;
   font-family: var(--font-title);
 }
@@ -339,30 +361,39 @@ table.price-table {
 }
 .price-table td:last-child {
   text-align: right;
-  color: var(--gray-dark);
   font-weight: bold;
 }
 
-
-/* Reference */
-.references {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 2rem;
+/****************************** Reference **************************/
+.carousel-container {
+  overflow: hidden;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
 }
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 2rem;
+  padding: 1rem 0;
+  width: max-content;
+}
+
 .reference-card {
+  flex: 0 0 auto;
+  max-width: 370px;
+  width: 100%;
   background: var(--white);
   border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  max-width: 370px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   padding: 1.5rem 1rem;
   border-left: 5px solid var(--accent);
   font-size: 1rem;
-  color: var(--gray-dark);
-  margin-bottom: 1.5rem;
+  color: var(--antracit);
 }
+
 .reference-card strong {
   display: block;
   margin-top: 1rem;
@@ -370,9 +401,26 @@ table.price-table {
   font-family: var(--font-title);
 }
 
-/* Sekce kontakt & FAQ rozložení */
+.carousel-controls {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.carousel-controls button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+
+/********************** Sekce kontakt & FAQ rozložení *************************/
 .contact-faq-section {
-  background: var(--yellow);
+  background: var(--beige-light);
   width: 100vw;
   position: relative;
   left: 50%;
@@ -389,7 +437,7 @@ table.price-table {
 .contact-box, .faq-box {
   flex: 1 1 350px;
   min-width: 400px;
-  max-width: 550px;   
+  max-width: 550px;
   background: var(--white);
   border-radius: 14px;
   box-shadow: none;
@@ -399,15 +447,20 @@ table.price-table {
 }
 .contact-box h2, .faq-box h2 {
   font-family: var(--font-title);
-  font-size: 1.35rem;
-  color: var(--black);
+  font-size: 1.35rem;  
   margin-bottom: 1.1rem;
   text-align: center;
+}
+.contact-box h2{
+    color: var(--antracit);
+}
+.faq-box h2 {
+    color: var(--beige);
 }
 .contact-details {
   font-size: 1.05rem;
   margin-bottom: 1.5rem;
-  color: var(--gray-dark);
+  color: var(--antracit);
   text-align: center;
 }
 .contact-details a {
@@ -416,13 +469,10 @@ table.price-table {
   margin: 0 .3em;
 }
 
-
-
-
 .contact-form {
   display: flex;
   flex-direction: column;
-  align-items: center; /* všechny děti, tedy i button, budou na střed */
+  align-items: center;
 }
 .contact-form input,
 .contact-form textarea {
@@ -440,7 +490,7 @@ table.price-table {
 }
 .contact-form button {
   background: var(--accent);
-  color: var(--black);
+  color: var(--antracit);
   border: none;
   border-radius: 8px;
   padding: 0.7em 2em;
@@ -450,7 +500,6 @@ table.price-table {
   cursor: pointer;
   transition: background .15s;
   margin-top: 0.3em;
-  /* margin: 0 auto; není potřeba, flex zarovnává */
   display: block;
 }
 .contact-form input:focus, .contact-form textarea:focus {
@@ -458,10 +507,10 @@ table.price-table {
   outline: none;
 }
 .contact-form button:hover {
-  background: var(--yellow);
+  background: var(--beige-light);
 }
 .faq-box {
-  background: var(--gray-light);
+  background: var(--antracit);
   border: 1.3px solid var(--accent);
 }
 .faq-list {
@@ -474,17 +523,17 @@ table.price-table {
 }
 .faq-q {
   font-weight: bold;
-  color: var(--accent);
+  color: var(--beige);
   cursor: pointer;
   margin-bottom: .2rem;
   font-size: 1.07rem;
   transition: color .16s;
 }
 .faq-q:hover {
-  color: var(--black);
+  color: var(--beige-light);
 }
 .faq-a {
-  color: var(--gray-dark);
+  color: var(--beige-light);
   font-size: .97rem;
   margin-left: 0.2em;
   display: none;
@@ -517,33 +566,128 @@ table.price-table {
 
 /* Footer */
 footer {
-  background: var(--gray);
-  color: var(--gray-dark);
+  background: var(--antracit);
+  color: var(--beige);
   text-align: center;
   padding: 2rem 1rem 1rem 1rem;
   font-size: 1rem;
-  border-top: 2px solid var(--yellow-dark);
+  border-top: 2px solid var(--beige);
 }
 
-/* Responsivita */
 @media (max-width: 950px) {
   .navbar {
     flex-direction: column;
     gap: 1rem;
     padding: 1rem;
   }
-  .services-list, .references, .contact-faq-section {
+  .references, .contact-faq-section {
     flex-direction: column;
     align-items: center;
   }
 }
 @media (max-width: 600px) {
   .hero h1 { font-size: 1.5rem; }
-  .logo { font-size: 1.3rem;}
   .section { padding: 2rem 1rem; }
   .contact-box, .faq-box { padding: 1rem; }
   nav ul { gap: 1rem; }
 }
 
+/**************************** Služby  *************************/
 
-Jul  7 17:20:42 fs255-fttx-dhcp dhcpd: DHCPACK on 77.242.92.26 to 08:f6:06:9c:b8:f2 via 10.208.2.1
+.services {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.services h5 {
+  margin: 0px;
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+.property-card {
+  height: 18em;
+  width: 20em;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor:pointer;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+.property-image {
+  height:20em;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.property-image-title {
+  position:absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(250, 250, 252, 0.6);
+  backdrop-filter: blur(5px);
+  width: 100%;
+  height: 35px;
+  display: flex;                   
+  align-items: center;            
+  justify-content: center;
+  color:var(--antracit); 
+  /*transition: transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);*/
+}
+.property-description {
+  height: 35%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding:10px;
+  text-align: center;
+  background-color: rgba(250, 250, 252, 0.6);
+  color: var(--antracit);
+  backdrop-filter: blur(5px);
+  transition:
+    transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1),
+    opacity 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+.property-card:hover .property-description {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.property-card:hover .property-image {
+  height: 23em;
+}
+.property-card:hover .property-image-title {
+  /*transform: translateY(-145px);*/
+}
+.property-card:hover {
+  background-color: white;
+}
+.property-image.img-rty {
+  background-image: url('./img/rty.png');
+  background-size: 110%;
+  background-position: -10px -5px;
+}
+.property-image.img-oboci {
+  background-image: url('./img/oboci.png');
+  background-size: 143%;
+  background-position: -76px -72px;
+}
+.property-image.img-ocni-linky {
+  background-image: url('./img/ocni-linky.png');
+  background-size: 100%;
+  background-position: 0px 0px;
+}
+
+

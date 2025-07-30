@@ -593,7 +593,6 @@ footer {
 }
 
 /**************************** Služby  *************************/
-
 .services {
   display: flex;
   gap: 2rem;
@@ -601,93 +600,52 @@ footer {
   justify-content: center;
   margin-top: 2rem;
 }
-.services h5 {
-  margin: 0px;
-  font-size: 1.3em;
-  font-weight: 600;
-}
-
-.property-card {
-  height: 18em;
-  width: 20em;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-  border-radius: 16px;
+figure {
+  display: grid;
+  border-radius: 1rem;
   overflow: hidden;
+  width: 350px;
+  height: 350px;
+  margin: 0;
   cursor:pointer;
   box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
-.property-image {
-  height:20em;
+figure > * {
+  grid-area: 1/1;
+  transition: 0.4s;
+  
+}
+figure img {
   width: 100%;
-  position: absolute;
-  top: 0px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  display: flex;
-  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  height: 100%;
+  object-fit: cover;
 }
-.property-image-title {
-  position:absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(250, 250, 252, 0.6);
-  backdrop-filter: blur(5px);
-  width: 100%;
-  height: 35px;
-  display: flex;                   
-  align-items: center;            
-  justify-content: center;
-  color:var(--antracit); 
-  /*transition: transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);*/
+figure figcaption {
+  display: grid;
+  align-items: end;
+  font-family: var(--font-main);
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #0000;
+  padding: 0.75rem;
+  background: rgba(0, 0, 0, 0.6);  /* <-- jednotný překryv */
+  clip-path: inset(0 var(--_i, 100%) 0 0);
+  -webkit-mask:
+    linear-gradient(#000 0 0),
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  -webkit-mask-clip: text, padding-box;
+  margin: -1px;
 }
-.property-description {
-  height: 35%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding:10px;
-  text-align: center;
-  background-color: rgba(250, 250, 252, 0.6);
-  color: var(--antracit);
-  backdrop-filter: blur(5px);
-  transition:
-    transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1),
-    opacity 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transform: translateY(100%);
-  opacity: 0;
-  pointer-events: none;
+figure:hover figcaption {
+  --_i: 0%;
 }
-.property-card:hover .property-description {
-  transform: translateY(0);
-  opacity: 1;
-  pointer-events: auto;
+figure:hover img {
+  transform: scale(1.2);
 }
-.property-card:hover .property-image {
-  height: 23em;
+@supports not (-webkit-mask-clip: text) {
+  figure figcaption {
+    -webkit-mask: none;
+    color: var(--beige-light);
+  }
 }
-.property-card:hover .property-image-title {
-  /*transform: translateY(-145px);*/
-}
-.property-card:hover {
-  background-color: white;
-}
-.property-image.img-rty {
-  background-image: url('./img/rty.png');
-  background-size: 110%;
-  background-position: -10px -5px;
-}
-.property-image.img-oboci {
-  background-image: url('./img/oboci.png');
-  background-size: 143%;
-  background-position: -76px -72px;
-}
-.property-image.img-ocni-linky {
-  background-image: url('./img/ocni-linky.png');
-  background-size: 100%;
-  background-position: 0px 0px;
-}
-
-

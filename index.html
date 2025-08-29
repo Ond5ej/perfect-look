@@ -1,429 +1,336 @@
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Studio Perfect-Look – Permanentní make-up & beauty</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Baskervville&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Baskervville&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap" rel="stylesheet">
 
-  
+  <!-- ICONS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-  <link rel="stylesheet" href="style.css">
-  
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/00-variables.css">
+  <link rel="stylesheet" href="./css/01-base.css">
+  <link rel="stylesheet" href="./css/02-header-nav.css">
+  <link rel="stylesheet" href="./css/04-photogalery.css">
+  <link rel="stylesheet" href="./css/05-hero.css">
+  <link rel="stylesheet" href="./css/06-pricing.css">
+  <link rel="stylesheet" href="./css/07-carousel.css">
+  <link rel="stylesheet" href="./css/08-contact.css">
+  <link rel="stylesheet" href="./css/09-services.css">
+
+  <!-- Javascript -->
+  <script type="module" src="./javascript/main.js"></script>
+
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
 </head>
+
 <body>
 
   <!-- Login Box -->
-  <div id="loginBox" style="margin:120px auto;width:320px;padding:30px;background:#fff;border-radius:12px;box-shadow:0 2px 16px #0002;">
+  <div id="loginBox"
+    style="margin:120px auto;width:320px;padding:30px;background:#fff;border-radius:12px;box-shadow:0 2px 16px #0002;">
     <h2>Přihlášení</h2>
     <div class="error" id="errorMsg" style="color:red;margin-bottom:12px;"></div>
     <form id="loginForm" autocomplete="off">
       <label for="username">Uživatel:</label>
-      <input type="text" id="username" autocomplete="off" style="width:95%;padding:7px;margin-bottom:18px;border:1px solid #ccc;border-radius:6px;">
+      <input type="text" id="username" autocomplete="off"
+        style="width:95%;padding:7px;margin-bottom:18px;border:1px solid #ccc;border-radius:6px;">
       <label for="password">Heslo:</label>
-      <input type="password" id="password" autocomplete="off" style="width:95%;padding:7px;margin-bottom:18px;border:1px solid #ccc;border-radius:6px;">
-      <button type="submit" style="padding:8px 20px;border:none;background:#1e90ff;color:#fff;border-radius:7px;font-size:1rem;">Přihlásit se</button>
+      <input type="password" id="password" autocomplete="off"
+        style="width:95%;padding:7px;margin-bottom:18px;border:1px solid #ccc;border-radius:6px;">
+      <button type="submit"
+        style="padding:8px 20px;border:none;background:#1e90ff;color:#fff;border-radius:7px;font-size:1rem;">Přihlásit
+        se</button>
     </form>
   </div>
 
   <div id="secretContent" style="display:none;">
-  <!-- Header & Navigation -->
-  <header>
-    <div class="navbar">
-    
-    <!--------- MENU ------->
-      <nav class="navbar-menu">
-        <ul>
-          <li><a href="#" class="active">ÚVOD</a></li>
-          <li class="has-dropdown">
-            <a href="#sluzby" class="dropdown-toggle">
-              SLUŽBY
-              <span class="dropdown-arrow">&#9662;</span> <!-- Malý dolů trouhelník -->
-            </a>
-            <ul class="dropdown">
-              <li>
-                <a href="#permanentni-make-up"><b>Permanetní make-up</b></a>
-                <ul class="submenu">
-                  <li><a href="#oboci">Obočí</a></li>
-                  <li><a href="#oboci">Oční linky</a></li>
-                  <li><a href="#rty">Rty</a></li>                  
-                </ul>
-              </li>
-              <li>
-                <a href="#kosmetika"><b>Kosmetika</b></a>
-              </li>
-            </ul>
-          </li>
-          <li><a href="#cenik">CENÍK</a></li>
-          <li><a href="#reference">REFERENCE</a></li>
-          <li><a href="#kontakt">KONTAKT</a></li>
-        </ul>
-      </nav>
+    <!-- Header & Navigation -->
+    <header>
+      <div class="navbar">
+
+        <!--------- MENU ------->
+        <nav class="navbar-menu">
+          <ul>
+            <li><a href="#" class="active">ÚVOD</a></li>
+            <li class="has-dropdown">
+              <a href="#sluzby" class="dropdown-toggle">
+                SLUŽBY
+                <span class="dropdown-arrow">&#9662;</span> <!-- Malý dolů trouhelník -->
+              </a>
+              <ul class="dropdown">
+                <li>
+                  <a href="#permanentni-make-up"><b>Permanetní make-up</b></a>
+                  <ul class="submenu">
+                    <li><a href="#oboci">Obočí</a></li>
+                    <li><a href="#oboci">Oční linky</a></li>
+                    <li><a href="#rty">Rty</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#kosmetika"><b>Kosmetika</b></a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#cenik">CENÍK</a></li>
+            <li><a href="#reference">REFERENCE</a></li>
+            <li><a href="#kontakt">KONTAKT</a></li>
+          </ul>
+        </nav>
 
 
+        <img src="./img/logo-with-border.svg" alt="Logo" style="width:240px;">
 
-      
-      <!--<img src="./img/logo.svg" alt="Logo" style="width: 144px; padding: 6px 38px; border: solid 1px black; border-radius: 16px;">-->
-      <img src="./img/logo-with-border.svg" alt="Logo" style="width:240px;">
-      
-      <div class="navbar-contact">
-        <div class="navbar-contact-social">
-          <div class="contact-row">
-            <a href="https://facebook.com/" target="_blank" class="facebook" title="Facebook">
-              <i class="bi bi-facebook"></i>
-            </a>            
-            <a href="mailto:perfect-look@gmail.com">
+        <div class="navbar-contact">
+          <div class="navbar-contact-social">
+            <div class="contact-row">
+              <a href="https://facebook.com/" target="_blank" class="facebook" title="Facebook">
+                <i class="bi bi-facebook"></i>
+              </a>
+              <a href="mailto:perfect-look@gmail.com">
                 <i class="icon bi bi-envelope-fill"></i>perfect-look@gmail.com
-            </a>
-          </div>
-          <div class="contact-row">
-            <a href="https://instagram.com/" target="_blank" class="instagram" title="Instagram">
-              <i class="bi bi-instagram"></i>
-            </a>            
-            <a href="tel:+420123456789">
-                <i class="icon bi bi-telephone-fill"></i>+420 123 456 789
-            </a>
+              </a>
+            </div>
+            <div class="contact-row">
+              <a href="https://instagram.com/" target="_blank" class="instagram" title="Instagram">
+                <i class="bi bi-instagram"></i>
+              </a>
+              <a href="tel:+420776285808">
+                <i class="icon bi bi-telephone-fill"></i>+420 776 285 808
+              </a>
+            </div>
           </div>
         </div>
       </div>
-
-      
-    </div>
-  </header>
+    </header>
 
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Permanentní make-up | beauty studio</h1>
-    <p>Přirozenost, profesionalita a individuální přístup – to je Veronique Zlín. Obočí, rty i řasy v péči zkušené specialistky v moderním a příjemném prostředí studia v centru Zlína.</p>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Permanentní make-up | beauty studio</h1>
+      <p>Perfect studio nabízí svým klientům profesionální péči a individuální přístup. Před ošetřením probíhá
+        konzultace zdarma,
+        kde zjistíme vaše požadavky a potřeby na míru pro vaši maximální spokojenost.</p>
+      <p>Ve studiu je možné zakoupení dárkových poukazů a přírodní luxusní britské kosmetiky Jane Scrivner</p>
+    </section>
 
-  <!-- Služby -->
-  <section class="section" id="permanentni-make-up">
-    <h2 class="section-title">Permanentní make-up</h2>
-    <div class="services">      
-      <figure>
-        <img src="./img/oboci.png" alt="Obočí">
-        <figcaption>Obočí</figcaption>
-      </figure>
+    <!-- Služby -->
+    <section class="section" id="permanentni-make-up">
+      <h2 class="section-title">Permanentní make-up</h2>
+      <div class="services">
 
-      <figure style="--c:#fff5">
-        <img src="./img/ocni-linky.png" alt="Oční linky">
-        <figcaption>Oční linky</figcaption>
-      </figure>
+        <figure id="open-gallery-oboci">
+          <img src="./img/oboci.png" alt="Obočí">
+          <figcaption>Obočí</figcaption>
+        </figure>
 
-      <figure>
-        <img src="./img/rty.png" alt="Rty">
-        <figcaption>Rty</figcaption>
-      </figure>
+        <figure id="open-gallery-ocni-linky">
+          <img src="./img/ocni-linky.png" alt="Oční linky">
+          <figcaption>Oční linky</figcaption>
+        </figure>
 
-    </div>
-  </section>
-  
+        <figure id="open-gallery-rty">
+          <img src="./img/rty.png" alt="Rty">
+          <figcaption>Rty</figcaption>
+        </figure>
 
-  <section class="section" id="permanentni-make-up">
-    <h2 class="section-title">Kosmetika</h2>
-    <div class="services">      
-      <figure>
-        <img src="./img/oboci.png" alt="Obočí">
-        <figcaption>Obočí</figcaption>
-      </figure>
-
-      <figure style="--c:#fff5">
-        <img src="./img/ocni-linky.png" alt="Oční linky">
-        <figcaption>Oční linky</figcaption>
-      </figure>
-
-      <figure>
-        <img src="./img/rty.png" alt="Rty">
-        <figcaption>Rty</figcaption>
-      </figure>
-    </div>
-  </section>
-  
-
-
-  <!----------------------------------- Ceník -------------------------------->
-  <section class="price-section" id="cenik">
-    <h2 class="section-title dark-text">Ceník služeb</h2>
-    <table class="price-table">
-      <tr>
-        <th>Služba</th>
-        <th>Cena</th>
-      </tr>
-      <tr>
-        <td>Permanentní make-up obočí (powder/hairstroke/combo)</td>
-        <td>3 500 Kč</td>
-      </tr>
-      <tr>
-        <td>Permanentní make-up rtů</td>
-        <td>3 800 Kč</td>
-      </tr>
-      <tr>
-        <td>Permanentní linky</td>
-        <td>2 400 Kč</td>
-      </tr>
-      <tr>
-        <td>Korekce do 3 měsíců</td>
-        <td>900 Kč</td>
-      </tr>
-      <tr>
-        <td>Odstranění permanentního make-upu</td>
-        <td>od 1 000 Kč</td>
-      </tr>
-    </table>
-  </section>
-
-  <!---------------------------- Reference ----------------------------------->
-<section class="section" id="reference">
-  <h2 class="section-title">Reference klientek</h2>
-  <div class="carousel-container">
-    <div class="carousel-track">
-      <div class="reference-card">Skvělý zážitek od začátku do konce. Petra je velmi pečlivá a profesionální. Moje nové obočí vypadá naprosto přirozeně!<strong>– Martina P.</strong></div>
-      <div class="reference-card">Nechala jsem si udělat permanentní linky a jsem nadšená! Už žádné každodenní líčení. Doporučuji každé ženě, co chce ušetřit čas.<strong>– Eva D.</strong></div>
-      <div class="reference-card">Petra má zlaté ruce! Obočí i rty jsou perfektní. Přesně pochopila, co chci, a výsledek je lepší, než jsem si představovala.<strong>– Lucie V.</strong></div>
-      <div class="reference-card">Úžasný přístup, krásné prostředí a naprostá preciznost. Jsem maximálně spokojená.<strong>– Andrea M.</strong></div>
-      <div class="reference-card">Měla jsem obavy z bolesti, ale díky citlivému přístupu Petry bylo vše naprosto v pohodě. Rty vypadají fantasticky!<strong>– Kristýna L.</strong></div>
-      <div class="reference-card">Permanentní make-up mi doslova změnil život. Vypadám svěže hned po probuzení. Moc děkuji!<strong>– Tereza K.</strong></div>
-      <div class="reference-card">Petra byla milá, vše mi dopodrobna vysvětlila a během zákroku jsem se cítila bezpečně. Výsledek? Perfektní!<strong>– Monika S.</strong></div>
-      <div class="reference-card">Po několika nepovedených zkušenostech jinde jsem konečně našla profesionálku. Moje nové obočí mi každý chválí.<strong>– Renata N.</strong></div>
-      <div class="reference-card">Rty jsou jemné, plné a barva nádherná. Všechno proběhlo rychle a bez komplikací.<strong>– Veronika H.</strong></div>
-      <div class="reference-card">Díky permanentnímu make-upu se cítím sebevědomější. Nejlepší rozhodnutí! Petra odvedla úžasnou práci.<strong>– Alena J.</strong></div>
-      <div class="reference-card">Byla jsem mile překvapená, jak pohodlný byl celý proces. Výsledek stojí za to!<strong>– Simona B.</strong></div>
-      <div class="reference-card">Petra je naprosto profesionální a přitom lidská. Její práce je precizní a citlivá k přání klientek.<strong>– Denisa R.</strong></div>
-      <div class="reference-card">Make-up vydrží celý den a vypadá velmi přirozeně. Investice, která se opravdu vyplatila.<strong>– Klára E.</strong></div>
-      <div class="reference-card">Už se nebudím s rozmazaným obočím. Permanent od Petry je top. Přijdu zase!<strong>– Barbora C.</strong></div>
-      <div class="reference-card">Děkuji za nádherné linky! Petra mě přesvědčila, že krása může být i bez starostí. Jsem nadšená.<strong>– Iveta F.</strong></div>
-    </div>
-  </div>
-  <div class="carousel-controls">
-    <button id="prev">&#10094;</button>
-    <button id="next">&#10095;</button>
-  </div>
-</section>
-
-  <!-- Kontakt + FAQ -->
-  <section class="contact-faq-section" id="kontakt">
-    <!-- Kontakt -->
-    <div class="contact-box">
-      <h2>Napište zprávu</h2>
-      <div class="contact-details">
-        Studio Veronique, nám. Míru 123, Zlín<br>
-        <a href="tel:+420123456789">+420 123 456 789</a> | 
-        <a href="mailto:info@veroniquezlin.cz">info@veroniquezlin.cz</a>
       </div>
-      <form class="contact-form" autocomplete="off">
-        <input type="text" name="name" placeholder="Vaše jméno" required>
-        <input type="email" name="email" placeholder="Váš e-mail" required>
-        <textarea name="message" rows="4" placeholder="Zpráva" required></textarea>
-        <button type="submit">Odeslat</button>
-      </form>
-    </div>
-    <!-- FAQ -->
-    <div class="faq-box">
-      <h2>Nejčastější dotazy</h2>
-      <ul class="faq-list">
-        <li class="faq-item">
-          <div class="faq-q">Jak dlouho vydrží permanentní make-up?</div>
-          <div class="faq-a">Výdrž je individuální, obvykle 1–3 roky. Záleží na typu pleti i péči.</div>
-        </li>
-        <li class="faq-item">
-          <div class="faq-q">Je zákrok bolestivý?</div>
-          <div class="faq-a">Používáme lokální anestetika, takže většina klientek cítí jen minimální diskomfort.</div>
-        </li>
-        <li class="faq-item">
-          <div class="faq-q">Jak probíhá hojení?</div>
-          <div class="faq-a">Po zákroku je několik dní místo mírně zarudlé, během týdne se vytvoří stroupky, které se samy zahojí.</div>
-        </li>
-        <li class="faq-item">
-          <div class="faq-q">Mohu přijít i na korekci?</div>
-          <div class="faq-a">Ano, korekce je doporučená zhruba za 4–8 týdnů po prvním zákroku.</div>
-        </li>
-      </ul>
-    </div>
-  </section>
+    </section>
+
+
+    <section class="section" id="kosmetika">
+      <h2 class="section-title">Kosmetika</h2>
+
+      <div class="services services--split">
+        <figure id="open-gallery-ocni-linky">
+          <img src="./img/ocni-linky.png" alt="Oční linky">
+          <figcaption>Kosmetika</figcaption>
+        </figure>
+
+        <div class="service-text">
+          <h3>Profesionální kosmetické ošetření</h3>
+          <p>
+            Krátký text o kosmetice – co nabízíš, pro koho je ošetření vhodné,
+            jaký je efekt atd. Klidně pár vět.
+          </p>
+          <ul>
+            <li>Hloubkové čištění pleti</li>
+            <li>Hydratace a výživa</li>
+            <li>Relaxační masáž obličeje</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!----------------------------------- Ceník -------------------------------->
+    <section class="price-section" id="cenik">
+      <h2 class="section-title dark-text">Ceník služeb</h2>
+      <table class="price-table">
+        <tr>
+          <th>Služba</th>
+          <th>Cena</th>
+        </tr>
+        <tr>
+          <td>Permanentní make-up obočí (powder/hairstroke/combo)</td>
+          <td>3 500 Kč</td>
+        </tr>
+        <tr>
+          <td>Permanentní make-up rtů</td>
+          <td>3 800 Kč</td>
+        </tr>
+        <tr>
+          <td>Permanentní linky</td>
+          <td>2 400 Kč</td>
+        </tr>
+        <tr>
+          <td>Korekce do 3 měsíců</td>
+          <td>900 Kč</td>
+        </tr>
+        <tr>
+          <td>Odstranění permanentního make-upu</td>
+          <td>od 1 000 Kč</td>
+        </tr>
+      </table>
+    </section>
+
+    <!---------------------------- Reference ----------------------------------->
+    <section class="section" id="reference">
+      <h2 class="section-title">Reference klientek</h2>
+      <div class="carousel-container">
+        <div class="carousel-track">
+          <div class="reference-card">Skvělý zážitek od začátku do konce. Petra je velmi pečlivá a profesionální. Moje
+            nové obočí vypadá naprosto přirozeně!<strong>– Martina P.</strong></div>
+          <div class="reference-card">Nechala jsem si udělat permanentní linky a jsem nadšená! Už žádné každodenní
+            líčení. Doporučuji každé ženě, co chce ušetřit čas.<strong>– Eva D.</strong></div>
+          <div class="reference-card">Petra má zlaté ruce! Obočí i rty jsou perfektní. Přesně pochopila, co chci, a
+            výsledek je lepší, než jsem si představovala.<strong>– Lucie V.</strong></div>
+          <div class="reference-card">Úžasný přístup, krásné prostředí a naprostá preciznost. Jsem maximálně
+            spokojená.<strong>– Andrea M.</strong></div>
+          <div class="reference-card">Měla jsem obavy z bolesti, ale díky citlivému přístupu Petry bylo vše naprosto v
+            pohodě. Rty vypadají fantasticky!<strong>– Kristýna L.</strong></div>
+          <div class="reference-card">Permanentní make-up mi doslova změnil život. Vypadám svěže hned po probuzení. Moc
+            děkuji!<strong>– Tereza K.</strong></div>
+          <div class="reference-card">Petra byla milá, vše mi dopodrobna vysvětlila a během zákroku jsem se cítila
+            bezpečně. Výsledek? Perfektní!<strong>– Monika S.</strong></div>
+          <div class="reference-card">Po několika nepovedených zkušenostech jinde jsem konečně našla profesionálku. Moje
+            nové obočí mi každý chválí.<strong>– Renata N.</strong></div>
+          <div class="reference-card">Rty jsou jemné, plné a barva nádherná. Všechno proběhlo rychle a bez
+            komplikací.<strong>– Veronika H.</strong></div>
+          <div class="reference-card">Díky permanentnímu make-upu se cítím sebevědomější. Nejlepší rozhodnutí! Petra
+            odvedla úžasnou práci.<strong>– Alena J.</strong></div>
+          <div class="reference-card">Byla jsem mile překvapená, jak pohodlný byl celý proces. Výsledek stojí za
+            to!<strong>– Simona B.</strong></div>
+          <div class="reference-card">Petra je naprosto profesionální a přitom lidská. Její práce je precizní a citlivá
+            k přání klientek.<strong>– Denisa R.</strong></div>
+          <div class="reference-card">Make-up vydrží celý den a vypadá velmi přirozeně. Investice, která se opravdu
+            vyplatila.<strong>– Klára E.</strong></div>
+          <div class="reference-card">Už se nebudím s rozmazaným obočím. Permanent od Petry je top. Přijdu
+            zase!<strong>– Barbora C.</strong></div>
+          <div class="reference-card">Děkuji za nádherné linky! Petra mě přesvědčila, že krása může být i bez starostí.
+            Jsem nadšená.<strong>– Iveta F.</strong></div>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button id="prev">&#10094;</button>
+        <button id="next">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- Kontakt + FAQ -->
+    <section class="contact-faq-section" id="kontakt">
+      <!-- Kontakt -->
+      <div class="contact-box">
+        <h2>Napište zprávu</h2>
+        <div class="contact-details">
+          beauty studio Perfect Look, , Brno<br>
+          <a href="tel:+420776285808">+420 776 285 808</a> |
+          <a href="mailto:perfect-look@gmail.com">perfect-look@gmail.com</a>
+        </div>
+        <form class="contact-form" autocomplete="off">
+          <input type="text" name="name" placeholder="Vaše jméno" required>
+          <input type="email" name="email" placeholder="Váš e-mail" required>
+          <textarea name="message" rows="4" placeholder="Zpráva" required></textarea>
+          <button type="submit">Odeslat</button>
+        </form>
+      </div>
+      <!-- FAQ -->
+      <div class="faq-box">
+        <h2>Nejčastější dotazy</h2>
+        <ul class="faq-list">
+          <li class="faq-item">
+            <div class="faq-q">Jak dlouho vydrží permanentní make-up?</div>
+            <div class="faq-a">Výdrž je individuální, obvykle 1–3 roky. Záleží na typu pleti i péči.</div>
+          </li>
+          <li class="faq-item">
+            <div class="faq-q">Je zákrok bolestivý?</div>
+            <div class="faq-a">Používáme lokální anestetika, takže většina klientek cítí jen minimální diskomfort.</div>
+          </li>
+          <li class="faq-item">
+            <div class="faq-q">Jak probíhá hojení?</div>
+            <div class="faq-a">Po zákroku je několik dní místo mírně zarudlé, během týdne se vytvoří stroupky, které se
+              samy zahojí.</div>
+          </li>
+          <li class="faq-item">
+            <div class="faq-q">Mohu přijít i na korekci?</div>
+            <div class="faq-a">Ano, korekce je doporučená zhruba za 4–8 týdnů po prvním zákroku.</div>
+          </li>
+        </ul>
+      </div>
+    </section>
 
 
     <div id="fb-root"></div>
     <div id="fb-customer-chat" class="fb-customerchat"></div>
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 Studio Veronique Zlín &ndash; Permanentní make-up & beauty
-  </footer>
-</div>
-<script>
-  //********************** REFERENCE Carousel
-  const track = document.querySelector('.carousel-track');
-  const cards = document.querySelectorAll('.reference-card');
-  const prevBtn = document.getElementById('prev');
-  const nextBtn = document.getElementById('next');
+    <!-- Footer -->
+    <footer>
+      &copy; 2025 Studio Perfect Look &ndash; Permanentní make-up | beauty studio
+    </footer>
+  </div>
 
-  let cardsPerSlide = getCardsPerSlide();
-  let currentSlide = 0;
+  <!----------------------- GALERIE ----------------------->
+  <div class="wrapper">
 
-  function getCardsPerSlide() {
-    if (window.innerWidth < 768) return 1;
-    if (window.innerWidth < 1024) return 2;
-    return 3;
-  }
+    <div class="gallery" id="gallery-ocni-linky">
+      <img src="./gallery/ocni-linky/thumbs/01.png" data-large="gallery/ocni-linky/01.png" alt="Oční linky ukázka 1">
+      <img src="./gallery/ocni-linky/thumbs/02.png" data-large="gallery/ocni-linky/02.png" alt="Oční linky ukázka 2">
+      <img src="./gallery/ocni-linky/thumbs/03.png" data-large="gallery/ocni-linky/03.png" alt="Oční linky ukázka 3">
+      <img src="./gallery/ocni-linky/thumbs/04.png" data-large="gallery/ocni-linky/04.png" alt="Oční linky ukázka 4">
+    </div>
 
-  function updateCarousel() {
-    const cardWidth = cards[0].offsetWidth;
-    const gap = 32; // odpovídá gap: 2rem
-    const totalOffset = currentSlide * (cardWidth + gap) * cardsPerSlide;
-    track.style.transform = `translateX(-${totalOffset}px)`;
-  }
+    <div class="gallery" id="gallery-oboci">
+      <img src="./gallery/oboci/thumbs/01.png" data-large="gallery/oboci/01.png" alt="Obočí ukázka 1">
+      <!--<img src="./gallery/oboci/thumbs/02.png" data-large="gallery/oboci/02.png" alt="Obočí ukázka 2">-->
+      <img src="./gallery/oboci/thumbs/03.png" data-large="gallery/oboci/03.png" alt="Obočí ukázka 3">
+      <img src="./gallery/oboci/thumbs/04.png" data-large="gallery/oboci/04.png" alt="Obočí ukázka 4">
+      <img src="./gallery/oboci/thumbs/05.png" data-large="gallery/oboci/05.png" alt="Obočí ukázka 5">
+    </div>
 
-  function getMaxSlide() {
-    return Math.ceil(cards.length / cardsPerSlide) - 1;
-  }
+    <div class="gallery" id="gallery-rty">
+      <img src="./gallery/rty/thumbs/01.png" data-large="gallery/rty/01.png" alt="Rty ukázka 1" />
+      <img src="./gallery/rty/thumbs/02.png" data-large="gallery/rty/02.png" alt="Rty ukázka 2" />
+      <img src="./gallery/rty/thumbs/03.png" data-large="gallery/rty/03.png" alt="Rty ukázka 3" />
+      <img src="./gallery/rty/thumbs/04.png" data-large="gallery/rty/04.png" alt="Rty ukázka 4" />
+    </div>
 
-  nextBtn.addEventListener('click', () => {
-    const maxSlide = getMaxSlide();
-    currentSlide = currentSlide < maxSlide ? currentSlide + 1 : 0;
-    updateCarousel();
-  });
+  </div>
 
-  prevBtn.addEventListener('click', () => {
-    const maxSlide = getMaxSlide();
-    currentSlide = currentSlide > 0 ? currentSlide - 1 : maxSlide;
-    updateCarousel();
-  });
+  <div class="lightbox" id="lightbox" role="dialog" aria-hidden="true">
+    <button class="close-btn" id="closeBtn" title="zavřít"></button>
+    <div class="stage"><img id="stageImage" alt="Velký náhled" /></div>
+    <div class="thumbs" id="thumbs"></div>
+  </div>
 
-  // Automatický posun každých 20 sekund
-  setInterval(() => {
-    nextBtn.click();
-  }, 20000);
-
-  // Přizpůsobení při změně velikosti okna
-  window.addEventListener('resize', () => {
-    const newCardsPerSlide = getCardsPerSlide();
-    if (newCardsPerSlide !== cardsPerSlide) {
-      cardsPerSlide = newCardsPerSlide;
-      currentSlide = 0; // reset na začátek při změně layoutu
-      updateCarousel();
-    }
-  });
-
-  // Inicializace
-  updateCarousel();
-
-
-  
-  // ******************** MENU ovládání
-  document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
-    toggle.addEventListener('click', function(e) {
-      e.preventDefault();
-      var parent = this.parentElement;
-      // Zavři jiné otevřené dropdowny
-      document.querySelectorAll('.has-dropdown').forEach(function(item) {
-        if (item !== parent) item.classList.remove('show');
-      });
-      // Přepni třídu .show na kliknuté položce
-      parent.classList.toggle('show');
-    });
-  });
-
-  // Zavře dropdown když klikneš mimo menu
-  document.addEventListener('click', function(e) {
-    if (!e.target.closest('.navbar-menu')) {
-      document.querySelectorAll('.has-dropdown').forEach(function(item) {
-        item.classList.remove('show');
-      });
-    }
-  });
-  
-  // menu přepínání 
-  document.querySelectorAll('.navbar-menu > ul > li > a').forEach(link => {
-    link.addEventListener('click', function(e) {
-      document.querySelectorAll('.navbar-menu > ul > li > a.active').forEach(active => {
-        active.classList.remove('active');
-      });
-      this.classList.add('active');
-    });
-  });
-
-
-
-
-  // Kontakt – jednoduchý alert, žádné skutečné odeslání
-  document.querySelector('.contact-form').addEventListener('submit', function(e){
-    e.preventDefault();
-    alert('Děkujeme za zprávu! Brzy se vám ozveme.');
-    this.reset();
-  });
-
-
-  // FAQ rozbalování/skrývání
-  document.querySelectorAll('.faq-q').forEach(function(q){
-    q.addEventListener('click', function(){
-      var item = this.parentElement;
-      item.classList.toggle('open');
-    });
-  });
-    
-
-//******************************* FB chat
-  var chatbox = document.getElementById('fb-customer-chat');
-  chatbox.setAttribute("page_id", "612589358612782");
-  chatbox.setAttribute("attribution", "biz_inbox");
-
-  window.fbAsyncInit = function() {
-    FB.init({
-      xfbml            : true,
-      version          : 'v19.0'
-    });
-  };
-
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = 'https://connect.facebook.net/cs_CZ/sdk/xfbml.customerchat.js';
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-  
-  
-
-//************************** VYVOJ <!---- HESLO LOGIN -->
-  let needPass = true;
-      const loginBox = document.getElementById('loginBox');
-    const secretContent = document.getElementById('secretContent');
-    
-  if(needPass){
-  
-    // Nastav své přihlašovací údaje zde:
-    const CORRECT_USER = "admin";
-    const CORRECT_PASS = "tajneheslo";
-
-    const loginForm = document.getElementById('loginForm');
-    const errorMsg = document.getElementById('errorMsg');
-
-
-    loginForm.onsubmit = function(e) {
-      e.preventDefault();
-      const user = document.getElementById('username').value;
-      const pass = document.getElementById('password').value;
-      if (user === CORRECT_USER && pass === CORRECT_PASS) {
-        loginBox.style.display = 'none';
-        secretContent.style.display = 'block';
-      } else {
-        errorMsg.textContent = "Nesprávné jméno nebo heslo.";
-      }
-    }
-  }else{
-      loginBox.style.display = 'none';
-      secretContent.style.display = 'block';
-  }
-
-  </script>
-  
-  
 </body>
-</html>
 
+</html>

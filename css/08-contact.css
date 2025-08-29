@@ -1,0 +1,204 @@
+/* KONTAKT – obal a box */
+.contact-faq-section {
+  background: var(--beige-light);
+  position: relative;
+  width: 100%;
+  left: auto;
+  right: auto;
+  margin-left: 0;
+  margin-right: 0;
+
+  padding: 3rem 0 3rem 0;
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Contact box (samostatně, bez závislosti na FAQ) */
+.contact-box {
+  flex: 1 1 350px;
+  min-width: 400px;
+  max-width: 550px;
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: none;
+  border: none;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  margin: 0 1rem;
+}
+
+.contact-box h2 {
+  font-family: var(--font-title);
+  font-size: 1.35rem;
+  margin-bottom: 1.1rem;
+  text-align: center;
+  color: var(--antracit);
+}
+
+.contact-details {
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  color: var(--antracit);
+  text-align: center;
+}
+
+.contact-details a {
+  color: var(--accent);
+  text-decoration: none;
+  margin: 0 .3em;
+}
+
+/* FORMULÁŘ */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  max-width: 380px;
+  box-sizing: border-box;
+  margin-bottom: 1em;
+  font-family: var(--font-main);
+  font-size: 1em;
+  background: #fff;
+  border: 1.3px solid var(--gray);
+  border-radius: 8px;
+  padding: 0.7em;
+  transition: border-color .15s;
+}
+
+.contact-form button {
+  background: var(--accent);
+  color: var(--antracit);
+  border: none;
+  border-radius: 8px;
+  padding: 0.7em 2em;
+  font-size: 1em;
+  font-family: var(--font-main);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background .15s;
+  margin-top: 0.3em;
+  display: block;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.contact-form button:hover {
+  background: var(--beige-light);
+}
+
+/* FAQ – box a typografie nadpisu */
+.faq-box {
+  /* základní “box” vlastnosti (duplicitně vůči contact-box pro nezávislost) */
+  flex: 1 1 350px;
+  min-width: 400px;
+  max-width: 550px;
+  border-radius: 14px;
+  box-shadow: none;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  margin: 0 1rem;
+
+  /* finální vzhled FAQ */
+  background: var(--antracit);
+  border: 1.3px solid var(--accent);
+  color: var(--beige-light);
+}
+
+.faq-box h2 {
+  font-family: var(--font-title);
+  font-size: 1.35rem;
+  margin-bottom: 1.1rem;
+  text-align: center;
+  color: var(--beige);
+}
+
+/* FAQ seznam */
+.faq-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.faq-item {
+  margin-bottom: 1.2rem;
+}
+
+.faq-q {
+  font-weight: bold;
+  color: var(--beige);
+  cursor: pointer;
+  margin-bottom: .2rem;
+  font-size: 1.07rem;
+  transition: color .16s;
+}
+
+.faq-q:hover {
+  color: var(--beige-light);
+}
+
+.faq-a {
+  color: var(--beige-light);
+  font-size: .97rem;
+  margin-left: 0.2em;
+  display: none;
+  margin-bottom: .5rem;
+}
+
+.faq-item.open .faq-a {
+  display: block;
+  animation: fadein .3s;
+}
+
+/* Animace */
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsivní úpravy sdílené napříč sekcemi */
+/* Kontakt + FAQ – mobil/tablet */
+@media (max-width: 950px) {
+  .contact-faq-section {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    max-width: 98vw;
+  }
+
+  .contact-box,
+  .faq-box {
+    margin: 0 auto 1rem auto;
+    min-width: unset;
+    max-width: 98vw;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    max-width: 100%;
+  }
+}
+
+/* další globální responsivní drobnosti pro sekce */
+@media (max-width: 950px) {
+
+  .references,
+  .contact-faq-section {
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -43,12 +43,30 @@ body {
 }
 
 header {
-  background: var(--white);
-  box-shadow: 0 2px 14px rgba(0,0,0,0.03);
+  background: var(--beige-light);  
   position: sticky;
   top: 0;
   z-index: 50;
+
+  transition: background-color 240ms ease, box-shadow 240ms ease, backdrop-filter 240ms ease;
 }
+
+/* po scrollu: světlé pozadí */
+header.is-scrolled {
+  background: var(--white);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  /* volitelné zjemnění, klidně smaž */
+  backdrop-filter: saturate(160%) blur(6px);
+}
+
+/* respektování uživatelů, co nechtějí animace */
+@media (prefers-reduced-motion: reduce) {
+  header {
+    transition: none;
+  }
+}
+
+
 
 #rty, #oboci, #permanentni-make-up, #kosmetika, #cenik, #reference, #kontakt {
   scroll-margin-top: 80px; /* nastav výšku podle své lišty */
@@ -228,7 +246,6 @@ header {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
 }
 .contact-row .facebook i {
   color: #1877F3;
@@ -630,11 +647,6 @@ figure figcaption {
   padding: 0.75rem;
   background: rgba(0, 0, 0, 0.6);  /* <-- jednotný překryv */
   clip-path: inset(0 var(--_i, 100%) 0 0);
-  -webkit-mask:
-    linear-gradient(#000 0 0),
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  -webkit-mask-clip: text, padding-box;
   margin: -1px;
 }
 figure:hover figcaption {
@@ -645,7 +657,6 @@ figure:hover img {
 }
 @supports not (-webkit-mask-clip: text) {
   figure figcaption {
-    -webkit-mask: none;
     color: var(--beige-light);
   }
 }

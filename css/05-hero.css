@@ -1,0 +1,31 @@
+/* HERO */
+.hero {
+  background: var(--beige-light);
+  padding: 3rem 2rem;
+  text-align: center;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero h1 {
+  font-family: var(--font-title);
+  font-size: 2.7rem;
+  color: var(--antracit);
+  letter-spacing: 1.5px;
+  margin-top: 0;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 0 auto 2rem auto;
+  font-size: 1.22rem;
+  color: var(--antracit);
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+}

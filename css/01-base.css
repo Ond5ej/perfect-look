@@ -1,0 +1,47 @@
+/* ZÁKLADNÍ NASTAVENÍ A UTILITIES */
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background: var(--antracit);
+  color: var(--beige-light);
+  line-height: 1.7;
+}
+
+/* ukáže ti všechny boxy */
+/* * { outline: 1px solid red; } */
+
+/* odsazení při kotvení na sekce kvůli sticky headeru */
+#rty,
+#oboci,
+#permanentni-make-up,
+#kosmetika,
+#cenik,
+#reference,
+#kontakt {
+  scroll-margin-top: 80px;
+}
+
+.dark-text {
+  color: var(--antracit);
+}
+
+/* obecné sekce */
+.section {
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.section-title {
+  text-align: center;
+  font-family: var(--font-title);
+  font-size: 2rem;
+  margin-bottom: 2.3rem;
+  letter-spacing: 1px;
+}
+
+/* mobilní úpravy základních prvků */
+@media (max-width: 600px) {
+  .section {
+    padding: 2rem 1rem;
+  }
+}

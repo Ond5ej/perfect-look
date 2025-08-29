@@ -1,0 +1,62 @@
+/* CENÍK */
+.price-section {
+  background: var(--beige-light);
+  position: relative;
+
+  width: 100%;
+  left: auto;
+  right: auto;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 2.5rem;
+  margin-bottom: 3rem;
+
+  padding: 3rem 0 2.5rem 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  color: var(--antracit);
+}
+
+.price-title {
+  text-align: center;
+  font-family: var(--font-title);
+  color: var(--antracit);
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+table.price-table {
+  width: 95%;
+  max-width: 950px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 1.08rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.price-table th,
+.price-table td {
+  padding: 0.8em 1em;
+  border-bottom: 1px solid var(--gray);
+  text-align: left;
+}
+
+.price-table th {
+  background: var(--accent);
+  color: var(--antracit);
+  font-weight: 700;
+  font-family: var(--font-title);
+}
+
+.price-table tr:last-child td {
+  border-bottom: none;
+}
+
+.price-table td:last-child {
+  text-align: right;
+  font-weight: bold;
+}

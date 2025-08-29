@@ -1,0 +1,254 @@
+/* HLAVIČKA A NAVIGACE */
+header {
+  background: var(--beige-light);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  transition: background-color 240ms ease, box-shadow 240ms ease, backdrop-filter 240ms ease;
+}
+
+header.is-scrolled {
+  background: var(--white);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  backdrop-filter: saturate(160%) blur(6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  header {
+    transition: none;
+  }
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0rem 1rem;
+  position: relative;
+  min-height: 115px;
+}
+
+/* hlavní menu */
+.navbar-menu {
+  flex: 1;
+}
+
+.navbar-menu ul {
+  display: flex;
+  gap: 1.2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: flex-start;
+}
+
+.navbar-menu>ul>li {
+  display: inline-block;
+  /* vodorovné hlavní menu */
+  position: relative;
+}
+
+.navbar-menu a {
+  color: var(--antracit);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.97rem;
+  position: relative;
+  letter-spacing: .2px;
+  padding: .22em 0;
+  transition: color 0.18s;
+}
+
+.navbar-menu a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width .2s;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+}
+
+.navbar-menu a:hover,
+.navbar-menu .active {
+  color: var(--accent);
+}
+
+.navbar-menu a:hover::after,
+.navbar-menu .active::after {
+  width: 100%;
+}
+
+/* dropdown */
+.navbar-menu .has-dropdown .dropdown-arrow {
+  font-size: 1em;
+  margin-left: 3px;
+  transition: transform 0.2s;
+}
+
+.navbar-menu .dropdown {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  min-width: 220px;
+  padding: 8px 0;
+  z-index: 999;
+}
+
+.navbar-menu li.show>.dropdown {
+  display: block;
+}
+
+.navbar-menu .dropdown>li {
+  position: relative;
+  padding: 0 16px;
+}
+
+/* submenu (pod sekcí Permanentní make-up) */
+.navbar-menu .submenu {
+  list-style: none;
+  padding-left: 20px;
+  margin: 4px 0 8px 0;
+}
+
+.navbar-menu .submenu li a {
+  font-weight: normal;
+  font-size: 0.96em;
+  padding: 6px 0;
+}
+
+.navbar-menu .dropdown>li>a {
+  font-weight: bold;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+.navbar-menu li.show .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.navbar-menu .dropdown a:hover,
+.navbar-menu .submenu a:hover {
+  background: #f0f0f0;
+  border-radius: 3px;
+}
+
+/* kontakty v headeru */
+.navbar-contact {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 170px;
+}
+
+.navbar-contact-social {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45em;
+}
+
+.contact-row .icon {
+  font-size: 1.1em;
+  color: var(--antracit);
+  margin: 0 0.3em;
+}
+
+.contact-row a {
+  color: var(--antracit);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color .18s;
+  display: flex;
+  align-items: center;
+}
+
+.contact-row a:hover,
+.contact-row a:hover .icon {
+  color: var(--accent);
+}
+
+.contact-row .instagram i {
+  background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contact-row .facebook i {
+  color: #1877F3;
+}
+
+.contact-row .instagram,
+.contact-row .facebook {
+  margin-left: 0.36em;
+  font-size: 1.3em;
+}
+
+.contact-row .instagram:hover i,
+.contact-row .facebook:hover i {
+  filter: brightness(1.18) drop-shadow(0 0 4px rgba(0, 0, 0, 0.13));
+}
+
+/* responzivita headeru / menu */
+@media (max-width: 950px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 1rem;
+    text-align: center;
+    position: static;
+    min-height: unset;
+  }
+
+  .navbar-menu ul {
+    justify-content: center;
+    gap: 1.6rem;
+  }
+
+  .navbar-contact {
+    align-items: center;
+    justify-content: center;
+    min-width: unset;
+    margin-top: .5em;
+  }
+
+  .navbar-contact-social {
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  .contact-row {
+    justify-content: center;
+    gap: 0.55em;
+  }
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    gap: 1rem;
+  }
+}
+
+/* FOOTER */
+footer {
+  background: var(--antracit);
+  color: var(--beige);
+  text-align: center;
+  padding: 20px 1rem 20px 1rem;
+  font-size: 1rem;
+  border-top: 2px solid var(--beige);
+}

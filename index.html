@@ -61,7 +61,7 @@
         <!--------- MENU ------->
         <nav class="navbar-menu">
           <ul>
-            <li><a href="#" class="active">ÚVOD</a></li>
+            <li><a href="#omne" class="active">O MNĚ</a></li>
             <li class="has-dropdown">
               <a href="#sluzby" class="dropdown-toggle">
                 SLUŽBY
@@ -87,8 +87,9 @@
           </ul>
         </nav>
 
-
-        <img src="./img/logo-with-border.svg" alt="Logo" style="width:240px;">
+        <a href="#">
+          <img src="./img/logo-with-border.svg" alt="Logo" style="width:240px;">
+        </a>
 
         <div class="navbar-contact">
           <div class="navbar-contact-social">
@@ -96,8 +97,8 @@
               <a href="https://facebook.com/" target="_blank" class="facebook" title="Facebook">
                 <i class="bi bi-facebook"></i>
               </a>
-              <a href="mailto:perfect-look@gmail.com">
-                <i class="icon bi bi-envelope-fill"></i>perfect-look@gmail.com
+              <a href="mailto:perfect.look.studio@gmail.com">
+                <i class="icon bi bi-envelope-fill"></i>perfect.look.studio@gmail.com
               </a>
             </div>
             <div class="contact-row">
@@ -115,7 +116,7 @@
 
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="light-section">
       <h1>Permanentní make-up | beauty studio</h1>
       <p>Perfect studio nabízí svým klientům profesionální péči a individuální přístup. Před ošetřením probíhá
         konzultace zdarma,
@@ -123,22 +124,55 @@
       <p>Ve studiu je možné zakoupení dárkových poukazů a přírodní luxusní britské kosmetiky Jane Scrivner</p>
     </section>
 
+    <!-- o mně -->
+    <section class="section" id="omne">
+      <h2 class="section-title">O mně</h2>
+      <h3>Petra Ludková</h3>
+      <p><em>Permanentní make-up & kosmetická péče</em></p>
+
+      <img src="./img/ocni-linky.png" alt="moje fotka">
+
+      <p>
+        Jmenuji se Petra Ludková a mým posláním je pomáhat klientkám a klientům cítit se krásně a sebevědomě.
+      </p>
+
+      <p>
+        Původně jsem vystudovala ekonomickou školu a dlouhá léta působila v tomto oboru.
+        Postupně jsem ale cítila, že potřebuji změnu a nové naplnění.
+        Protože mi byl svět krásy vždy blízký, rozhodla jsem se vydat cestou permanentního make-upu a kosmetiky.
+      </p>
+
+      <p>
+        Dnes vnímám tuto práci jako možnost propojit estetiku, preciznost a osobní přístup.
+        Baví mě sledovat, jak i drobná úprava dokáže rozzářit tvář a dodat klientkám i klientům sebevědomí.
+      </p>
+
+      <p>
+        Věřím, že krása nemá věk – začíná uvnitř nás a rozkvétá pokaždé,
+        když si dopřejeme chvíli jen pro sebe.
+      </p>
+    </section>
+
+
     <!-- Služby -->
-    <section class="section" id="permanentni-make-up">
+    <section class="light-section" id="permanentni-make-up">
       <h2 class="section-title">Permanentní make-up</h2>
       <div class="services">
 
         <figure id="open-gallery-oboci">
+          <i class="icon-photo-galery bi-camera-fill"></i>
           <img src="./img/oboci.png" alt="Obočí">
           <figcaption>Obočí</figcaption>
         </figure>
 
         <figure id="open-gallery-ocni-linky">
+          <i class="icon-photo-galery bi-camera-fill"></i>
           <img src="./img/ocni-linky.png" alt="Oční linky">
           <figcaption>Oční linky</figcaption>
         </figure>
 
         <figure id="open-gallery-rty">
+          <i class="icon-photo-galery bi bi-camera-fill"></i>
           <img src="./img/rty.png" alt="Rty">
           <figcaption>Rty</figcaption>
         </figure>
@@ -152,21 +186,22 @@
 
       <div class="services services--split">
         <figure id="open-gallery-ocni-linky">
+          <i class="icon-photo-galery bi-camera-fill"></i>
           <img src="./img/ocni-linky.png" alt="Oční linky">
           <figcaption>Kosmetika</figcaption>
         </figure>
 
         <div class="service-text">
           <h3>Profesionální kosmetické ošetření</h3>
-          <p>
-            Krátký text o kosmetice – co nabízíš, pro koho je ošetření vhodné,
-            jaký je efekt atd. Klidně pár vět.
-          </p>
-          <ul>
-            <li>Hloubkové čištění pleti</li>
-            <li>Hydratace a výživa</li>
-            <li>Relaxační masáž obličeje</li>
-          </ul>
+          <p>Jane Scrivner je exkluzivní britská značka, která si získala oblibu po celém světě a byla oceněna řadou
+            prestižních cen.
+            Její filozofie stojí na pečlivém výběru surovin a výrobě s důrazem na nejvyšší kvalitu.</p>
+          <p>Produkty Jane Scrivner posilují ochrannou bariéru pleti, udržují správné pH a dodávají potřebnou hydrataci
+            i výživu.
+            Nabízí kompletní péči – od odlíčení a čištění pleti až po hydratační a vyživující přípravky.</p>
+          <p>Součástí sortimentu jsou také originální bytové vůně a éterické oleje, které provoní váš domov a vytvoří
+            jedinečnou
+            atmosféru.</p>
         </div>
       </div>
     </section>
@@ -175,27 +210,35 @@
 
     <!----------------------------------- Ceník -------------------------------->
     <section class="price-section" id="cenik">
-      <h2 class="section-title dark-text">Ceník služeb</h2>
+      <h2 class="section-title dark-text">Ceník</h2>
       <table class="price-table">
         <tr>
           <th>Služba</th>
           <th>Cena</th>
         </tr>
         <tr>
-          <td>Permanentní make-up obočí (powder/hairstroke/combo)</td>
+          <td>obočí (powder/hairstroke/combo)</td>
+          <td>4 800 Kč</td>
+        </tr>
+        <tr>
+          <td>rty</td>
+          <td>4 800 Kč</td>
+        </tr>
+        <tr>
+          <td>linky horní</td>
           <td>3 500 Kč</td>
         </tr>
         <tr>
-          <td>Permanentní make-up rtů</td>
-          <td>3 800 Kč</td>
+          <td>linky dolní</td>
+          <td>1 900 Kč</td>
         </tr>
         <tr>
-          <td>Permanentní linky</td>
-          <td>2 400 Kč</td>
+          <td>linky (horní+dolní)</td>
+          <td>4 800 Kč</td>
         </tr>
         <tr>
           <td>Korekce do 3 měsíců</td>
-          <td>900 Kč</td>
+          <td>1 500 Kč</td>
         </tr>
         <tr>
           <td>Odstranění permanentního make-upu</td>
@@ -255,7 +298,7 @@
         <div class="contact-details">
           beauty studio Perfect Look, , Brno<br>
           <a href="tel:+420776285808">+420 776 285 808</a> |
-          <a href="mailto:perfect-look@gmail.com">perfect-look@gmail.com</a>
+          <a href="mailto:perfect.look.studio@gmail.com">perfect.look.studio@gmail.com</a>
         </div>
         <form class="contact-form" autocomplete="off">
           <input type="text" name="name" placeholder="Vaše jméno" required>
@@ -265,26 +308,79 @@
         </form>
       </div>
       <!-- FAQ -->
+      <!-- FAQ -->
       <div class="faq-box">
-        <h2>Nejčastější dotazy</h2>
+        <h2>Často kladené otázky ohledně PMU</h2>
         <ul class="faq-list">
+
           <li class="faq-item">
-            <div class="faq-q">Jak dlouho vydrží permanentní make-up?</div>
-            <div class="faq-a">Výdrž je individuální, obvykle 1–3 roky. Záleží na typu pleti i péči.</div>
+            <div class="faq-q">Jak se připravit na permanentní make-up?</div>
+            <div class="faq-a">
+              Aby byl výsledek co nejlepší a hojení probíhalo hladce, doporučuji dodržet několik jednoduchých pravidel:
+              <br><br>
+              <strong>24 hodin před zákrokem:</strong>
+              <ul>
+                <li>Nepijte alkohol ani kávu</li>
+                <li>Vyhněte se lékům na ředění krve (např. Acylpyrin, Ibuprofen, injekce na ředění krve)</li>
+                <li>Neužívejte vitamín C, rybí olej ani jiné doplňky s účinkem na ředění krve</li>
+              </ul>
+              <strong>48 hodin před zákrokem:</strong>
+              <ul>
+                <li>Nevystavujte se přímému slunci ani soláriu</li>
+                <li>Nepodstupujte kosmetické peelingy, chemická ošetření či barvení obočí</li>
+                <li>Nenavštěvujte saunu ani wellness</li>
+              </ul>
+              <strong>Týden před zákrokem:</strong>
+              <ul>
+                <li>Ukončete používání retinolových a kyselinových produktů v oblasti obočí</li>
+                <li>Vyhněte se botoxu, výplním nebo jiným invazivním zákrokům v oblasti, kde bude PMU aplikován</li>
+              </ul>
+              <strong>V den zákroku:</strong>
+              <ul>
+                <li>Přijďte nenalíčená (zejména v oblasti, kde bude PMU aplikován)</li>
+                <li>Vyhněte se intenzivnímu cvičení a sauně</li>
+                <li>Dejte si dostatek vody a odpočinku – tělo pak lépe reaguje</li>
+              </ul>
+            </div>
           </li>
+
           <li class="faq-item">
-            <div class="faq-q">Je zákrok bolestivý?</div>
-            <div class="faq-a">Používáme lokální anestetika, takže většina klientek cítí jen minimální diskomfort.</div>
+            <div class="faq-q">Je nutná korekce?</div>
+            <div class="faq-a">
+              Ano, doporučuje se po 4–8 týdnech a je součástí celého procesu.
+              Slouží k doladění tvaru, hustoty i barevnosti a zajistí dlouhodobě krásný výsledek.
+            </div>
           </li>
+
           <li class="faq-item">
-            <div class="faq-q">Jak probíhá hojení?</div>
-            <div class="faq-a">Po zákroku je několik dní místo mírně zarudlé, během týdne se vytvoří stroupky, které se
-              samy zahojí.</div>
+            <div class="faq-q">Pro koho není permanentní make-up vhodný?</div>
+            <div class="faq-a">
+              PMU není vhodný v případě:
+              <ul>
+                <li>těhotenství nebo kojení</li>
+                <li>při nemoci či nachlazení</li>
+                <li>neléčené cukrovky</li>
+                <li>aktivního akné v oblasti obočí</li>
+                <li>čerstvého opálení, užívání léků na ředění krve</li>
+                <li>vážných kožních nebo autoimunitních onemocnění</li>
+              </ul>
+              V případě nejistoty je vždy vhodná konzultace.
+            </div>
           </li>
+
           <li class="faq-item">
-            <div class="faq-q">Mohu přijít i na korekci?</div>
-            <div class="faq-a">Ano, korekce je doporučená zhruba za 4–8 týdnů po prvním zákroku.</div>
+            <div class="faq-q">Péče bezprostředně po aplikaci PMU</div>
+            <div class="faq-a">
+              Po zákroku je klíčová důkladná hygiena a ochrana pigmentu:
+              <ul>
+                <li>Nedotýkat se oblasti zbytečně rukama</li>
+                <li>Prvních 7–10 dní se vyhýbat vodě, sauně, make-upu a UV záření</li>
+                <li>Aplikovat hojivý krém dle doporučení</li>
+                <li>Neškrábat stroupky – nechte je samovolně odpadnout</li>
+              </ul>
+            </div>
           </li>
+
         </ul>
       </div>
     </section>

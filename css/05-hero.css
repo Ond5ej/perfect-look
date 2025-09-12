@@ -1,5 +1,5 @@
 /* HERO */
-.hero {
+.light-section {
   background: var(--beige-light);
   padding: 3rem 2rem;
   text-align: center;
@@ -9,7 +9,7 @@
   justify-content: center;
 }
 
-.hero h1 {
+.light-section h1 {
   font-family: var(--font-title);
   font-size: 2.7rem;
   color: var(--antracit);
@@ -17,7 +17,11 @@
   margin-top: 0;
 }
 
-.hero p {
+.light-section h2 {
+  color: var(--antracit);
+}
+
+.light-section p {
   max-width: 650px;
   margin: 0 auto 2rem auto;
   font-size: 1.22rem;
@@ -25,7 +29,7 @@
 }
 
 @media (max-width: 600px) {
-  .hero h1 {
+  .light-section h1 {
     font-size: 1.5rem;
   }
 }

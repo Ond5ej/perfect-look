@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Vývojový login gate
   initDevLogin({
-    needPass: false,              // přepni na true, pokud chceš vyžadovat login
+    needPass: true,              // přepni na true, pokud chceš vyžadovat login
     user: 'admin',
     pass: 'tajneheslo',
     loginBox: '#loginBox',

@@ -34,7 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
     dropdownToggle: '.dropdown-toggle',
     dropdownItem: '.has-dropdown',
     navbarMenu: '.navbar-menu',
-    topLevelLinks: '.navbar-menu > ul > li > a'
+    topLevelLinks: '.navbar-menu > ul > li > a', // zůstává pro tvoje styly
+    headerOffset: 80 // výška sticky headeru (uprav podle reality)
   });
 
   // Kontakt (fake submit)
@@ -73,7 +74,11 @@ document.addEventListener('DOMContentLoaded', () => {
     galleries: {
       '#open-gallery-oboci': '#gallery-oboci',
       '#open-gallery-ocni-linky': '#gallery-ocni-linky',
-      '#open-gallery-rty': '#gallery-rty'
+      '#open-gallery-rty': '#gallery-rty',
+
+      '#open-gallery-oboci-menu': '#gallery-oboci',
+      '#open-gallery-ocni-linky-menu': '#gallery-ocni-linky',
+      '#open-gallery-rty-menu': '#gallery-rty'
     }
   });
 

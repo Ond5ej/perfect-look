@@ -102,34 +102,55 @@ header.is-scrolled {
   z-index: 999;
 }
 
+/* při rozbalení */
 .navbar-menu li.show>.dropdown {
   display: block;
+  /* přebije globální flex */
 }
 
+/* položky uvnitř dropdownu svisle pod sebou */
 .navbar-menu .dropdown>li {
   position: relative;
   padding: 0 16px;
+  display: block;
+  /* jistota blokového řádku */
 }
 
 /* submenu (pod sekcí Permanentní make-up) */
 .navbar-menu .submenu {
   list-style: none;
+  margin: 0px 0 8px 0;
   padding-left: 20px;
-  margin: 4px 0 8px 0;
+  /* --- NOVÉ: svislé řazení a mezery --- */
+  display: flex;
+  /* přebije globální .navbar-menu ul { display:flex } na vlastní layout */
+  flex-direction: column;
+  /* položky pod sebe */
+  gap: 6px;
+  /* mezery mezi položkami */
 }
 
-.navbar-menu .submenu li a {
+/* odkazy v submenu: ikona vlevo + text vpravo, pěkné zarovnání */
+.navbar-menu .submenu a {
+  display: flex;
+  /* kvůli ikoně a textu */
+  align-items: center;
+  /* srovná výšku textu s ikonou */
+  gap: 8px;
+  /* mezera mezi ikonou a textem */
   font-weight: normal;
-  font-size: 0.96em;
-  padding: 6px 0;
+  font-size: 0.9em;
+  /*padding: 6px 0;*/
 }
 
+/* nadpisové odkazy v dropdownu */
 .navbar-menu .dropdown>li>a {
   font-weight: bold;
-  margin-top: 6px;
+  /*margin-top: 6px;*/
   margin-bottom: 0;
 }
 
+/* šipka otočení */
 .navbar-menu li.show .dropdown-arrow {
   transform: rotate(180deg);
 }
@@ -138,6 +159,23 @@ header.is-scrolled {
 .navbar-menu .submenu a:hover {
   background: #f0f0f0;
   border-radius: 3px;
+}
+
+/* --- IKONA FOŤÁKU (Bootstrap Icons) před vybranými položkami submenu --- */
+/* POZOR: musí být načtený font "bootstrap-icons" (už ho používáš pro social ikony) */
+#open-gallery-oboci-menu::before,
+#open-gallery-ocni-linky-menu::before,
+#open-gallery-rty-menu::before {
+  font-family: "bootstrap-icons";
+  content: "\F219";
+  /* camera-fill */
+  font-size: 1rem;
+  line-height: 1;
+  display: inline-block;
+  speak: none;
+  /* přístupnost: nečti ikonu screenreaderem */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* kontakty v headeru */
@@ -169,7 +207,7 @@ header.is-scrolled {
 .contact-row a {
   color: var(--antracit);
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 500;
   transition: color .18s;
   display: flex;

@@ -107,3 +107,20 @@
 .close-btn:hover {
   transform: scale(1.2);
 }
+/**********************/
+
+.stage-text {
+  position: absolute;
+  right: 150px;
+  /* vzdálenost od pravého okraje lightboxu */
+  top: 50%;
+  transform: translateY(-50%);
+  /* vertikální vycentrování */
+  width: 300px;
+  /* pevná šířka textového boxu */
+  text-align: center;
+  font-size: 1.2rem;
+  color: #eee;
+  /* světlý text na tmavém pozadí */
+}
+

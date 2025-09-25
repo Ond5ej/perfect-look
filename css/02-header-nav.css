@@ -1,4 +1,6 @@
-/* HLAVIČKA A NAVIGACE */
+/* ===========================
+   HLAVIČKA A NAVIGACE
+=========================== */
 header {
   background: var(--beige-light);
   position: sticky;
@@ -19,8 +21,13 @@ header.is-scrolled {
   }
 }
 
+/* ===========================
+   NAVBAR – GRID LAYOUT
+   (menu | logo | kontakty)
+=========================== */
 .navbar {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   justify-content: space-between;
   max-width: 1320px;
@@ -28,9 +35,51 @@ header.is-scrolled {
   padding: 0rem 1rem;
   position: relative;
   min-height: 115px;
+  gap: 20px;
 }
 
-/* hlavní menu */
+.brand {
+  justify-self: center;
+}
+
+
+/* Logo (podpora i bez .brand obalu) */
+.brand img,
+.navbar>a>img {
+  display: block;
+  width: 250px;
+  /* desktop */
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 950px) {
+
+  .brand img,
+  .navbar>a>img {
+    width: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .brand img,
+  .navbar>a>img {
+    width: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .brand img,
+  .navbar>a>img {
+    width: 140px;
+  }
+}
+
+/* ===========================
+   HLAVNÍ MENU (desktop)
+=========================== */
 .navbar-menu {
   flex: 1;
 }
@@ -46,7 +95,6 @@ header.is-scrolled {
 
 .navbar-menu>ul>li {
   display: inline-block;
-  /* vodorovné hlavní menu */
   position: relative;
 }
 
@@ -54,7 +102,7 @@ header.is-scrolled {
   color: var(--antracit);
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.97rem;
+  font-size: 0.9rem;
   position: relative;
   letter-spacing: .2px;
   padding: .22em 0;
@@ -83,7 +131,9 @@ header.is-scrolled {
   width: 100%;
 }
 
-/* dropdown */
+/* ===========================
+   DROPDOWNS (desktop)
+=========================== */
 .navbar-menu .has-dropdown .dropdown-arrow {
   font-size: 1em;
   margin-left: 3px;
@@ -96,61 +146,44 @@ header.is-scrolled {
   left: 0;
   top: 100%;
   background: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .08);
   min-width: 220px;
   padding: 8px 0;
   z-index: 999;
 }
 
-/* při rozbalení */
 .navbar-menu li.show>.dropdown {
   display: block;
-  /* přebije globální flex */
 }
 
-/* položky uvnitř dropdownu svisle pod sebou */
 .navbar-menu .dropdown>li {
   position: relative;
   padding: 0 16px;
   display: block;
-  /* jistota blokového řádku */
 }
 
-/* submenu (pod sekcí Permanentní make-up) */
-.navbar-menu .submenu {
-  list-style: none;
-  margin: 0px 0 8px 0;
-  padding-left: 20px;
-  /* --- NOVÉ: svislé řazení a mezery --- */
-  display: flex;
-  /* přebije globální .navbar-menu ul { display:flex } na vlastní layout */
-  flex-direction: column;
-  /* položky pod sebe */
-  gap: 6px;
-  /* mezery mezi položkami */
-}
-
-/* odkazy v submenu: ikona vlevo + text vpravo, pěkné zarovnání */
-.navbar-menu .submenu a {
-  display: flex;
-  /* kvůli ikoně a textu */
-  align-items: center;
-  /* srovná výšku textu s ikonou */
-  gap: 8px;
-  /* mezera mezi ikonou a textem */
-  font-weight: normal;
-  font-size: 0.9em;
-  /*padding: 6px 0;*/
-}
-
-/* nadpisové odkazy v dropdownu */
 .navbar-menu .dropdown>li>a {
   font-weight: bold;
-  /*margin-top: 6px;*/
   margin-bottom: 0;
 }
 
-/* šipka otočení */
+.navbar-menu .submenu {
+  list-style: none;
+  margin: 0 0 8px 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.navbar-menu .submenu a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: normal;
+  font-size: 0.9em;
+}
+
 .navbar-menu li.show .dropdown-arrow {
   transform: rotate(180deg);
 }
@@ -161,24 +194,23 @@ header.is-scrolled {
   border-radius: 3px;
 }
 
-/* --- IKONA FOŤÁKU (Bootstrap Icons) před vybranými položkami submenu --- */
-/* POZOR: musí být načtený font "bootstrap-icons" (už ho používáš pro social ikony) */
+/* Ikony fotoaparátu v submenu (Bootstrap Icons) */
 #open-gallery-oboci-menu::before,
 #open-gallery-ocni-linky-menu::before,
 #open-gallery-rty-menu::before {
   font-family: "bootstrap-icons";
   content: "\F219";
-  /* camera-fill */
   font-size: 1rem;
   line-height: 1;
   display: inline-block;
   speak: none;
-  /* přístupnost: nečti ikonu screenreaderem */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* kontakty v headeru */
+/* ===========================
+   KONTAKTY
+=========================== */
 .navbar-contact {
   flex: 1;
   display: flex;
@@ -199,7 +231,6 @@ header.is-scrolled {
 }
 
 .contact-row .icon {
-  font-size: 1.1em;
   color: var(--antracit);
   margin: 0 0.3em;
 }
@@ -229,26 +260,58 @@ header.is-scrolled {
 .contact-row .facebook i {
   color: #1877F3;
 }
-
+.contact-row .icon,
 .contact-row .instagram,
 .contact-row .facebook {
   margin-left: 0.36em;
-  font-size: 1.3em;
+  font-size: 1.6em;
 }
 
 .contact-row .instagram:hover i,
 .contact-row .facebook:hover i {
-  filter: brightness(1.18) drop-shadow(0 0 4px rgba(0, 0, 0, 0.13));
+  filter: brightness(1.18) drop-shadow(0 0 4px rgba(0, 0, 0, .13));
 }
 
-/* responzivita headeru / menu */
+/* ===========================
+   HAMBURGER
+=========================== */
+.navbar-toggle {
+  display: none;
+  /* desktop skryté */
+  border: none;
+  background: none;
+  padding: 8px;
+  cursor: pointer;
+  color: var(--antracit);
+}
+
+.navbar-toggle .bar {
+  display: block;
+  width: 26px;
+  height: 3px;
+  margin: 5px 0;
+  background: currentColor;
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+.navbar-toggle.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.navbar-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggle.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ===========================
+   RESPONZIVNÍ ÚPRAVY
+=========================== */
 @media (max-width: 950px) {
   .navbar {
-    flex-direction: column;
-    gap: 0.7rem;
     padding: 1rem;
-    text-align: center;
-    position: static;
     min-height: unset;
   }
 
@@ -275,18 +338,159 @@ header.is-scrolled {
   }
 }
 
+@media (max-width: 768px) {
+
+  /* rozvržení: hamburger | logo | kontakt (ikony) */
+  .navbar {
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-areas: "toggle brand contact";
+  }
+
+  .navbar-toggle {
+    display: block;
+    grid-area: toggle;
+    justify-self: start;
+  }
+
+  .brand {
+    grid-area: brand;
+    justify-self: center;
+  }
+
+  .navbar-contact {
+    grid-area: contact;
+    justify-self: end;
+    font-size: .95rem;
+  }
+
+  .contact-row a {
+    overflow-wrap: anywhere;
+  }
+
+  /* mobilní panel menu */
+  .navbar-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid #eee;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .06);
+    z-index: 1000;
+  }
+
+  .navbar-menu.open {
+    max-height: 80vh;
+  }
+
+  .navbar-menu ul {
+    display: block;
+    padding: .25rem 0;
+  }
+
+  .navbar-menu li {
+    border-bottom: 1px solid #f2f2f2;
+  }
+
+  .navbar-menu a {
+    display: block;
+    padding: 12px 16px;
+  }
+
+  /* dropdowny v panelu na klik */
+  .has-dropdown>.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navbar-menu .dropdown {
+    position: static;
+    box-shadow: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .25s ease;
+    padding: 0;
+    /* uvnitř panelu sjednocené odsazení */
+  }
+
+  .has-dropdown.open .dropdown {
+    max-height: 600px;
+  }
+
+  .submenu {
+    padding-left: 12px;
+    border-left: 2px solid #f0f0f0;
+  }
+}
+
 @media (max-width: 600px) {
   nav ul {
     gap: 1rem;
   }
 }
 
-/* FOOTER */
+/* DESKTOP: 3 sloupce = menu | logo | kontakty */
+@media (min-width: 769px) {
+  .navbar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    /* levý, logo, pravý */
+    align-items: center;
+    column-gap: 2rem;
+    /* mezera u loga na obě strany */
+  }
+
+  /* menu zarovnat k logu zleva (tj. doprava v levém sloupci) */
+  .navbar-menu {
+    justify-self: end;
+    /* přirazí menu k logu */
+  }
+
+  .navbar-menu ul {
+    justify-content: flex-end;
+    /* položky vpravo v rámci menu */
+  }
+
+  /* logo přesně doprostřed */
+  .brand {
+    justify-self: center;
+  }
+
+  /* kontakty zarovnat k logu zprava (tj. doleva v pravém sloupci) */
+  .navbar-contact {
+    justify-self: start;
+    /* přirazí kontakty k logu */
+    align-items: flex-start;
+    /* levé zarovnání obsahu */
+    text-align: left;
+  }
+
+  /* tyto "flex: 1" u menu/kontaktů nejsou pro grid potřeba */
+  .navbar-menu,
+  .navbar-contact {
+    flex: unset;
+  }
+}
+
+/* ===========================
+   BODY LOCK při otevřeném menu (volitelné)
+=========================== */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
 footer {
   background: var(--antracit);
   color: var(--beige);
   text-align: center;
-  padding: 20px 1rem 20px 1rem;
+  padding: 20px 1rem;
   font-size: 1rem;
   border-top: 2px solid var(--beige);
 }

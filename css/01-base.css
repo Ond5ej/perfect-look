@@ -29,13 +29,15 @@ body {
 .section {
   margin: 0 auto;
   padding: 3rem 2rem;
+  min-height: 450px;
 }
 
 .section-title {
   text-align: center;
   font-family: var(--font-title);
   font-size: 2rem;
-  margin-bottom: 2.3rem;
+  margin-bottom: 2.5rem;
+  margin-top:0;
   letter-spacing: 1px;
 }
 

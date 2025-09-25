@@ -3,6 +3,7 @@ export function initLightbox (sel) {
   const stageImage = document.querySelector(sel.stageImage);
   const thumbs = document.querySelector(sel.thumbs);
   const closeBtn = document.querySelector(sel.closeBtn);
+  const stageText = document.querySelector('.stage-text');
 
   if (!lightbox || !stageImage || !thumbs || !closeBtn) {
     console.warn('Nenalezeny prvky:', { lightbox, stageImage, thumbs, closeBtn });
@@ -40,6 +41,8 @@ export function initLightbox (sel) {
     current = Math.max(0, Math.min(i, images.length - 1));
     stageImage.src = srcFor(current);
     stageImage.alt = images[current].alt || 'Fotografie';
+    // tady přidáme popisek
+    stageText.textContent = images[current].dataset.text || '';
     markActive(current);
   }
 

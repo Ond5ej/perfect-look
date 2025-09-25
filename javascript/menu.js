@@ -2,9 +2,30 @@ export function initMenu ({
   dropdownToggle,
   dropdownItem,
   navbarMenu,
-  topLevelLinks,      // může zůstat pro tvoje CSS, v JS ho teď nepotřebujeme
-  headerSelector = 'header'
+  topLevelLinks,             // může zůstat pro CSS, JS ho tu nepotřebuje
+  headerSelector = 'header',
+  hamburgerToggle = '.navbar-toggle'  // NOVÉ
 }) {
+  const menuEl = document.querySelector(navbarMenu);
+  const toggleBtn = document.querySelector(hamburgerToggle);
+  const headerEl = document.querySelector(headerSelector);
+
+  if (!menuEl) {
+    console.warn('[menu] Nenalezen prvek menu:', navbarMenu);
+    return;
+  }
+
+  const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+
+  // --- Header dekor (is-scrolled) ---
+  const setScrolled = () => {
+    if (!headerEl) return;
+    if (window.scrollY > 6) headerEl.classList.add('is-scrolled');
+    else headerEl.classList.remove('is-scrolled');
+  };
+  setScrolled();
+  window.addEventListener('scroll', setScrolled, { passive: true });
+
   // --- Dropdowny ---
   const toggles = document.querySelectorAll(dropdownToggle);
   const items = () => document.querySelectorAll(dropdownItem);
@@ -12,47 +33,41 @@ export function initMenu ({
   toggles.forEach((toggle) => {
     toggle.addEventListener('click', (e) => {
       e.preventDefault();
-      const parent = toggle.closest(dropdownItem);
-      items().forEach((it) => { if (it !== parent) it.classList.remove('show'); });
-      parent?.classList.toggle('show');
+      const li = toggle.closest(dropdownItem);
+      if (!li) return;
+
+      if (isMobile()) {
+        // Na mobilu používáme .open (viz CSS)
+        items().forEach((it) => { if (it !== li) it.classList.remove('open'); });
+        li.classList.toggle('open');
+      } else {
+        // Na desktopu zůstává .show (hover/click)
+        items().forEach((it) => { if (it !== li) it.classList.remove('show'); });
+        li.classList.toggle('show');
+      }
     });
   });
 
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest(navbarMenu)) items().forEach((it) => it.classList.remove('show'));
-  });
-
-  // --- Scroll-spy ---
+  // --- Scroll-spy (z tvého kódu) ---
   const navLinks = [...document.querySelectorAll(`${navbarMenu} a[href^="#"]`)];
   const idFromHref = (a) => decodeURIComponent(a.getAttribute('href') || '').replace(/^#/, '');
   const targetFromLink = (a) => document.getElementById(idFromHref(a));
-
   const sections = navLinks.map(targetFromLink).filter(Boolean);
   if (sections.length === 0) {
-    console.warn('[menu] Nenašel jsem žádné sekce z odkazů menu – zkontroluj, že každé href="#id" má na stránce element s id="id".');
+    console.warn('[menu] Nenašel jsem žádné sekce z odkazů menu.');
   }
 
-  // zjišťování výšky headeru (sticky)
-  const headerEl = document.querySelector(headerSelector);
   let headerOffset = headerEl ? headerEl.offsetHeight : 0;
-
-  // kdyby se header měnil (responsive), přepočítej
   const updateHeaderOffset = () => { headerOffset = headerEl ? headerEl.offsetHeight : 0; };
   window.addEventListener('resize', updateHeaderOffset);
-  // pokud podporováno, sleduj změny velikosti headeru
   if ('ResizeObserver' in window && headerEl) {
-    const ro = new ResizeObserver(updateHeaderOffset);
-    ro.observe(headerEl);
+    new ResizeObserver(updateHeaderOffset).observe(headerEl);
   }
 
   const setActive = (id) => {
     navLinks.forEach(a => a.classList.remove('active'));
-
-    // klasické zvýraznění
     const directLink = navLinks.find(a => idFromHref(a) === id);
     if (directLink) directLink.classList.add('active');
-
-    // pokud jsme v podsekci SLUŽEB → zvýrazni i hlavní "SLUŽBY"
     const sluzbySections = ['permanentni-make-up', 'oboci', 'ocni-linky', 'rty', 'kosmetika'];
     if (sluzbySections.includes(id)) {
       const sluzbyLink = navLinks.find(a => idFromHref(a) === 'sluzby');
@@ -60,22 +75,22 @@ export function initMenu ({
     }
   };
 
-  // Hladké scrollování + okamžitá vizuální odezva
+  // Hladké scrollování + zavření menu na mobilu
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       const id = idFromHref(link);
       const target = document.getElementById(id);
-      if (!target) return; // nech default (např. externí)
+      if (!target) return;
       e.preventDefault();
       const y = target.getBoundingClientRect().top + window.scrollY - headerOffset;
       history.pushState(null, '', `#${id}`);
       window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
       setActive(id);
-      items().forEach((it) => it.classList.remove('show'));
+      items().forEach((it) => { it.classList.remove('show'); it.classList.remove('open'); });
+      if (isMobile()) setExpanded(false);
     });
   });
 
-  // Aktivace podle hash (načtení / zpět/vpřed)
   const applyHash = () => {
     const id = location.hash ? decodeURIComponent(location.hash.slice(1)) : '';
     if (id && document.getElementById(id)) setActive(id);
@@ -83,24 +98,19 @@ export function initMenu ({
   window.addEventListener('hashchange', applyHash);
   applyHash();
 
-  // --- IntersectionObserver s bezpečnými parametry ---
+  // IntersectionObserver (s tvými parametry)
   const runObserver = () => {
     if (!('IntersectionObserver' in window) || sections.length === 0) return false;
 
     const observer = new IntersectionObserver((entries) => {
-      // vyber sekci s největším průnikem
       let best = null;
       for (const e of entries) {
         if (!e.isIntersecting) continue;
         if (!best || e.intersectionRatio > best.intersectionRatio) best = e;
       }
-      if (best) {
-        // console.debug('[menu] active:', best.target.id, 'ratio:', best.intersectionRatio);
-        setActive(best.target.id);
-      }
+      if (best) setActive(best.target.id);
     }, {
       root: null,
-      // mírnější okno: odečti header nahoře a nech 40% dole
       rootMargin: `${-(headerOffset + 8)}px 0px -40% 0px`,
       threshold: [0, 0.25, 0.5, 0.75, 1]
     });
@@ -111,9 +121,8 @@ export function initMenu ({
 
   const ok = runObserver();
   if (!ok) {
-    // Fallback: klasický scroll výpočet
     const onScroll = () => {
-      const middle = window.scrollY + headerOffset + window.innerHeight * 0.3; // „měřící“ linie ~ 30% pod headerem
+      const middle = window.scrollY + headerOffset + window.innerHeight * 0.3;
       let current = null;
       for (const sec of sections) {
         const top = sec.offsetTop;
@@ -125,4 +134,46 @@ export function initMenu ({
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
+
+  // ==========================
+  // HAMBURGER LOGIKA
+  // ==========================
+  const setExpanded = (open) => {
+    menuEl.classList.toggle('open', open);
+    if (toggleBtn) {
+      toggleBtn.classList.toggle('active', open);
+      toggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    document.body.classList.toggle('menu-open', open);
+  };
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      setExpanded(!menuEl.classList.contains('open'));
+    });
+  }
+
+  // Klik mimo menu zavře (na mobilu i hamburger)
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest(navbarMenu) && !e.target.closest(hamburgerToggle)) {
+      items().forEach((it) => { it.classList.remove('show'); it.classList.remove('open'); });
+      if (isMobile()) setExpanded(false);
+    }
+  });
+
+  // ESC zavře
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      items().forEach((it) => { it.classList.remove('show'); it.classList.remove('open'); });
+      setExpanded(false);
+    }
+  });
+
+  // Při resize nad breakpoint reset stavu
+  window.addEventListener('resize', () => {
+    if (!isMobile()) {
+      setExpanded(false);
+      items().forEach((it) => it.classList.remove('open'));
+    }
+  });
 }

@@ -7,6 +7,22 @@
   margin-top: 2rem;
 }
 
+/**/
+.services--split {
+  align-items: flex-start;
+  /* zarovnání k hornímu okraji */
+  max-width: 1200px;
+  /* nepřesahuje moc do šířky */
+  margin: 0 auto;
+}
+.service-text {
+  flex: 1;
+  /* zbylý prostor */
+  font-size: 1rem;
+  line-height: 1.6;
+}
+/**/
+
 figure {
   display: grid;
   border-radius: 1rem;

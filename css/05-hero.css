@@ -1,14 +1,25 @@
 /* HERO */
 .light-section {
+  min-height: calc(100vh - 115px);
+  /* pro mobily radši i moderní jednotky */
+  min-height: calc(100svh - 115px);
+  min-height: calc(100dvh - 115px);
+
   background: var(--beige-light);
-  padding: 3rem 2rem;
+  padding: 0 2rem;
   text-align: center;
-  min-height: 380px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
+
+
+.light-section h2 {
+  color: var(--antracit);
+}
+/*
 .light-section h1 {
   font-family: var(--font-title);
   font-size: 2.7rem;
@@ -17,19 +28,57 @@
   margin-top: 0;
 }
 
-.light-section h2 {
-  color: var(--antracit);
-}
-
 .light-section p {
   max-width: 650px;
   margin: 0 auto 2rem auto;
   font-size: 1.22rem;
   color: var(--antracit);
 }
+  */
 
 @media (max-width: 600px) {
   .light-section h1 {
     font-size: 1.5rem;
   }
+}
+
+/* klíčové snímky */
+/* Klíčové snímky */
+@keyframes zoomInFade {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+    /* menší a průhledné */
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+    /* plná velikost */
+  }
+}
+
+/* Nadpis */
+.light-section h1 {
+  font-family: var(--font-title);
+  font-size: 3.5rem;
+  color: var(--antracit);
+  letter-spacing: 1.5px;
+  margin-top: 0;
+
+  opacity: 0;
+  animation: zoomInFade 3s ease-out forwards;
+}
+
+/* Odstavce s malým zpožděním */
+.light-section p {
+  max-width: 650px;
+  margin: 0 auto 2rem auto;
+  font-size: 1.22rem;
+  color: var(--antracit);
+
+  opacity: 0;
+  animation: zoomInFade 2s ease-out forwards;
+  animation-delay: 0.4s;
+  /* objeví se po nadpisu */
 }

@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="./css/09-services.css">
 
   <!-- Javascript -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script type="module" src="./javascript/main.js"></script>
 
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
@@ -57,10 +58,17 @@
     <!-- Header & Navigation -->
     <header>
       <div class="navbar">
+        <!-- HAMBURGER jen pro mobil -->
+        <button class="navbar-toggle" aria-label="Otevřít menu" aria-expanded="false" aria-controls="primary-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
 
-        <!--------- MENU ------->
-        <nav class="navbar-menu">
+        <!-- MENU -->
+        <nav class="navbar-menu" id="primary-menu">
           <ul>
+            <li><a href="#uvod" class="active">ÚVOD</a></li>
             <li><a href="#omne" class="active">O MNĚ</a></li>
             <li class="has-dropdown">
               <a href="#sluzby" class="dropdown-toggle">
@@ -87,18 +95,20 @@
           </ul>
         </nav>
 
-        <a href="#">
-          <img src="./img/logo-with-border.svg" alt="Logo" style="width:240px;">
+        <!-- LOGO -->
+        <a href="#" class="brand">
+          <img src="./img/logo-with-border.svg" alt="Logo">
         </a>
 
+        <!-- KONTAKTY -->
         <div class="navbar-contact">
           <div class="navbar-contact-social">
             <div class="contact-row">
               <a href="https://facebook.com/" target="_blank" class="facebook" title="Facebook">
                 <i class="bi bi-facebook"></i>
               </a>
-              <a href="mailto:perfect.look.studio@gmail.com">
-                <i class="icon bi bi-envelope-fill"></i>perfect.look.studio@gmail.com
+              <a href="mailto:petra.ludkova.studio@gmail.com">
+                <i class="icon bi bi-envelope-fill"></i>petra.ludkova.studio@gmail.com
               </a>
             </div>
             <div class="contact-row">
@@ -116,16 +126,22 @@
 
 
     <!-- Hero Section -->
-    <section class="light-section">
+    <section id="uvod" class="light-section" style="text-align: center;" ;>
+      <!--
+      <div style="text-align: center; padding:10px; border:1px solid black; width:40%;">
+        <h1 style="padding:0; margin:0;">P<span style="font-weight: 100; margin:0 10px;">|</span>L</h1>
+        <h1 style="padding:0; margin:0;">Perfect Look</h1>
+        <p style="padding:0; margin:0; font-weight: 100;">beauty studio</p>
+      </div>
+      -->
       <h1>Permanentní make-up | beauty studio</h1>
-      <p>Perfect studio nabízí svým klientům profesionální péči a individuální přístup. Před ošetřením probíhá
-        konzultace zdarma,
-        kde zjistíme vaše požadavky a potřeby na míru pro vaši maximální spokojenost.</p>
+      <p>Perfect Look beauty studio nabízí svým klientům profesionální péči a individuální přístup. Před ošetřením
+        probíhá konzultace zdarma, kde zjistíme vaše požadavky a potřeby na míru pro vaši maximální spokojenost.</p>
       <p>Ve studiu je možné zakoupení dárkových poukazů a přírodní luxusní britské kosmetiky Jane Scrivner</p>
     </section>
 
     <!-- o mně -->
-    <section class="section" id="omne">
+    <section id="omne" class="section">
       <h2 class="section-title">O mně</h2>
       <h3>Petra Ludková</h3>
       <p><em>Permanentní make-up & kosmetická péče</em></p>
@@ -153,6 +169,7 @@
 
 
     <!-- Služby -->
+    <!-- Permanentní make-up -->
     <section class="light-section" id="permanentni-make-up">
       <h2 class="section-title">Permanentní make-up</h2>
       <div class="services">
@@ -178,19 +195,25 @@
       </div>
     </section>
 
-
+    <!-- Kosmetika -->
     <section class="section" id="kosmetika">
       <h2 class="section-title">Kosmetika</h2>
 
       <div class="services services--split">
-        <figure id="open-gallery-ocni-linky">
+
+        <figure id="open-gallery-kosmetika">
           <i class="icon-photo-galery bi-camera-fill"></i>
-          <img src="./img/ocni-linky.png" alt="Oční linky">
+          <img src="./img/kosmetika.jpg" alt="Kosmetika">
           <figcaption>Kosmetika</figcaption>
         </figure>
 
         <div class="service-text">
-          <h3>Profesionální kosmetické ošetření</h3>
+          <h3 style="margin-top:0px;">Profesionální kosmetické ošetření</h3>
+          <p>Značka Jane Scrivner „doopravdy“ vznikla v roce 2011, už dlouho předtím si ale Jane
+            sama míchala přípravky podle vlastní receptury a poskytovala luxusní kosmetická
+            ošetření obličeje i celého těla, která přinášela skvělé výsledky. Přírodní a účinné bio
+            oleje plné látek, které vyživují pleť, aby nevypadala bledě a nezdravě, ale byla
+            vyživená a plná života.</p>
           <p>Jane Scrivner je exkluzivní britská značka, která si získala oblibu po celém světě a byla oceněna řadou
             prestižních cen.
             Její filozofie stojí na pečlivém výběru surovin a výrobě s důrazem na nejvyšší kvalitu.</p>
@@ -211,8 +234,8 @@
       <h2 class="section-title dark-text">Ceník</h2>
       <table class="price-table">
         <tr>
-          <th>Služba</th>
-          <th>Cena</th>
+          <th>Permanentní make-up</th>
+          <th style="text-align:end;">Cena</th>
         </tr>
         <tr>
           <td>obočí (powder/hairstroke/combo)</td>
@@ -240,7 +263,42 @@
         </tr>
         <tr>
           <td>Odstranění permanentního make-upu</td>
-          <td>od 1 000 Kč</td>
+          <td style="min-width:100px;">od 1 000 Kč</td>
+        </tr>
+
+        <tr>
+          <th>Kosmetika</th>
+          <th style="text-align:end;">Cena</th>
+        </tr>
+        <tr>
+          <td>
+            Kosmetické ošetření dle typu pleti
+            <p style="font-size: 11px; margin:0;">Ošetření pleti zaměřené na danou problematiku pleti (odlíčení,
+              hloubkové čištění ultrazvukem,
+              kosmetická masáž obličeje, maska, sérum, krém)</p>
+          </td>
+          <td>1 590 Kč
+            <p style="font-size: 11px; margin:0;"><strong>cca 90 minut</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Kosmetické ošetření pro muže včetně relaxační masáže obličeje
+            <p style="font-size: 11px; margin:0;">Relaxační a detoxikační ošetření navržené speciálně pro potřeby mužské
+              pleti, pomáhá posílit
+              obranyschopnost pleti, zklidnit podráždění a dodat jí zdravý, upravený vzhled.</p>
+          </td>
+          <td>1 590 Kč
+            <p style="font-size: 11px; margin:0;"><strong>cca 90 minut</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td>Úprava a barvení obočí (pouze k celkovému ošetření)</td>
+          <td>250 Kč</td>
+        </tr>
+        <tr>
+          <td>Epilace - obličej, ruce, hrudník (pouze k celkovému ošetření)</td>
+          <td>250 Kč</td>
         </tr>
       </table>
     </section>
@@ -294,18 +352,22 @@
       <div class="contact-box">
         <h2>Napište zprávu</h2>
         <div class="contact-details">
-          beauty studio Perfect Look, , Brno<br>
+          Perfect Look - beauty studio<br>
+          Černovická 10, 617 00 Brno <br>
           <a href="tel:+420776285808">+420 776 285 808</a> |
-          <a href="mailto:perfect.look.studio@gmail.com">perfect.look.studio@gmail.com</a>
+          <a href="mailto:petra.ludkova.studio@gmail.com">petra.ludkova.studio@gmail.com</a>
         </div>
-        <form class="contact-form" autocomplete="off">
+
+        <form id="contactForm" class="contact-form" autocomplete="off">
           <input type="text" name="name" placeholder="Vaše jméno" required>
           <input type="email" name="email" placeholder="Váš e-mail" required>
           <textarea name="message" rows="4" placeholder="Zpráva" required></textarea>
           <button type="submit">Odeslat</button>
         </form>
+
+        <p id="formStatus" aria-live="polite"></p>
       </div>
-      <!-- FAQ -->
+
       <!-- FAQ -->
       <div class="faq-box">
         <h2>Často kladené otázky ohledně PMU</h2>
@@ -417,11 +479,30 @@
       <img src="./gallery/rty/thumbs/04.png" data-large="gallery/rty/04.png" alt="Rty ukázka 4" />
     </div>
 
+    <div class="gallery" id="gallery-kosmetika">
+      <img src="./gallery/kosmetika/thumbs/01.jpg" data-large="gallery/kosmetika/01.jpg" alt="Kosmetika 1" data-text="Pro zdravou pleť je důležitá ochranná kožní bariéra a kyselý plášť pleti. Stačí obě
+                tyto složky vyživovat a podporovat a výsledkem je dokonalá pleť, která překypuje
+                zdravím." />
+      <img src="./gallery/kosmetika/thumbs/02.jpg" data-large="gallery/kosmetika/02.jpg" data-text="Jemné oční linky"
+        alt="Kosmetika 2" />
+      <img src="./gallery/kosmetika/thumbs/03.jpg" data-large="gallery/kosmetika/03.jpg" data-text="Jemné oční linky"
+        alt="Kosmetika 3" />
+      <img src="./gallery/kosmetika/thumbs/04.jpg" data-large="gallery/kosmetika/04.jpg" data-text="Jemné oční linky"
+        alt="Kosmetika 4" />
+      <img src="./gallery/kosmetika/thumbs/05.png" data-large="gallery/kosmetika/05.png"
+        data-text="Tady muže být dlouhyyy tex o tom co a jak kde sk kdjvnjnvjwnw" alt="Kosmetika 5" />
+    </div>
+
   </div>
 
   <div class="lightbox" id="lightbox" role="dialog" aria-hidden="true">
     <button class="close-btn" id="closeBtn" title="zavřít"></button>
-    <div class="stage"><img id="stageImage" alt="Velký náhled" /></div>
+
+    <div class="stage">
+      <img id="stageImage" alt="Velký náhled" />
+    </div>
+    <div class="stage-text"></div>
+
     <div class="thumbs" id="thumbs"></div>
   </div>
 

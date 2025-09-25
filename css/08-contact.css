@@ -96,6 +96,26 @@
 .contact-form button:hover {
   background: var(--beige-light);
 }
+.form-status {
+  margin-top: 8px;
+  text-align: center;
+  font-weight: 500;
+  /* volitelné, pro výraznější text */
+  color:var(--antracit);
+  /* barvu si klidně dolaďte */
+}
+.form-status {
+  margin-top: 8px;
+  text-align: center;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+.form-status.success {
+  color: green;
+}
+.form-status.error {
+  color: red;
+}
 
 /* FAQ – box a typografie nadpisu */
 .faq-box {

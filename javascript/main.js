@@ -31,11 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Menu + dropdowny
   initMenu({
-    dropdownToggle: '.dropdown-toggle',
-    dropdownItem: '.has-dropdown',
+    dropdownToggle: '.navbar-menu .dropdown-toggle',
+    dropdownItem: '.navbar-menu .has-dropdown',
     navbarMenu: '.navbar-menu',
-    topLevelLinks: '.navbar-menu > ul > li > a', // zůstává pro tvoje styly
-    headerOffset: 80 // výška sticky headeru (uprav podle reality)
+    headerSelector: 'header',
+    hamburgerToggle: '.navbar-toggle'
   });
 
   // Kontakt (fake submit)
@@ -78,7 +78,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       '#open-gallery-oboci-menu': '#gallery-oboci',
       '#open-gallery-ocni-linky-menu': '#gallery-ocni-linky',
-      '#open-gallery-rty-menu': '#gallery-rty'
+      '#open-gallery-rty-menu': '#gallery-rty',
+
+      '#open-gallery-kosmetika': '#gallery-kosmetika',
+      '#open-gallery-kosmetika-menu': '#gallery-kosmetika'
     }
   });
 

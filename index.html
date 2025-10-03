@@ -1,5 +1,17 @@
 <!DOCTYPE html>
 <html lang="cs">
+<!-- Poznámky:
+ 
+- sekce o me padding dole víc
+
+- o me a kosmetika stejné šířky
+- ceny v mobilu rozpad
+- faq s lomítkem i jako nadpis
+- text v obr. menší
+- texty do sekce permanentní makeup 
+- menu 
+
+-->
 
 <head>
   <meta charset="UTF-8">
@@ -26,6 +38,8 @@
   <link rel="stylesheet" href="./css/07-carousel.css">
   <link rel="stylesheet" href="./css/08-contact.css">
   <link rel="stylesheet" href="./css/09-services.css">
+
+  <link rel="stylesheet" href="./css/99-aurora.css">
 
   <!-- Javascript -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -69,7 +83,7 @@
         <nav class="navbar-menu" id="primary-menu">
           <ul>
             <li><a href="#uvod" class="active">ÚVOD</a></li>
-            <li><a href="#omne" class="active">O MNĚ</a></li>
+            <li><a href="#omne" class="active">O&nbsp;MNĚ</a></li>
             <li class="has-dropdown">
               <a href="#sluzby" class="dropdown-toggle">
                 SLUŽBY
@@ -108,7 +122,7 @@
                 <i class="bi bi-facebook"></i>
               </a>
               <a href="mailto:petra.ludkova.studio@gmail.com">
-                <i class="icon bi bi-envelope-fill"></i>petra.ludkova.studio@gmail.com
+                <i class="icon bi bi-envelope-fill"></i><span class="hide-mobile">petra.ludkova.studio@gmail.com</span>
               </a>
             </div>
             <div class="contact-row">
@@ -116,14 +130,13 @@
                 <i class="bi bi-instagram"></i>
               </a>
               <a href="tel:+420776285808">
-                <i class="icon bi bi-telephone-fill"></i>+420 776 285 808
+                <i class="icon bi bi-telephone-fill"></i><span class="hide-mobile">+420 776 285 808</span>
               </a>
             </div>
           </div>
         </div>
       </div>
     </header>
-
 
     <!-- Hero Section -->
     <section id="uvod" class="light-section" style="text-align: center;" ;>
@@ -134,37 +147,62 @@
         <p style="padding:0; margin:0; font-weight: 100;">beauty studio</p>
       </div>
       -->
-      <h1>Permanentní make-up | beauty studio</h1>
+      <h1 style="margin-bottom: 10px;">
+        <span>Permanentní make-up</span>
+        <span class="aurora-text"
+          style="font-family: serif; padding: 0px 10px; font-weight: 100; font-size: 40px">&</span>
+        <span>kosmetika</span>
+      </h1>
+      <h1 style="margin-bottom: 70px; font-size: 40px;"><span class="aurora-text">beauty studio</span></h1>
+      <!--
+      <div class="content">
+        <h1 class="title">Permanentní make-up | beauty studio
+          <div class="aurora">
+            <div class="aurora__item"></div>
+            <div class="aurora__item"></div>
+            <div class="aurora__item"></div>
+            <div class="aurora__item"></div>
+          </div>
+        </h1>
+      </div>-->
+
+
+
       <p>Perfect Look beauty studio nabízí svým klientům profesionální péči a individuální přístup. Před ošetřením
         probíhá konzultace zdarma, kde zjistíme vaše požadavky a potřeby na míru pro vaši maximální spokojenost.</p>
       <p>Ve studiu je možné zakoupení dárkových poukazů a přírodní luxusní britské kosmetiky Jane Scrivner</p>
     </section>
 
-    <!-- o mně -->
-    <section id="omne" class="section">
+    <!-- O MNĚ -->
+    <section id="omne" class="section about">
       <h2 class="section-title">O mně</h2>
-      <h3>Petra Ludková</h3>
-      <p><em>Permanentní make-up & kosmetická péče</em></p>
 
-      <p>
-        Jmenuji se Petra Ludková a mým posláním je pomáhat klientkám a klientům cítit se krásně a sebevědomě.
-      </p>
+      <div class="about-grid">
+        <div class="about-header">
 
-      <p>
-        Původně jsem vystudovala ekonomickou školu a dlouhá léta působila v tomto oboru.
-        Postupně jsem ale cítila, že potřebuji změnu a nové naplnění.
-        Protože mi byl svět krásy vždy blízký, rozhodla jsem se vydat cestou permanentního make-upu a kosmetiky.
-      </p>
+        </div>
 
-      <p>
-        Dnes vnímám tuto práci jako možnost propojit estetiku, preciznost a osobní přístup.
-        Baví mě sledovat, jak i drobná úprava dokáže rozzářit tvář a dodat klientkám i klientům sebevědomí.
-      </p>
+        <div class="about-photo-box">
+          <img src="tvoje-fotka.jpg" alt="Petra Ludková">
+        </div>
 
-      <p>
-        Věřím, že krása nemá věk – začíná uvnitř nás a rozkvétá pokaždé,
-        když si dopřejeme chvíli jen pro sebe.
-      </p>
+        <div class="about-body">
+
+          <p class="about-subtitle">
+            <span style="font-size: larger; font-weight: 700;">Petra Ludková</span>
+            &nbsp;–&nbsp;
+            <em>Permanentní make-up & kosmetická péče</em>
+          </p>
+          <p>Jmenuji se Petra a mým cílem je pomáhat klientkám a klientům cítit se krásně a sebevědomě.</p>
+          <p>Vystudovala jsem ekonomickou školu a od té doby působila v tomto oboru.
+            Postupně jsem začala pociťovat, že potřebuji změnu a nové naplnění.
+            Protože mi byl svět krásy vždy blízký, rozhodla jsem se vydat cestou permanentního make-upu a kosmetiky.</p>
+          <p>Dnes vnímám tuto práci jako možnost propojit estetiku, preciznost a osobní přístup.
+            Baví mě sledovat, jak i drobná úprava dokáže rozzářit tvář a dodat sebevědomí.</p>
+          <p>Věřím, že krása nemá věk – začíná uvnitř nás a rozkvétá pokaždé,
+            když si dopřejeme chvíli jen pro sebe.</p>
+        </div>
+      </div>
     </section>
 
 
@@ -172,6 +210,7 @@
     <!-- Permanentní make-up -->
     <section class="light-section" id="permanentni-make-up">
       <h2 class="section-title">Permanentní make-up</h2>
+      <h4 class="section-title">galerie</h4>
       <div class="services">
 
         <figure id="open-gallery-oboci">
@@ -321,7 +360,7 @@
           <div class="reference-card">Permanentní make-up mi doslova změnil život. Vypadám svěže hned po probuzení. Moc
             děkuji!<strong>– Tereza K.</strong></div>
           <div class="reference-card">Petra byla milá, vše mi dopodrobna vysvětlila a během zákroku jsem se cítila
-            bezpečně. Výsledek? Perfektní!<strong>– Monika S.</strong></div>
+            skvěle. Výsledek? Perfektní!<strong>– Monika S.</strong></div>
           <div class="reference-card">Po několika nepovedených zkušenostech jinde jsem konečně našla profesionálku. Moje
             nové obočí mi každý chválí.<strong>– Renata N.</strong></div>
           <div class="reference-card">Rty jsou jemné, plné a barva nádherná. Všechno proběhlo rychle a bez
@@ -348,101 +387,109 @@
 
     <!-- Kontakt + FAQ -->
     <section class="contact-faq-section" id="kontakt">
-      <!-- Kontakt -->
-      <div class="contact-box">
-        <h2>Napište zprávu</h2>
-        <div class="contact-details">
-          Perfect Look - beauty studio<br>
-          Černovická 10, 617 00 Brno <br>
-          <a href="tel:+420776285808">+420 776 285 808</a> |
-          <a href="mailto:petra.ludkova.studio@gmail.com">petra.ludkova.studio@gmail.com</a>
+
+      <div class="cf-col">
+        <h2 class="section-subtitle">Kontakt</h2>
+        <div class="contact-box">
+          <h2>Napište zprávu</h2>
+          <div class="contact-details">
+            Perfect Look - beauty studio<br>
+            <a href="https://www.google.com/maps/search/?api=1&query=Černovická+10,+617+00+Brno" target="_blank"
+              rel="noopener">
+              Černovická 10, 617 00 Brno
+              <img src="./img/map.png" alt="Mapa" style="vertical-align:middle; width:20px; height:20px;">
+            </a><br>
+            <a href="tel:+420776285808">+420 776 285 808</a> |
+            <a href="mailto:petra.ludkova.studio@gmail.com">petra.ludkova.studio@gmail.com</a>
+          </div>
+
+          <form id="contactForm" class="contact-form" autocomplete="off">
+            <input type="text" name="name" placeholder="Vaše jméno" required>
+            <input type="email" name="email" placeholder="Váš e-mail" required>
+            <textarea name="message" rows="4" placeholder="Zpráva" required></textarea>
+            <button type="submit">Odeslat</button>
+          </form>
+          <p id="formStatus" class="form-status" aria-live="polite"></p>
         </div>
-
-        <form id="contactForm" class="contact-form" autocomplete="off">
-          <input type="text" name="name" placeholder="Vaše jméno" required>
-          <input type="email" name="email" placeholder="Váš e-mail" required>
-          <textarea name="message" rows="4" placeholder="Zpráva" required></textarea>
-          <button type="submit">Odeslat</button>
-        </form>
-
-        <p id="formStatus" aria-live="polite"></p>
       </div>
 
-      <!-- FAQ -->
-      <div class="faq-box">
-        <h2>Často kladené otázky ohledně PMU</h2>
-        <ul class="faq-list">
+      <div class="cf-col">
+        <h2 class="section-subtitle">FAQ</h2>
+        <div class="faq-box">
+          <h2>Často kladené otázky ohledně PMU</h2>
+          <ul class="faq-list">
 
-          <li class="faq-item">
-            <div class="faq-q">Jak se připravit na permanentní make-up?</div>
-            <div class="faq-a">
-              Aby byl výsledek co nejlepší a hojení probíhalo hladce, doporučuji dodržet několik jednoduchých pravidel:
-              <br><br>
-              <strong>24 hodin před zákrokem:</strong>
-              <ul>
-                <li>Nepijte alkohol ani kávu</li>
-                <li>Vyhněte se lékům na ředění krve (např. Acylpyrin, Ibuprofen, injekce na ředění krve)</li>
-                <li>Neužívejte vitamín C, rybí olej ani jiné doplňky s účinkem na ředění krve</li>
-              </ul>
-              <strong>48 hodin před zákrokem:</strong>
-              <ul>
-                <li>Nevystavujte se přímému slunci ani soláriu</li>
-                <li>Nepodstupujte kosmetické peelingy, chemická ošetření či barvení obočí</li>
-                <li>Nenavštěvujte saunu ani wellness</li>
-              </ul>
-              <strong>Týden před zákrokem:</strong>
-              <ul>
-                <li>Ukončete používání retinolových a kyselinových produktů v oblasti obočí</li>
-                <li>Vyhněte se botoxu, výplním nebo jiným invazivním zákrokům v oblasti, kde bude PMU aplikován</li>
-              </ul>
-              <strong>V den zákroku:</strong>
-              <ul>
-                <li>Přijďte nenalíčená (zejména v oblasti, kde bude PMU aplikován)</li>
-                <li>Vyhněte se intenzivnímu cvičení a sauně</li>
-                <li>Dejte si dostatek vody a odpočinku – tělo pak lépe reaguje</li>
-              </ul>
-            </div>
-          </li>
+            <li class="faq-item">
+              <div class="faq-q">Jak se připravit na permanentní make-up?</div>
+              <div class="faq-a">
+                Aby byl výsledek co nejlepší a hojení probíhalo hladce, doporučuji dodržet několik jednoduchých
+                pravidel:
+                <br><br>
+                <strong>24 hodin před zákrokem:</strong>
+                <ul>
+                  <li>Nepijte alkohol ani kávu</li>
+                  <li>Vyhněte se lékům na ředění krve (např. Acylpyrin, Ibuprofen, injekce na ředění krve)</li>
+                  <li>Neužívejte vitamín C, rybí olej ani jiné doplňky s účinkem na ředění krve</li>
+                </ul>
+                <strong>48 hodin před zákrokem:</strong>
+                <ul>
+                  <li>Nevystavujte se přímému slunci ani soláriu</li>
+                  <li>Nepodstupujte kosmetické peelingy, chemická ošetření či barvení obočí</li>
+                  <li>Nenavštěvujte saunu ani wellness</li>
+                </ul>
+                <strong>Týden před zákrokem:</strong>
+                <ul>
+                  <li>Ukončete používání retinolových a kyselinových produktů v oblasti obočí</li>
+                  <li>Vyhněte se botoxu, výplním nebo jiným invazivním zákrokům v oblasti, kde bude PMU aplikován</li>
+                </ul>
+                <strong>V den zákroku:</strong>
+                <ul>
+                  <li>Přijďte nenalíčená (zejména v oblasti, kde bude PMU aplikován)</li>
+                  <li>Vyhněte se intenzivnímu cvičení a sauně</li>
+                  <li>Dejte si dostatek vody a odpočinku – tělo pak lépe reaguje</li>
+                </ul>
+              </div>
+            </li>
 
-          <li class="faq-item">
-            <div class="faq-q">Je nutná korekce?</div>
-            <div class="faq-a">
-              Ano, doporučuje se po 4–8 týdnech a je součástí celého procesu.
-              Slouží k doladění tvaru, hustoty i barevnosti a zajistí dlouhodobě krásný výsledek.
-            </div>
-          </li>
+            <li class="faq-item">
+              <div class="faq-q">Je nutná korekce?</div>
+              <div class="faq-a">
+                Ano, doporučuje se po 4–8 týdnech a je součástí celého procesu.
+                Slouží k doladění tvaru, hustoty i barevnosti a zajistí dlouhodobě krásný výsledek.
+              </div>
+            </li>
 
-          <li class="faq-item">
-            <div class="faq-q">Pro koho není permanentní make-up vhodný?</div>
-            <div class="faq-a">
-              PMU není vhodný v případě:
-              <ul>
-                <li>těhotenství nebo kojení</li>
-                <li>při nemoci či nachlazení</li>
-                <li>neléčené cukrovky</li>
-                <li>aktivního akné v oblasti obočí</li>
-                <li>čerstvého opálení, užívání léků na ředění krve</li>
-                <li>vážných kožních nebo autoimunitních onemocnění</li>
-              </ul>
-              V případě nejistoty je vždy vhodná konzultace.
-            </div>
-          </li>
+            <li class="faq-item">
+              <div class="faq-q">Pro koho není permanentní make-up vhodný?</div>
+              <div class="faq-a">
+                PMU není vhodný v případě:
+                <ul>
+                  <li>těhotenství nebo kojení</li>
+                  <li>při nemoci či nachlazení</li>
+                  <li>neléčené cukrovky</li>
+                  <li>aktivního akné v oblasti obočí</li>
+                  <li>čerstvého opálení, užívání léků na ředění krve</li>
+                  <li>vážných kožních nebo autoimunitních onemocnění</li>
+                </ul>
+                V případě nejistoty je vždy vhodná konzultace.
+              </div>
+            </li>
 
-          <li class="faq-item">
-            <div class="faq-q">Péče bezprostředně po aplikaci PMU</div>
-            <div class="faq-a">
-              Po zákroku je klíčová důkladná hygiena a ochrana pigmentu:
-              <ul>
-                <li>Nedotýkat se oblasti zbytečně rukama</li>
-                <li>Prvních 7–10 dní se vyhýbat vodě, sauně, make-upu a UV záření</li>
-                <li>Aplikovat hojivý krém dle doporučení</li>
-                <li>Neškrábat stroupky – nechte je samovolně odpadnout</li>
-              </ul>
-            </div>
-          </li>
+            <li class="faq-item">
+              <div class="faq-q">Péče bezprostředně po aplikaci PMU</div>
+              <div class="faq-a">
+                Po zákroku je klíčová důkladná hygiena a ochrana pigmentu:
+                <ul>
+                  <li>Nedotýkat se oblasti zbytečně rukama</li>
+                  <li>Prvních 7–10 dní se vyhýbat vodě, sauně, make-upu a UV záření</li>
+                  <li>Aplikovat hojivý krém dle doporučení</li>
+                  <li>Neškrábat stroupky – nechte je samovolně odpadnout</li>
+                </ul>
+              </div>
+            </li>
 
-        </ul>
-      </div>
+          </ul>
+        </div>
     </section>
 
 

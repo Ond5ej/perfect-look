@@ -15,6 +15,15 @@
   align-items: flex-start;
   flex-wrap: wrap;
 }
+/* Nadpisy */
+.section-subtitle {
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-title);
+  font-size: 2rem;
+  margin: 1rem 0 1.5rem 0;
+  color: var(--antracit);
+}
 
 /* Contact box (samostatně, bez závislosti na FAQ) */
 .contact-box {
@@ -220,5 +229,59 @@
   .contact-faq-section {
     flex-direction: column;
     align-items: center;
+  }
+}
+
+/* Sloupce sekce – drží h2 + box vedle sebe */
+.contact-faq-section {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: stretch;
+  /* stejné výšky sloupců, pokud chceš */
+  flex-wrap: wrap;
+  /* na mobilu pod sebe (zůstává) */
+  padding: 3rem 0;
+  background: var(--beige-light);
+}
+
+/* Každý sloupec */
+.contact-faq-section .cf-col {
+  flex: 1 1 350px;
+  min-width: 400px;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 1rem;
+}
+
+/* Nadpis sekce nad boxem */
+.section-subtitle {
+  text-align: center;
+  font-family: var(--font-title);
+  font-size: 2rem;
+  margin: 0 0 1.2rem 0;
+  color: var(--antracit);
+}
+
+/* Boxy nech klidně beze změny; můžeš vyhodit jejich marginy,
+   když jsou teď v .cf-col, aby se nelámalo zarovnání */
+.contact-box,
+.faq-box {
+  margin: 0;
+  /* nově bez bočních marginů, řeší .cf-col */
+}
+
+/* Responzivně: na užších zařízeních pod sebe (zůstává) */
+@media (max-width: 950px) {
+  .contact-faq-section {
+    gap: 1.5rem;
+    padding: 2rem 0;
+  }
+
+  .contact-faq-section .cf-col {
+    min-width: unset;
+    max-width: 98vw;
+    margin: 0 auto;
   }
 }

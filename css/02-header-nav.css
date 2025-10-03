@@ -62,11 +62,22 @@ header.is-scrolled {
 }
 
 @media (max-width: 768px) {
-
+.navbar{
+  padding:0px;
+}
   .brand img,
   .navbar>a>img {
     width: 160px;
   }
+  .hide-mobile {
+    display: none;
+  }
+  .contact-row i {
+    font-size: 1.1rem;    
+  }
+    .navbar-contact-social{
+      gap:0;
+    }
 }
 
 @media (max-width: 480px) {
@@ -494,3 +505,5 @@ footer {
   font-size: 1rem;
   border-top: 2px solid var(--beige);
 }
+
+

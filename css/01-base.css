@@ -7,8 +7,11 @@ body {
   line-height: 1.7;
 }
 
+/* doporučeno globálně – aby padding šel do šířky prvků */
+/* *, *::before, *::after { box-sizing: border-box; }
+
 /* ukáže ti všechny boxy */
-/* * { outline: 1px solid red; } */
+/** { outline: 1px solid red; } */
 
 /* odsazení při kotvení na sekce kvůli sticky headeru */
 #rty,
@@ -44,6 +47,86 @@ body {
 /* mobilní úpravy základních prvků */
 @media (max-width: 600px) {
   .section {
-    padding: 2rem 1rem;
+    padding: 1rem 0.6rem;
+  }
+}
+
+/*====================  O MNĚ ===================*/
+.about-grid {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  /* fotka | text */
+  grid-template-areas:
+    "header header"
+    "photo  body";
+  column-gap: 2rem;
+  row-gap: 1.25rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: start;
+  /* přesně k začátku textu */
+}
+
+.about-header {
+  grid-area: header;
+}
+
+.about-photo-box {
+  grid-area: photo;
+}
+
+.about-body {
+  grid-area: body;
+}
+
+/* box s fotkou */
+.about-photo-box {
+  width: 350px;
+  height: 350px;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow:
+    rgba(6, 24, 44, 0.4) 0 0 0 2px,
+    rgba(6, 24, 44, 0.65) 0 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0 1px 0 inset;
+}
+
+.about-photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* drobná typografie */
+.about-header h3 {
+  margin: 0 0 .25rem 0;
+}
+
+.about-subtitle {
+  margin: 0;
+}
+
+.about-body p:first-child {
+  margin-top: 0;
+}
+
+/* ať nezačíná mezerou */
+
+/* Mobil: vše pod sebe, centrované */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "photo"
+      "body";
+    text-align: center;
+  }
+
+  .about-photo-box {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
   }
 }

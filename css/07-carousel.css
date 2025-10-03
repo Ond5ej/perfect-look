@@ -50,3 +50,54 @@
   cursor: pointer;
   font-size: 1.5rem;
 }
+
+/* --- Responzivita pro desktop --- */
+@media (min-width: 769px) {
+  .carousel-track {
+    width: 100%;
+    /* ať se počítá ze šířky kontejneru */
+    padding: 1rem 0;
+    gap: 2rem;
+  }
+
+  .reference-card {
+    box-sizing: border-box;
+    /* jistota proti přetečení */
+    /* 3 sloupce → 2 mezery (gap). Odečteme je a zbytek / 3 */
+    flex: 0 0 calc((100% - 2rem * 2) / 3);
+    max-width: none;
+    /* zruší pevný strop 370px */
+    width: auto;
+    /* ať rozhoduje flex-basis */
+    margin: 0;
+  }
+}
+
+
+/* --- Responzivita pro mobil --- */
+@media (max-width: 768px) {
+  /* volitelné: ubereme boční padding sekce, ať je víc místa */
+  .section { padding: 2rem 1rem; }
+
+  .carousel-container {
+    max-width: 100%;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .carousel-track {
+    /* KLÍČOVÉ: zrušit max-content, jinak se 100% u karty bere „z nekonečna“ */
+    width: 100%;
+    padding: 0;
+  }
+
+  .reference-card {
+    /* Jedna karta = přesně šířka kontejneru */
+    flex: 0 0 100%;
+    max-width: 100%;
+    min-width: 100%;   /* Safari fix proti „zalomení“ */
+    box-sizing: border-box; /* ať se padding + border vejdou do 100% */
+    font-size: 0.95rem;
+    margin: 0;         /* mezery řeší pouze gap na tracku */
+  }
+}

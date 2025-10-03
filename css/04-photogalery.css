@@ -1,3 +1,4 @@
+/* --- tvoje původní CSS zůstává beze změny --- */
 .wrapper {
   max-width: 1100px;
   margin: 0 auto;
@@ -11,10 +12,8 @@
   background: var(--antracit);
   z-index: 9999;
   display: none;
-  /*grid-template-rows: 1fr auto;*/
   grid-template-rows: minmax(0, 1fr) auto;
   gap: 14px;
-  /*padding: 18px;*/
   height: 100dvh;
 }
 
@@ -22,12 +21,11 @@
   display: grid;
 }
 
-
 .stage {  
   padding-top: 10px;
   display: flex;
-  align-items: center;  /* svislé centrování */
-  justify-content: center;  /* vodorovné centrování */
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   min-height: 0;
 }
@@ -40,7 +38,6 @@
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
 }
-
 
 .thumbs {
   display: flex;
@@ -65,7 +62,6 @@
   opacity: 1;
   border-color: var(--beige-light);
 }
-
 
 .close-btn {
   position: absolute;
@@ -101,26 +97,97 @@
 .close-btn:hover::before,
 .close-btn:hover::after {
   background: #f44336;
-  /* při hover změna barvy (červená) */
 }
 
 .close-btn:hover {
   transform: scale(1.2);
 }
-/**********************/
 
+/**********************/
 .stage-text {
   position: absolute;
   right: 150px;
-  /* vzdálenost od pravého okraje lightboxu */
   top: 50%;
   transform: translateY(-50%);
-  /* vertikální vycentrování */
   width: 300px;
-  /* pevná šířka textového boxu */
   text-align: center;
   font-size: 1.2rem;
   color: #eee;
-  /* světlý text na tmavém pozadí */
 }
 
+/* --- tady přidáš moje DOPLŇKY pro responzivitu --- */
+
+/* Lepší výška na mobilech */
+.lightbox {
+  height: 100svh; /* místo 100dvh */
+  padding: max(12px, env(safe-area-inset-top)) 12px max(12px, env(safe-area-inset-bottom));
+}
+
+.thumbs {
+  -webkit-overflow-scrolling: touch;
+}
+
+.close-btn {
+  top: max(10px, env(safe-area-inset-top));
+  right: 12px;
+  width: 44px;
+  height: 44px;
+}
+
+/* --- Mobilní layout --- */
+@media (max-width: 768px) {
+  .stage {
+    padding-top: 0;
+    min-height: 0;
+  }
+
+  .stage img {
+    max-height: calc(100svh - 200px);
+  }
+
+  .stage-text {
+    position: static;
+    transform: none;
+    width: auto;
+    margin: 6px 0 0;
+    text-align: center;
+    font-size: 1rem;
+    color: #eee;
+    max-height: 6lh;
+    overflow: auto;
+  }
+
+  .thumbs {
+    padding: 8px 2px max(10px, env(safe-area-inset-bottom));
+    gap: 8px;
+    justify-content: flex-start;
+  }
+
+  .thumbs img {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+/* --- Desktop zachová původní chování --- */
+@media (min-width: 769px) {
+  .stage-text {
+    position: absolute;
+    right: 150px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #eee;
+  }
+
+  .thumbs {
+    justify-content: center;
+  }
+
+  .thumbs img {
+    width: 85px;
+    height: 85px;
+  }
+}

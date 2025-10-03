@@ -1,0 +1,43 @@
+/* animovatelná vlastnost úhlu (pro plynulou rotaci) */
+@property --a {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes aurora-spin {
+  to {
+    --a: 360deg;
+  }
+}
+
+/* fallback – kdyby clip nefungoval */
+.aurora-text {
+  display: inline-block;
+}
+
+/* efekt jen když je podpora clipu */
+@supports ((-webkit-background-clip:text) or (background-clip:text)) {
+  .aurora-text {
+    /* jeden conic gradient – žádné bílé špičky */
+    background:
+      conic-gradient(from var(--a) at 50% 50%,
+        #e54cff 0%,
+        #e54cff 20%,
+        #00c2ff 35%,
+        #33ff8c 55%,
+        #ffc640 75%,
+        #e54cff 100%);
+    background-size: 200% 200%;
+    /* větší plocha pro jemnost */
+    animation: aurora-spin 14s linear infinite;
+
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    /* volitelné, lehce změkčí přechody */
+    filter: saturate(1.05) contrast(1.02);
+  }
+}

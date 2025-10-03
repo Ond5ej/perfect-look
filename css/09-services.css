@@ -85,3 +85,62 @@ figure:hover img {
     color: var(--beige-light);
   }
 }
+
+@media (max-width: 768px) {
+  .services {
+    gap: 1rem;
+    justify-content: center; /* zarovnání na střed */
+  }
+
+  .services figure {
+    position: relative; /* potřebné pro absolutní pozicování dovnitř */
+    width: 45%;
+    height: 180px;
+  }
+
+  .services figure img {
+    object-fit: cover;
+  }
+
+  /* figcaption vždy viditelné vlevo nahoře */
+  .services figure figcaption {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: auto;
+    bottom: auto;
+    font-size: 2rem;
+    font-weight: 600;
+    color:var(--beige-light);         
+    padding: 4px 8px;
+    border-radius: 6px;
+    clip-path: none;            /* zrušíme schovávání */
+    margin: 0;
+    text-shadow: 0 1px 3px rgba(0,0,0,1); /* aby byl čitelný i na světlém podkladu */
+    background-color: transparent;
+    opacity: 0.8;
+  }
+    /* ikona foťáku vpravo nahoře */
+    .services figure .icon-photo-galery {
+      position: absolute;
+      top: -3px;
+      right: 20px;
+      left: auto;
+      margin: 0;
+      font-size: 3rem;
+      opacity: 0.8;
+      text-shadow: 0 1px 3px rgba(0,0,0,1);
+    }
+     /* hover na mobilu nepotřebujeme */
+  .services figure:hover figcaption {
+    --_i: 0%;
+  }
+}
+
+/* Extra malé displeje (např. < 480px) – radši jen 1 sloupec */
+@media (max-width: 480px) {
+  .services figure {
+    width: 100%;
+    height: 200px;
+  }
+}

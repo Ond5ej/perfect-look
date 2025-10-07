@@ -86,6 +86,7 @@ figure:hover img {
   }
 }
 
+/* MOBIL */ 
 @media (max-width: 768px) {
   .services {
     gap: 1rem;
@@ -104,6 +105,8 @@ figure:hover img {
 
   /* figcaption vždy viditelné vlevo nahoře */
   .services figure figcaption {
+    display:none; /* nebudeme zobrazovat vubec v mobilu */
+
     position: absolute;
     top: 8px;
     left: 8px;

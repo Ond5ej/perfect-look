@@ -1,232 +1,46 @@
-/* ===========================
-   HLAVIČKA A NAVIGACE
-=========================== */
+/* ====== ZÁKLAD HLAVIČKY + GRID ====== */
 header {
   background: var(--beige-light);
   position: sticky;
   top: 0;
   z-index: 50;
-  transition: background-color 240ms ease, box-shadow 240ms ease, backdrop-filter 240ms ease;
+  transition: background-color .24s, box-shadow .24s, backdrop-filter .24s;
 }
 
 header.is-scrolled {
   background: var(--white);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, .08);
   backdrop-filter: saturate(160%) blur(6px);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  header {
-    transition: none;
-  }
-}
-
-/* ===========================
-   NAVBAR – GRID LAYOUT
-   (menu | logo | kontakty)
-=========================== */
+/* Navbar layout: [menu] [logo] [kontakt] */
 .navbar {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
+  gap: 20px;
   max-width: 1320px;
   margin: 0 auto;
-  padding: 0rem 1rem;
-  position: relative;
+  padding: 0 1rem;
   min-height: 115px;
-  gap: 20px;
+  position: relative;
 }
 
 .brand {
   justify-self: center;
 }
 
-
-/* Logo (podpora i bez .brand obalu) */
-.brand img,
-.navbar>a>img {
-  display: block;
-  width: 250px;
-  /* desktop */
-  max-width: 100%;
-  height: auto;
-}
-
-@media (max-width: 950px) {
-
-  .brand img,
-  .navbar>a>img {
-    width: 180px;
-  }
-}
-
-@media (max-width: 768px) {
-.navbar{
-  padding:0px;
-}
-  .brand img,
-  .navbar>a>img {
-    width: 160px;
-  }
-  .hide-mobile {
-    display: none;
-  }
-  .contact-row i {
-    font-size: 1.1rem;    
-  }
-    .navbar-contact-social{
-      gap:0;
-    }
-}
-
-@media (max-width: 480px) {
-
-  .brand img,
-  .navbar>a>img {
-    width: 140px;
-  }
-}
-
-/* ===========================
-   HLAVNÍ MENU (desktop)
-=========================== */
-.navbar-menu {
-  flex: 1;
-}
-
-.navbar-menu ul {
-  display: flex;
-  gap: 1.2rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  justify-content: flex-start;
-}
-
-.navbar-menu>ul>li {
-  display: inline-block;
-  position: relative;
-}
-
-.navbar-menu a {
-  color: var(--antracit);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.9rem;
-  position: relative;
-  letter-spacing: .2px;
-  padding: .22em 0;
-  transition: color 0.18s;
-}
-
-.navbar-menu a::after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 2px;
-  background: var(--accent);
-  transition: width .2s;
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-}
-
-.navbar-menu a:hover,
-.navbar-menu .active {
+.contact-row a:hover,
+.contact-row a:hover .icon {
   color: var(--accent);
 }
 
-.navbar-menu a:hover::after,
-.navbar-menu .active::after {
-  width: 100%;
-}
-
-/* ===========================
-   DROPDOWNS (desktop)
-=========================== */
-.navbar-menu .has-dropdown .dropdown-arrow {
-  font-size: 1em;
-  margin-left: 3px;
-  transition: transform 0.2s;
-}
-
-.navbar-menu .dropdown {
-  display: none;
-  position: absolute;
-  left: 0;
-  top: 100%;
-  background: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, .08);
-  min-width: 220px;
-  padding: 8px 0;
-  z-index: 999;
-}
-
-.navbar-menu li.show>.dropdown {
-  display: block;
-}
-
-.navbar-menu .dropdown>li {
-  position: relative;
-  padding: 0 16px;
-  display: block;
-}
-
-.navbar-menu .dropdown>li>a {
-  font-weight: bold;
-  margin-bottom: 0;
-}
-
-.navbar-menu .submenu {
-  list-style: none;
-  margin: 0 0 8px 0;
-  padding-left: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.navbar-menu .submenu a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: normal;
-  font-size: 0.9em;
-}
-
-.navbar-menu li.show .dropdown-arrow {
-  transform: rotate(180deg);
-}
-
-.navbar-menu .dropdown a:hover,
-.navbar-menu .submenu a:hover {
-  background: #f0f0f0;
-  border-radius: 3px;
-}
-
-/* Ikony fotoaparátu v submenu (Bootstrap Icons) */
-#open-gallery-oboci-menu::before,
-#open-gallery-ocni-linky-menu::before,
-#open-gallery-rty-menu::before {
-  font-family: "bootstrap-icons";
-  content: "\F219";
-  font-size: 1rem;
-  line-height: 1;
-  display: inline-block;
-  speak: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* ===========================
-   KONTAKTY
-=========================== */
+/* =========================== KONTAKTY =========================== */
 .navbar-contact {
   flex: 1;
   display: flex;
+  justify-self: start;
   flex-direction: column;
-  align-items: center;
   min-width: 170px;
 }
 
@@ -271,6 +85,7 @@ header.is-scrolled {
 .contact-row .facebook i {
   color: #1877F3;
 }
+
 .contact-row .icon,
 .contact-row .instagram,
 .contact-row .facebook {
@@ -282,18 +97,59 @@ header.is-scrolled {
 .contact-row .facebook:hover i {
   filter: brightness(1.18) drop-shadow(0 0 4px rgba(0, 0, 0, .13));
 }
+.brand img {
+  display: block;
+  width: 250px;
+  max-width: 100%;
+  height: auto;
+}
 
-/* ===========================
-   HAMBURGER
-=========================== */
+@media (max-width:950px) {
+  .brand img {
+    width: 180px;
+  }
+}
+
+@media (max-width:768px) {
+  .brand img {
+    width: 160px;
+  }
+}
+
+@media (max-width:480px) {
+  .brand img {
+    width: 140px;
+  }
+}
+
+
+/* ====== VIDITELNOST MENUS ====== */
+.nav-desktop {
+  display: block;
+}
+
+.nav-mobile {
+  display: none;
+}
+
+@media (max-width:1024px) {
+  .nav-desktop {
+    display: none !important;
+  }
+
+  .nav-mobile {
+    display: block !important;
+  }
+}
+
+/* ====== HAMBURGER (jen mobil) ====== */
 .navbar-toggle {
   display: none;
-  /* desktop skryté */
-  border: none;
+  border: 0;
   background: none;
   padding: 8px;
-  cursor: pointer;
   color: var(--antracit);
+  cursor: pointer;
 }
 
 .navbar-toggle .bar {
@@ -302,7 +158,7 @@ header.is-scrolled {
   height: 3px;
   margin: 5px 0;
   background: currentColor;
-  transition: transform .25s ease, opacity .25s ease;
+  transition: transform .25s, opacity .25s;
 }
 
 .navbar-toggle.active .bar:nth-child(1) {
@@ -317,44 +173,12 @@ header.is-scrolled {
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* ===========================
-   RESPONZIVNÍ ÚPRAVY
-=========================== */
-@media (max-width: 950px) {
-  .navbar {
-    padding: 1rem;
-    min-height: unset;
-  }
-
-  .navbar-menu ul {
-    justify-content: center;
-    gap: 1.6rem;
-  }
-
-  .navbar-contact {
-    align-items: center;
-    justify-content: center;
-    min-width: unset;
-    margin-top: .5em;
-  }
-
-  .navbar-contact-social {
-    align-items: center;
-    gap: 0.5em;
-  }
-
-  .contact-row {
-    justify-content: center;
-    gap: 0.55em;
-  }
-}
-
-@media (max-width: 768px) {
-
-  /* rozvržení: hamburger | logo | kontakt (ikony) */
+@media (max-width:1024px) {
   .navbar {
     grid-template-columns: 1fr auto 1fr;
     grid-template-areas: "toggle brand contact";
+    min-height: unset;
+    padding: .5rem .75rem;
   }
 
   .navbar-toggle {
@@ -371,132 +195,267 @@ header.is-scrolled {
   .navbar-contact {
     grid-area: contact;
     justify-self: end;
-    font-size: .95rem;
+    min-width: 0;
   }
 
-  .contact-row a {
-    overflow-wrap: anywhere;
+  .brand img {
+    width: 200px;
   }
 
-  /* mobilní panel menu */
-  .navbar-menu {
-    position: absolute;
-    top: 100%;
+  .contact-row .icon,
+  .contact-row .instagram,
+  .contact-row .facebook {
+    font-size: 1.3em;
+  }
+}
+
+/* ====== DESKTOP MENU (#1) – dropdowny ====== */
+.nav-desktop {
+  flex: 1;
+  justify-self: end;
+}
+
+.nav-desktop ul {
+  display: flex;
+  gap: 1.2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: flex-end;
+}
+
+.nav-desktop>ul>li {
+  display: inline-block;
+  position: relative;
+}
+
+.nav-desktop a {
+  color: var(--antracit);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: .9rem;
+  position: relative;
+  letter-spacing: .2px;
+  padding: .22em 0;
+  transition: color .18s;
+}
+
+.nav-desktop a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width .2s;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+}
+
+.nav-desktop a:hover,
+.nav-desktop .active {
+  color: var(--accent);
+}
+
+.nav-desktop a:hover::after,
+.nav-desktop .active::after {
+  width: 100%;
+}
+
+/* dropdown */
+.nav-desktop .has-dropdown .dropdown-arrow {
+  font-size: 1em;
+  margin-left: 3px;
+  transition: transform .2s;
+}
+
+.nav-desktop .dropdown {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .08);
+  min-width: 220px;
+  padding: 8px 0;
+  z-index: 999;
+}
+
+.nav-desktop li.show>.dropdown {
+  display: block;
+}
+
+.nav-desktop .dropdown>li {
+  padding: 0 16px;
+}
+
+.nav-desktop .dropdown>li>a {
+  font-weight: 700;
+}
+
+.nav-desktop .submenu {
+  list-style: none;
+  margin: 0 0 8px 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: .9em;
+}
+
+.nav-desktop li.show .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.nav-desktop .dropdown a:hover,
+.nav-desktop .submenu a:hover {
+  background: #f0f0f0;
+  border-radius: 3px;
+}
+
+/* ====== MOBIL/TABLET MENU (#2) – off-canvas + zploštělé SLUŽBY ====== */
+@media (max-width:1024px) {
+  .nav-mobile {
+    position: fixed;
+    top: 0;
     left: 0;
-    right: 0;
+    bottom: 0;
+    width: min(82vw, 360px);
+    height: 100dvh;
     background: #fff;
-    border-top: 1px solid #eee;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .3s ease;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, .06);
+    border-right: 1px solid #eee;
+    box-shadow: 6px 0 24px rgba(0, 0, 0, .08);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    transform: translateX(-100%);
+    transition: transform .3s ease;
     z-index: 1000;
   }
 
-  .navbar-menu.open {
-    max-height: 80vh;
+  .nav-mobile.open {
+    transform: translateX(0);
   }
 
-  .navbar-menu ul {
-    display: block;
+  .nav-mobile ul {
+    margin: 0;
     padding: .25rem 0;
+    list-style: none;
   }
 
-  .navbar-menu li {
-    border-bottom: 1px solid #f2f2f2;
+  .nav-mobile li {
+    border: 0;
   }
 
-  .navbar-menu a {
+  .nav-mobile a {
     display: block;
     padding: 12px 16px;
+    color: var(--antracit);
+    text-decoration: none;
+    font-weight: 500;
   }
 
-  /* dropdowny v panelu na klik */
-  .has-dropdown>.dropdown-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  .nav-mobile a:hover {
+    background: #f7f7f7;
   }
 
-  .navbar-menu .dropdown {
+  /* SLUŽBY jako label + odsazené úrovně */
+  .nav-mobile .label {
+    padding: 12px 16px;
+    font-weight: 700;
+    letter-spacing: .2px;
+    opacity: .9;
+    cursor: default;
+  }
+
+  .nav-mobile .label a {
+    pointer-events: none;
+    color: inherit;
+  }
+
+  /* label nekliká */
+  .nav-mobile .lvl1>a {
+    padding-left: 28px;
+    font-weight: 600;
+  }
+
+  .nav-mobile .lvl2>a {
+    padding-left: 48px;
+    font-size: .95rem;
+    font-weight: 400;
+  }
+
+  .nav-mobile .lvl2>a::before {
+    content: "– ";
+    opacity: .5;
+  }
+
+  .hide-mobile{
+    display:none;
+  }
+
+  /* kdyby se do mobilního navu dostal desktop dropdown HTML, zneškodníme ho: */
+  .nav-mobile .has-dropdown>.dropdown-toggle {
+    pointer-events: none;
+    cursor: default;
+  }
+
+  .nav-mobile .dropdown-arrow {
+    display: none;
+  }
+
+  .nav-mobile .dropdown {
+    display: block !important;
+    max-height: none !important;
+    overflow: visible !important;
+    transition: none !important;
+    padding: 0;
+    margin: 0;
     position: static;
     box-shadow: none;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .25s ease;
+  }
+
+  .nav-mobile .submenu {
+    display: block;
     padding: 0;
-    /* uvnitř panelu sjednocené odsazení */
-  }
-
-  .has-dropdown.open .dropdown {
-    max-height: 600px;
-  }
-
-  .submenu {
-    padding-left: 12px;
-    border-left: 2px solid #f0f0f0;
+    border: 0;
   }
 }
 
-@media (max-width: 600px) {
-  nav ul {
-    gap: 1rem;
-  }
+/* ====== BACKDROP + BODY LOCK ====== */
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .35);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .28s, visibility .28s;
+  z-index: 999;
+  display: none;
 }
 
-/* DESKTOP: 3 sloupce = menu | logo | kontakty */
-@media (min-width: 769px) {
-  .navbar {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    /* levý, logo, pravý */
-    align-items: center;
-    column-gap: 2rem;
-    /* mezera u loga na obě strany */
-  }
-
-  /* menu zarovnat k logu zleva (tj. doprava v levém sloupci) */
-  .navbar-menu {
-    justify-self: end;
-    /* přirazí menu k logu */
-  }
-
-  .navbar-menu ul {
-    justify-content: flex-end;
-    /* položky vpravo v rámci menu */
-  }
-
-  /* logo přesně doprostřed */
-  .brand {
-    justify-self: center;
-  }
-
-  /* kontakty zarovnat k logu zprava (tj. doleva v pravém sloupci) */
-  .navbar-contact {
-    justify-self: start;
-    /* přirazí kontakty k logu */
-    align-items: flex-start;
-    /* levé zarovnání obsahu */
-    text-align: left;
-  }
-
-  /* tyto "flex: 1" u menu/kontaktů nejsou pro grid potřeba */
-  .navbar-menu,
-  .navbar-contact {
-    flex: unset;
-  }
+body.menu-open .menu-backdrop {
+  display: block !important;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
-/* ===========================
-   BODY LOCK při otevřeném menu (volitelné)
-=========================== */
 body.menu-open {
   overflow: hidden;
+  touch-action: none;
 }
 
-/* ===========================
-   FOOTER
-=========================== */
+/* ====== FOCUS ====== */
+.navbar-toggle:focus-visible,
+.nav-desktop a:focus-visible,
+.nav-mobile a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* =========================== FOOTER =========================== */
 footer {
   background: var(--antracit);
   color: var(--beige);
@@ -505,5 +464,3 @@ footer {
   font-size: 1rem;
   border-top: 2px solid var(--beige);
 }
-
-

@@ -31,12 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Menu + dropdowny
   initMenu({
-    dropdownToggle: '.dropdown-toggle',
-    dropdownItem: '.has-dropdown',
-    navbarMenu: '.navbar-menu',
-    topLevelLinks: '.navbar-menu > ul > li > a'
+    dropdownToggle: '.nav-desktop .dropdown-toggle',
+    dropdownItem: '.nav-desktop .has-dropdown',
+    navbarMenu: '#desktop-menu',              // <- jen desktop nav
+    topLevelLinks: '.nav-desktop > ul > li > a',
+    headerSelector: 'header',
+    hamburgerToggle: '.navbar-toggle'         // nech klidně takhle (viz patch níž)
   });
-
   // Kontakt (fake submit)
   initContactForm({ form: '.contact-form' });
 
@@ -73,7 +74,14 @@ document.addEventListener('DOMContentLoaded', () => {
     galleries: {
       '#open-gallery-oboci': '#gallery-oboci',
       '#open-gallery-ocni-linky': '#gallery-ocni-linky',
-      '#open-gallery-rty': '#gallery-rty'
+      '#open-gallery-rty': '#gallery-rty',
+
+      '#open-gallery-oboci-menu': '#gallery-oboci',
+      '#open-gallery-ocni-linky-menu': '#gallery-ocni-linky',
+      '#open-gallery-rty-menu': '#gallery-rty',
+
+      '#open-gallery-kosmetika': '#gallery-kosmetika',
+      '#open-gallery-kosmetika-menu': '#gallery-kosmetika'
     }
   });
 

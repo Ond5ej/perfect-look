@@ -3,12 +3,10 @@
 <!-- Poznámky:
  
 - sekce o me padding dole víc
-
 - o me a kosmetika stejné šířky
-- ceny v mobilu rozpad
-- faq s lomítkem i jako nadpis
-- text v obr. menší
+
 - texty do sekce permanentní makeup 
+
 - menu 
 
 -->
@@ -70,6 +68,7 @@
 
   <div id="secretContent" style="display:none;">
     <!-- Header & Navigation -->
+    <!-- Header & Navigation -->
     <header>
       <div class="navbar">
         <!-- HAMBURGER jen pro mobil -->
@@ -79,16 +78,18 @@
           <span class="bar"></span>
         </button>
 
-        <!-- MENU -->
-        <nav class="navbar-menu" id="primary-menu">
+        <!-- MENU (off-canvas pro mobil/tablet) -->
+        <!-- DESKTOP MENU (#1) -->
+        <nav class="navbar-menu nav-desktop" id="desktop-menu" aria-label="Hlavní navigace">
           <ul>
             <li><a href="#uvod" class="active">ÚVOD</a></li>
             <li><a href="#omne" class="active">O&nbsp;MNĚ</a></li>
-            <li class="has-dropdown">
+
+            <li class="has-dropdown" id="menu-sluzby">
               <a href="#sluzby" class="dropdown-toggle">
-                SLUŽBY
-                <span class="dropdown-arrow">&#9662;</span> <!-- Malý dolů trouhelník -->
+                SLUŽBY&nbsp;<span class="dropdown-arrow">&#9662;</span>
               </a>
+
               <ul class="dropdown">
                 <li>
                   <a href="#permanentni-make-up"><b>Permanetní make-up</b></a>
@@ -103,11 +104,35 @@
                 </li>
               </ul>
             </li>
+
             <li><a href="#cenik">CENÍK</a></li>
             <li><a href="#reference">REFERENCE</a></li>
-            <li><a href="#kontakt">KONTAKT</a></li>
+            <li><a href="#kontakt">KONTAKT&nbsp;/&nbsp;FAQ</a></li>
           </ul>
         </nav>
+
+        <!-- MOBILNÍ MENU (#2) – off-canvas, zploštělé -->
+        <nav class="navbar-menu nav-mobile" id="mobile-menu" aria-label="Hlavní navigace (mobil)">
+          <ul>
+            <li><a href="#uvod">ÚVOD</a></li>
+            <li><a href="#omne">O MNĚ</a></li>
+
+            <!-- SLUŽBY – zploštělé, „fake“ v jedné úrovni -->
+            <li><a href="#permanentni-make-up">SLUŽBY</a></li>
+            <li class="lvl1"><a href="#permanentni-make-up"><b>Permanentní make-up</b></a></li>
+            <li class="lvl2"><a href="#permanentni-make-up" id="open-gallery-oboci-menu">Obočí</a></li>
+            <li class="lvl2"><a href="#permanentni-make-up" id="open-gallery-ocni-linky-menu">Oční linky</a></li>
+            <li class="lvl2"><a href="#permanentni-make-up" id="open-gallery-rty-menu">Rty</a></li>
+            <li class="lvl1"><a href="#kosmetika"><b>Kosmetika</b></a></li>
+
+            <li><a href="#cenik">CENÍK</a></li>
+            <li><a href="#reference">REFERENCE</a></li>
+            <li><a href="#kontakt">KONTAKT / FAQ</a></li>
+          </ul>
+        </nav>
+
+        <!-- Poloprůhledná vrstva pro off-canvas (zobrazí se, když je <body> .menu-open) -->
+        <div class="menu-backdrop" hidden></div>
 
         <!-- LOGO -->
         <a href="#" class="brand">
@@ -138,6 +163,7 @@
       </div>
     </header>
 
+
     <!-- Hero Section -->
     <section id="uvod" class="light-section" style="text-align: center;" ;>
       <!--
@@ -149,24 +175,10 @@
       -->
       <h1 style="margin-bottom: 10px;">
         <span>Permanentní make-up</span>
-        <span class="aurora-text"
-          style="font-family: serif; padding: 0px 10px; font-weight: 100; font-size: 40px">&</span>
+        <span style="font-family: serif; padding: 0px 10px; font-weight: 100; font-size: 40px">&</span>
         <span>kosmetika</span>
       </h1>
       <h1 style="margin-bottom: 70px; font-size: 40px;"><span class="aurora-text">beauty studio</span></h1>
-      <!--
-      <div class="content">
-        <h1 class="title">Permanentní make-up | beauty studio
-          <div class="aurora">
-            <div class="aurora__item"></div>
-            <div class="aurora__item"></div>
-            <div class="aurora__item"></div>
-            <div class="aurora__item"></div>
-          </div>
-        </h1>
-      </div>-->
-
-
 
       <p>Perfect Look beauty studio nabízí svým klientům profesionální péči a individuální přístup. Před ošetřením
         probíhá konzultace zdarma, kde zjistíme vaše požadavky a potřeby na míru pro vaši maximální spokojenost.</p>
@@ -416,7 +428,7 @@
       <div class="cf-col">
         <h2 class="section-subtitle">FAQ</h2>
         <div class="faq-box">
-          <h2>Často kladené otázky ohledně PMU</h2>
+          <h2>Často kladené otázky</h2>
           <ul class="faq-list">
 
             <li class="faq-item">
@@ -556,3 +568,51 @@
 </body>
 
 </html>
+
+<script>
+  // hned nahoře po výběru prvků:
+  // jednoduchý off-canvas toggler pro mobilní menu #mobile-menu
+  (function () {
+    const mq = window.matchMedia('(max-width:1024px)');
+    const btn = document.querySelector('.navbar-toggle');
+    const mobile = document.getElementById('mobile-menu');
+
+    mq.addEventListener?.('change', (e) => {
+      if (!e.matches) { // přešli jsme na desktop
+        mobile?.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        btn?.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    if (!btn || !mobile) return;
+
+    btn.addEventListener('click', () => {
+      const open = !mobile.classList.contains('open');
+      mobile.classList.toggle('open', open);
+      document.body.classList.toggle('menu-open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    // klik mimo zavře
+    document.addEventListener('click', (e) => {
+      if (!mq.matches) return;
+      const inside = e.target.closest('#mobile-menu, .navbar-toggle');
+      if (!inside) {
+        mobile.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // ESC zavře
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        mobile.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+
+</script>

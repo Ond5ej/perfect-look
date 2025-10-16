@@ -206,7 +206,9 @@
     flex-direction: column;
     gap: 1.5rem;
     padding: 2rem 0;
-    max-width: 98vw;
+    max-width: none;
+      /* žádné zužování */
+      width: 100%;
   }
 
   .contact-box,
@@ -233,17 +235,7 @@
 }
 
 /* Sloupce sekce – drží h2 + box vedle sebe */
-.contact-faq-section {
-  display: flex;
-  gap: 2.5rem;
-  justify-content: center;
-  align-items: stretch;
-  /* stejné výšky sloupců, pokud chceš */
-  flex-wrap: wrap;
-  /* na mobilu pod sebe (zůstává) */
-  padding: 3rem 0;
-  background: var(--beige-light);
-}
+
 
 /* Každý sloupec */
 .contact-faq-section .cf-col {

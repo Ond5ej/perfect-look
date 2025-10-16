@@ -16,8 +16,6 @@ export function initMenu ({
   }
 
   // breakpointy v CSS:
-  // - mobilní panel pod 768px
-  // - off-canvas (mobil+tablet) do 1024px
   const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
   const isOffcanvas = () => window.matchMedia('(max-width: 1024px)').matches;
 
@@ -34,39 +32,18 @@ export function initMenu ({
   const toggles = document.querySelectorAll(dropdownToggle);
   const items = () => document.querySelectorAll(dropdownItem);
 
-  // pomocné: hromadné otevření/zavření dropdownů (pouze pro off-canvas)
-  const expandAllDropdowns = (open) => {
-    const all = items(); // všechny .has-dropdown
-    const services = document.getElementById('menu-sluzby');
-
-    all.forEach((li) => {
-      const isServices = li === services;
-      li.classList.toggle('open', open ? isServices : false);
-
-      const tgl = li.querySelector(dropdownToggle);
-      if (tgl) tgl.setAttribute('aria-expanded', open && isServices ? 'true' : 'false');
-    });
-
-    // Volitelně: pokud chceš mít rovnou rozbalenou i první sekci uvnitř SLUŽEB,
-    // přidej třídu 'open' i na první vnořený li:
-    if (open && services) {
-      const innerFirst = services.querySelector('.dropdown > li');
-      if (innerFirst) innerFirst.classList.add('open'); // jen když máš pro vnořené úrovně stejné pravidlo .open
-    }
-  };
-  // původní click toggle — ale na off-canvas REŽIMU ho deaktivujeme (necháme otevřené)
   toggles.forEach((toggle) => {
     toggle.addEventListener('click', (e) => {
       const li = toggle.closest(dropdownItem);
       if (!li) return;
 
       if (isOffcanvas()) {
-        // v off-canvas režimu dropdowny vždy otevřené → nic nepřepínej
+        // v off-canvas režimu dropdowny nespínáme (necháváme rozbalené)
         e.preventDefault();
         return;
       }
 
-      // DESKTOP chování beze změn
+      // DESKTOP chování
       e.preventDefault();
       items().forEach((it) => { if (it !== li) it.classList.remove('show'); });
       li.classList.toggle('show');
@@ -76,11 +53,30 @@ export function initMenu ({
     });
   });
 
-  // --- Scroll-spy ---
+  // --- Zavřít dropdown při kliku mimo (DESKTOP)
+  document.addEventListener('click', (e) => {
+    if (isOffcanvas()) return; // jen na desktopu
+    const clickedInsideDropdown = e.target.closest(dropdownItem);
+    if (!clickedInsideDropdown) {
+      items().forEach((li) => li.classList.remove('show'));
+      document.querySelectorAll(dropdownToggle).forEach(tgl => tgl.setAttribute('aria-expanded', 'false'));
+    }
+  });
+
+  // --- Zavřít dropdown na Escape (DESKTOP)
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !isOffcanvas()) {
+      items().forEach((li) => li.classList.remove('show'));
+      document.querySelectorAll(dropdownToggle).forEach(tgl => tgl.setAttribute('aria-expanded', 'false'));
+    }
+  });
+
+  // --- Scroll-spy (METODA A: pouze fallback + top guard) ---
   const navLinks = [...document.querySelectorAll(`${navbarMenu} a[href^="#"]`)];
   const idFromHref = (a) => decodeURIComponent(a.getAttribute('href') || '').replace(/^#/, '');
   const targetFromLink = (a) => document.getElementById(idFromHref(a));
   const sections = navLinks.map(targetFromLink).filter(Boolean);
+
   if (sections.length === 0) {
     console.warn('[menu] Nenašel jsem žádné sekce z odkazů menu.');
   }
@@ -96,12 +92,24 @@ export function initMenu ({
     navLinks.forEach(a => a.classList.remove('active'));
     const directLink = navLinks.find(a => idFromHref(a) === id);
     if (directLink) directLink.classList.add('active');
+
+    // "SLUŽBY" jako parent aktivní, když jsme v některé z jeho sekcí
     const sluzbySections = ['sluzby', 'permanentni-make-up', 'oboci', 'ocni-linky', 'rty', 'kosmetika'];
     if (sluzbySections.includes(id)) {
       const sluzbyLink = navLinks.find(a => idFromHref(a) === 'sluzby');
       if (sluzbyLink) sluzbyLink.classList.add('active');
     }
   };
+
+  // potlačení přepisu během smooth scrollu
+  let suppressSpyUntil = 0;
+  const setActiveSafely = (id) => {
+    if (Date.now() < suppressSpyUntil) return;
+    setActive(id);
+  };
+
+  // možnost zavřít mobilní panel z „venku“
+  let setExpandedGlobal = null;
 
   // Hladké scrollování + zavření panelu na mobilu
   navLinks.forEach(link => {
@@ -110,62 +118,57 @@ export function initMenu ({
       const target = document.getElementById(id);
       if (!target) return;
       e.preventDefault();
+
       const y = target.getBoundingClientRect().top + window.scrollY - headerOffset;
       history.pushState(null, '', `#${id}`);
+
+      suppressSpyUntil = Date.now() + 600; // 0.6 s
+      setActive(id); // okamžitá vizuální odezva
+
       window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
-      setActive(id);
-      if (isMobile()) setExpanded(false);
+
+      if (isMobile() && typeof setExpandedGlobal === 'function') {
+        setExpandedGlobal(false);
+      }
     });
   });
 
+  const HOME_ID = 'uvod';
+  const TOP_THRESHOLD = 16; // px
+
+  const onScroll = () => {
+    // 1) úplný vršek stránky → vždy ÚVOD
+    if (window.scrollY <= TOP_THRESHOLD) {
+      setActiveSafely(HOME_ID);
+      return;
+    }
+
+    // 2) standardní výběr sekce poblíž středu viewportu
+    const middle = window.scrollY + headerOffset + window.innerHeight * 0.3;
+    let current = null;
+    for (const sec of sections) {
+      const top = sec.offsetTop;
+      const bottom = top + sec.offsetHeight;
+      if (middle >= top && middle < bottom) { current = sec; break; }
+    }
+    if (current) setActiveSafely(current.id);
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // hash při načtení / změně
   const applyHash = () => {
     const id = location.hash ? decodeURIComponent(location.hash.slice(1)) : '';
     if (id && document.getElementById(id)) setActive(id);
+    else if (window.scrollY <= TOP_THRESHOLD) setActive(HOME_ID);
   };
   window.addEventListener('hashchange', applyHash);
   applyHash();
 
-  // IntersectionObserver
-  const runObserver = () => {
-    if (!('IntersectionObserver' in window) || sections.length === 0) return false;
-
-    const observer = new IntersectionObserver((entries) => {
-      let best = null;
-      for (const e of entries) {
-        if (!e.isIntersecting) continue;
-        if (!best || e.intersectionRatio > best.intersectionRatio) best = e;
-      }
-      if (best) setActive(best.target.id);
-    }, {
-      root: null,
-      rootMargin: `${-(headerOffset + 8)}px 0px -40% 0px`,
-      threshold: [0, 0.25, 0.5, 0.75, 1]
-    });
-
-    sections.forEach(sec => observer.observe(sec));
-    return true;
-  };
-
-  const ok = runObserver();
-  if (!ok) {
-    const onScroll = () => {
-      const middle = window.scrollY + headerOffset + window.innerHeight * 0.3;
-      let current = null;
-      for (const sec of sections) {
-        const top = sec.offsetTop;
-        const bottom = top + sec.offsetHeight;
-        if (middle >= top && middle < bottom) { current = sec; break; }
-      }
-      if (current) setActive(current.id);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
-
   // ==========================
-  // HAMBURGER LOGIKA
+  // HAMBURGER LOGIKA (pro mobilní/off-canvas menu)
   // ==========================
-  // jen pokud je menuEl = mobilní menu (#mobile-menu / .nav-mobile)
   const isMobileNavElement = menuEl.classList.contains('nav-mobile') || menuEl.id === 'mobile-menu';
 
   if (isMobileNavElement) {
@@ -181,21 +184,27 @@ export function initMenu ({
       updateMenuAria(open);
     };
 
+    // zpřístupníme zavírání i z horní části skriptu
+    setExpandedGlobal = setExpanded;
+
     if (toggleBtn) {
       toggleBtn.addEventListener('click', () => {
         setExpanded(!menuEl.classList.contains('open'));
       });
     }
 
+    // klik mimo menu → zavřít (jen v off-canvas režimu)
     document.addEventListener('click', (e) => {
       const clickInMenuOrToggle = e.target.closest(navbarMenu) || e.target.closest(hamburgerToggle);
       if (!clickInMenuOrToggle && isOffcanvas()) setExpanded(false);
     });
 
+    // ESC → zavřít panel
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') setExpanded(false);
     });
 
+    // při přechodu z off-canvas na desktop panel zavřít
     let wasOffcanvas = isOffcanvas();
     window.addEventListener('resize', () => {
       const nowOffcanvas = isOffcanvas();
@@ -203,7 +212,7 @@ export function initMenu ({
         setExpanded(false);
       }
       wasOffcanvas = nowOffcanvas;
-      updateHeaderOffset();
+      updateHeaderOffset(); // aktualizuj výšku headeru pro scroll-spy
     });
   }
 }

@@ -313,6 +313,9 @@ header.is-scrolled {
   border-radius: 3px;
 }
 
+/*-------------------------------------------------------------*/
+
+
 /* ====== MOBIL/TABLET MENU (#2) – off-canvas + zploštělé SLUŽBY ====== */
 @media (max-width:1024px) {
   .nav-mobile {
@@ -337,27 +340,30 @@ header.is-scrolled {
     transform: translateX(0);
   }
 
+  /* 1) nativní odrážky pryč, nulové odsazení seznamu */
   .nav-mobile ul {
     margin: 0;
     padding: .25rem 0;
     list-style: none;
   }
 
+  .nav-mobile li::marker {
+    content: '';
+  }
+
   .nav-mobile li {
     border: 0;
+    color: var(--antracit);
   }
 
   .nav-mobile a {
     display: block;
-    padding: 12px 16px;
-    color: var(--antracit);
+    padding: 12px 16px;    
     text-decoration: none;
     font-weight: 500;
+    color: var(--antracit);
   }
 
-  .nav-mobile a:hover {
-    background: #f7f7f7;
-  }
 
   /* SLUŽBY jako label + odsazené úrovně */
   .nav-mobile .label {
@@ -373,28 +379,41 @@ header.is-scrolled {
     color: inherit;
   }
 
-  /* label nekliká */
-  .nav-mobile .lvl1>a {
-    padding-left: 28px;
-    font-weight: 600;
-  }
-
-  .nav-mobile .lvl2>a {
-    padding-left: 48px;
-    font-size: .95rem;
-    font-weight: 400;
-  }
-
+  /* 2) ZRUŠ „fake“ pomlčky (tahle řádka přepíše dřívější pravidlo) */
   .nav-mobile .lvl2>a::before {
-    content: "– ";
-    opacity: .5;
+    content: none !important;
   }
 
-  .hide-mobile{
-    display:none;
+  /* 3) IKONA + TEXT vedle sebe a pěkně na střed */
+  .nav-mobile li {
+    display: flex;
+    align-items: center;
   }
 
-  /* kdyby se do mobilního navu dostal desktop dropdown HTML, zneškodníme ho: */
+  .nav-mobile li i {
+    flex-shrink: 0;
+  }
+
+  /* 4) Zrušit přehnané odsazení na <a>, necháme jen základ */
+  .nav-mobile .lvl1>a,
+  .nav-mobile .lvl2>a {
+    padding-left: 16px;
+  }
+
+  /* 5) Odsazení podle úrovně dej na <li> (čistší a stabilní) */
+  .nav-mobile .lvl1 {
+    padding-left: 12px;
+  }
+
+  .nav-mobile .lvl2 {
+    padding-left: 28px;
+  }
+
+  .hide-mobile {
+    display: none;
+  }
+
+  /* Zneškodnění desktop dropdownu v mobilu */
   .nav-mobile .has-dropdown>.dropdown-toggle {
     pointer-events: none;
     cursor: default;
@@ -421,7 +440,6 @@ header.is-scrolled {
     border: 0;
   }
 }
-
 /* ====== BACKDROP + BODY LOCK ====== */
 .menu-backdrop {
   position: fixed;
@@ -455,12 +473,3 @@ body.menu-open {
   outline-offset: 2px;
 }
 
-/* =========================== FOOTER =========================== */
-footer {
-  background: var(--antracit);
-  color: var(--beige);
-  text-align: center;
-  padding: 20px 1rem;
-  font-size: 1rem;
-  border-top: 2px solid var(--beige);
-}

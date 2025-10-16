@@ -1,15 +1,5 @@
 <!DOCTYPE html>
 <html lang="cs">
-<!-- Poznámky:
- 
-- sekce o me padding dole víc
-- o me a kosmetika stejné šířky
-
-- texty do sekce permanentní makeup 
-
-- menu 
-
--->
 
 <head>
   <meta charset="UTF-8">
@@ -48,7 +38,7 @@
 
 <body>
 
-  <!-- Login Box -->
+  <!-- Login Box 
   <div id="loginBox"
     style="margin:120px auto;width:320px;padding:30px;background:var(--antracit);border-radius:12px;box-shadow:0 2px 16px #0002;">
     <h2>Přihlášení</h2>
@@ -65,453 +55,604 @@
         se</button>
     </form>
   </div>
+  -->
 
-  <div id="secretContent" style="display:none;">
-    <!-- Header & Navigation -->
-    <!-- Header & Navigation -->
-    <header>
-      <div class="navbar">
-        <!-- HAMBURGER jen pro mobil -->
-        <button class="navbar-toggle" aria-label="Otevřít menu" aria-expanded="false" aria-controls="primary-menu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
+  <!--<div id="secretContent" style="display:none;">-->
 
-        <!-- MENU (off-canvas pro mobil/tablet) -->
-        <!-- DESKTOP MENU (#1) -->
-        <nav class="navbar-menu nav-desktop" id="desktop-menu" aria-label="Hlavní navigace">
-          <ul>
-            <li><a href="#uvod" class="active">ÚVOD</a></li>
-            <li><a href="#omne" class="active">O&nbsp;MNĚ</a></li>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="navbar">
+      <!-- HAMBURGER jen pro mobil -->
+      <button class="navbar-toggle" aria-label="Otevřít menu" aria-expanded="false" aria-controls="primary-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
 
-            <li class="has-dropdown" id="menu-sluzby">
-              <a href="#sluzby" class="dropdown-toggle">
-                SLUŽBY&nbsp;<span class="dropdown-arrow">&#9662;</span>
-              </a>
+      <!-- MENU (off-canvas pro mobil/tablet) -->
+      <!-- DESKTOP MENU (#1) -->
+      <nav class="navbar-menu nav-desktop" id="desktop-menu" aria-label="Hlavní navigace">
+        <ul>
+          <li><a href="#uvod">ÚVOD</a></li>
+          <li><a href="#omne">O&nbsp;MNĚ</a></li>
 
-              <ul class="dropdown">
-                <li>
-                  <a href="#permanentni-make-up"><b>Permanetní make-up</b></a>
-                  <ul class="submenu">
-                    <li><a href="#permanentni-make-up" id="open-gallery-oboci-menu">Obočí</a></li>
-                    <li><a href="#permanentni-make-up" id="open-gallery-ocni-linky-menu">Oční linky</a></li>
-                    <li><a href="#permanentni-make-up" id="open-gallery-rty-menu">Rty</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#kosmetika"><b>Kosmetika</b></a>
-                </li>
-              </ul>
-            </li>
+          <li class="has-dropdown" id="menu-sluzby">
+            <a href="#sluzby" class="dropdown-toggle">
+              SLUŽBY&nbsp;<span class="dropdown-arrow">&#9662;</span>
+            </a>
 
-            <li><a href="#cenik">CENÍK</a></li>
-            <li><a href="#reference">REFERENCE</a></li>
-            <li><a href="#kontakt">KONTAKT&nbsp;/&nbsp;FAQ</a></li>
-          </ul>
-        </nav>
+            <ul class="dropdown">
+              <li>
+                <a href="#permanentni-make-up"><b>Permanetní make-up</b></a>
+                <ul class="submenu">
+                  <li>
+                    <a href="#permanentni-make-up" id="open-gallery-oboci-menu">
+                      <i class="bi bi-camera"></i>&nbsp;Obočí
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#permanentni-make-up" id="open-gallery-ocni-linky-menu">
+                      <i class="bi bi-camera"></i>&nbsp;Oční linky
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#permanentni-make-up" id="open-gallery-rty-menu">
+                      <i class="bi bi-camera"></i>&nbsp;Rty
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#kosmetika"><b>Kosmetika</b></a>
+              </li>
+            </ul>
+          </li>
 
-        <!-- MOBILNÍ MENU (#2) – off-canvas, zploštělé -->
-        <nav class="navbar-menu nav-mobile" id="mobile-menu" aria-label="Hlavní navigace (mobil)">
-          <ul>
-            <li><a href="#uvod">ÚVOD</a></li>
-            <li><a href="#omne">O MNĚ</a></li>
+          <li><a href="#cenik">CENÍK</a></li>
+          <li><a href="#reference">REFERENCE</a></li>
+          <li><a href="#kontakt">KONTAKT&nbsp;/&nbsp;FAQ</a></li>
+        </ul>
+      </nav>
 
-            <!-- SLUŽBY – zploštělé, „fake“ v jedné úrovni -->
-            <li><a href="#permanentni-make-up">SLUŽBY</a></li>
-            <li class="lvl1"><a href="#permanentni-make-up"><b>Permanentní make-up</b></a></li>
-            <li class="lvl2"><a href="#permanentni-make-up" id="open-gallery-oboci-menu">Obočí</a></li>
-            <li class="lvl2"><a href="#permanentni-make-up" id="open-gallery-ocni-linky-menu">Oční linky</a></li>
-            <li class="lvl2"><a href="#permanentni-make-up" id="open-gallery-rty-menu">Rty</a></li>
-            <li class="lvl1"><a href="#kosmetika"><b>Kosmetika</b></a></li>
+      <!-- MOBILNÍ MENU (#2) – off-canvas, zploštělé -->
+      <nav class="navbar-menu nav-mobile" id="mobile-menu" aria-label="Hlavní navigace (mobil)">
+        <ul>
+          <li><a href="#uvod">ÚVOD</a></li>
+          <li><a href="#omne">O MNĚ</a></li>
 
-            <li><a href="#cenik">CENÍK</a></li>
-            <li><a href="#reference">REFERENCE</a></li>
-            <li><a href="#kontakt">KONTAKT / FAQ</a></li>
-          </ul>
-        </nav>
+          <!-- SLUŽBY – zploštělé, „fake“ v jedné úrovni -->
+          <li><a href="#permanentni-make-up">SLUŽBY</a></li>
+          <li class="lvl1">
+            <a href="#permanentni-make-up"><b>Permanentní make-up</b></a>
+          </li>
+          <li class="lvl2">
+            <i class="bi bi-camera"></i>
+            <a href="#permanentni-make-up" id="open-gallery-oboci-menu">Obočí</a>
+          </li>
+          <li class="lvl2">
+            <i class="bi bi-camera"></i>
+            <a href="#permanentni-make-up" id="open-gallery-ocni-linky-menu">Oční linky</a>
+          </li>
+          <li class="lvl2">
+            <i class="bi bi-camera"></i>
+            <a href="#permanentni-make-up" id="open-gallery-rty-menu">Rty</a>
+          </li>
+          <li class="lvl1"><a href="#kosmetika"><b>Kosmetika</b></a></li>
 
-        <!-- Poloprůhledná vrstva pro off-canvas (zobrazí se, když je <body> .menu-open) -->
-        <div class="menu-backdrop" hidden></div>
+          <li><a href="#cenik">CENÍK</a></li>
+          <li><a href="#reference">REFERENCE</a></li>
+          <li><a href="#kontakt">KONTAKT / FAQ</a></li>
+        </ul>
+      </nav>
 
-        <!-- LOGO -->
-        <a href="#" class="brand">
-          <img src="./img/logo-with-border.svg" alt="Logo">
-        </a>
+      <!-- Poloprůhledná vrstva pro off-canvas (zobrazí se, když je <body> .menu-open) -->
+      <div class="menu-backdrop" hidden></div>
 
-        <!-- KONTAKTY -->
-        <div class="navbar-contact">
-          <div class="navbar-contact-social">
-            <div class="contact-row">
-              <a href="https://facebook.com/" target="_blank" class="facebook" title="Facebook">
-                <i class="bi bi-facebook"></i>
-              </a>
-              <a href="mailto:petra.ludkova.studio@gmail.com">
-                <i class="icon bi bi-envelope-fill"></i><span class="hide-mobile">petra.ludkova.studio@gmail.com</span>
-              </a>
-            </div>
-            <div class="contact-row">
-              <a href="https://instagram.com/" target="_blank" class="instagram" title="Instagram">
-                <i class="bi bi-instagram"></i>
-              </a>
-              <a href="tel:+420776285808">
-                <i class="icon bi bi-telephone-fill"></i><span class="hide-mobile">+420 776 285 808</span>
-              </a>
-            </div>
+      <!-- LOGO -->
+      <a href="#" class="brand">
+        <img src="./img/logo-with-border.svg" alt="Logo">
+      </a>
+
+      <!-- KONTAKTY -->
+      <div class="navbar-contact">
+        <div class="navbar-contact-social">
+          <div class="contact-row">
+            <a href="https://www.facebook.com/people/Perfect-Look-beauty-studio" target="_blank" class="facebook"
+              title="Facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="mailto:petra.ludkova.studio@gmail.com">
+              <i class="icon bi bi-envelope-fill"></i><span class="hide-mobile">petra.ludkova.studio@gmail.com</span>
+            </a>
+          </div>
+          <div class="contact-row">
+            <a href="https://www.instagram.com/perfect_look_beauty_studio/" target="_blank" class="instagram"
+              title="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="tel:+420776285808">
+              <i class="icon bi bi-telephone-fill"></i><span class="hide-mobile">+420 776 285 808</span>
+            </a>
           </div>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
 
 
-    <!-- Hero Section -->
-    <section id="uvod" class="light-section" style="text-align: center;" ;>
-      <!--
+  <!-- Hero Section -->
+  <section id="uvod" class="light-section" style="text-align: center;" ;>
+    <!--
       <div style="text-align: center; padding:10px; border:1px solid black; width:40%;">
         <h1 style="padding:0; margin:0;">P<span style="font-weight: 100; margin:0 10px;">|</span>L</h1>
         <h1 style="padding:0; margin:0;">Perfect Look</h1>
         <p style="padding:0; margin:0; font-weight: 100;">beauty studio</p>
       </div>
       -->
-      <h1 style="margin-bottom: 10px;">
-        <span>Permanentní make-up</span>
-        <span style="font-family: serif; padding: 0px 10px; font-weight: 100; font-size: 40px">&</span>
-        <span>kosmetika</span>
-      </h1>
-      <h1 style="margin-bottom: 70px; font-size: 40px;"><span class="aurora-text">beauty studio</span></h1>
+    <h1 style="margin-bottom: 10px;">
+      <span>Permanentní make-up</span>
+      <span style="font-family: serif; padding: 0px 10px; font-weight: 100; font-size: 40px">
+        <br class="br-show" />&<br class="br-show" />
+      </span>
+      <span>kosmetika</span>
+    </h1>
+    <h1 style="margin-bottom: 70px; font-size: 40px;"><span class="aurora-text">beauty studio</span></h1>
 
-      <p>Perfect Look beauty studio nabízí svým klientům profesionální péči a individuální přístup. Před ošetřením
-        probíhá konzultace zdarma, kde zjistíme vaše požadavky a potřeby na míru pro vaši maximální spokojenost.</p>
-      <p>Ve studiu je možné zakoupení dárkových poukazů a přírodní luxusní britské kosmetiky Jane Scrivner</p>
-    </section>
+    <p>Perfect Look beauty studio nabízí svým klientům profesionální péči a individuální přístup. Před ošetřením
+      probíhá konzultace zdarma, kde zjistíme vaše požadavky a potřeby na míru pro vaši maximální spokojenost.</p>
+    <p>Ve studiu je možné zakoupení dárkových poukazů a přírodní luxusní britské kosmetiky Jane Scrivner</p>
+  </section>
 
-    <!-- O MNĚ -->
-    <section id="omne" class="section about">
-      <h2 class="section-title">O mně</h2>
+  <!-- O MNĚ -->
+  <section id="omne" class="section about">
+    <h2 class="section-title">O mně</h2>
 
-      <div class="about-grid">
-        <div class="about-header">
+    <div class="about-grid">
+      <div class="about-header">
 
-        </div>
-
-        <div class="about-photo-box">
-          <img src="tvoje-fotka.jpg" alt="Petra Ludková">
-        </div>
-
-        <div class="about-body">
-
-          <p class="about-subtitle">
-            <span style="font-size: larger; font-weight: 700;">Petra Ludková</span>
-            &nbsp;–&nbsp;
-            <em>Permanentní make-up & kosmetická péče</em>
-          </p>
-          <p>Jmenuji se Petra a mým cílem je pomáhat klientkám a klientům cítit se krásně a sebevědomě.</p>
-          <p>Vystudovala jsem ekonomickou školu a od té doby působila v tomto oboru.
-            Postupně jsem začala pociťovat, že potřebuji změnu a nové naplnění.
-            Protože mi byl svět krásy vždy blízký, rozhodla jsem se vydat cestou permanentního make-upu a kosmetiky.</p>
-          <p>Dnes vnímám tuto práci jako možnost propojit estetiku, preciznost a osobní přístup.
-            Baví mě sledovat, jak i drobná úprava dokáže rozzářit tvář a dodat sebevědomí.</p>
-          <p>Věřím, že krása nemá věk – začíná uvnitř nás a rozkvétá pokaždé,
-            když si dopřejeme chvíli jen pro sebe.</p>
-        </div>
       </div>
-    </section>
+
+      <div class="about-photo-box">
+        <img src="./img/ja.jpg" alt="Petra Ludková">
+      </div>
+
+      <div class="about-body">
+
+        <p class="about-subtitle">
+          <span style="font-size: larger; font-weight: 700;">Petra Ludková</span>
+          &nbsp;–&nbsp;
+          <em>Permanentní make-up & kosmetická péče</em>
+        </p>
+        <p>Jmenuji se Petra a mým cílem je pomáhat klientkám a klientům cítit se krásně a sebevědomě.</p>
+        <p>Vystudovala jsem ekonomickou školu a od té doby působila v tomto oboru.
+          Postupně jsem začala pociťovat, že potřebuji změnu a nové naplnění.
+          Protože mi byl svět krásy vždy blízký, rozhodla jsem se vydat cestou permanentního make-upu a kosmetiky.</p>
+        <p>Dnes vnímám tuto práci jako možnost propojit estetiku, preciznost a osobní přístup.
+          Baví mě sledovat, jak i drobná úprava dokáže rozzářit tvář a dodat sebevědomí.</p>
+        <p>Věřím, že krása nemá věk – začíná uvnitř nás a rozkvétá pokaždé,
+          když si dopřejeme chvíli jen pro sebe.</p>
+      </div>
+    </div>
+  </section>
 
 
-    <!-- Služby -->
-    <!-- Permanentní make-up -->
-    <section class="light-section" id="permanentni-make-up">
-      <h2 class="section-title">Permanentní make-up</h2>
-      <h4 class="section-title">galerie</h4>
-      <div class="services">
-
+  <!-- Služby -->
+  <!-- Permanentní make-up -->
+  <section class="price-section" id="permanentni-make-up">
+    <h2 class="section-title dark-text">Permanentní make-up<br />galerie</h2>
+    <div class="services">
+      <div class="service-item">
+        <!--
+          <div>powder </div>
+          <div>hairstroke</div>
+          <div>combo</div>
+          -->
+        <div class="service-item-title">obočí</div>
+        <div class="service-item-text">powder&thinsp;/&thinsp;hairstroke&thinsp;/&thinsp;combo</div>
         <figure id="open-gallery-oboci">
-          <i class="icon-photo-galery bi-camera-fill"></i>
+          <!--<i class="icon-photo-galery bi-camera-fill"></i>-->
           <img src="./img/oboci.png" alt="Obočí">
-          <figcaption>Obočí</figcaption>
         </figure>
+      </div>
 
+      <div class="service-item">
+        <!--
+          <div>meziřasové</div>
+          <div>klasické</div>
+          <div>smokey eyes</div>
+          -->
+        <div class="service-item-title">oční linky</div>
+        <div class="service-item-text">meziřasové&thinsp;/&thinsp;klasické&thinsp;/&thinsp;smokey eyes</div>
         <figure id="open-gallery-ocni-linky">
-          <i class="icon-photo-galery bi-camera-fill"></i>
+          <!--<i class="icon-photo-galery bi-camera-fill"></i>-->
           <img src="./img/ocni-linky.png" alt="Oční linky">
-          <figcaption>Oční linky</figcaption>
         </figure>
+      </div>
 
+      <div class="service-item">
+        <!--
+          <div>&nbsp;</div>
+          <div>dark lips</div>
+          <div>aquarel</div>
+          -->
+        <div class="service-item-title">rty</div>
+        <div class="service-item-text">dark lips&thinsp;/&thinsp;aquarel</div>
         <figure id="open-gallery-rty">
-          <i class="icon-photo-galery bi bi-camera-fill"></i>
+          <!--<i class="icon-photo-galery bi bi-camera-fill"></i>-->
           <img src="./img/rty.png" alt="Rty">
-          <figcaption>Rty</figcaption>
         </figure>
-
       </div>
-    </section>
 
-    <!-- Kosmetika -->
-    <section class="section" id="kosmetika">
-      <h2 class="section-title">Kosmetika</h2>
+    </div>
+  </section>
 
-      <div class="services services--split">
+  <!-- Kosmetika -->
+  <section class="section" id="kosmetika">
+    <h2 class="section-title">Kosmetika</h2>
 
-        <figure id="open-gallery-kosmetika">
-          <i class="icon-photo-galery bi-camera-fill"></i>
-          <img src="./img/kosmetika.jpg" alt="Kosmetika">
-          <figcaption>Kosmetika</figcaption>
-        </figure>
+    <div class="services services--split">
 
-        <div class="service-text">
-          <h3 style="margin-top:0px;">Profesionální kosmetické ošetření</h3>
-          <p>Značka Jane Scrivner „doopravdy“ vznikla v roce 2011, už dlouho předtím si ale Jane
-            sama míchala přípravky podle vlastní receptury a poskytovala luxusní kosmetická
-            ošetření obličeje i celého těla, která přinášela skvělé výsledky. Přírodní a účinné bio
-            oleje plné látek, které vyživují pleť, aby nevypadala bledě a nezdravě, ale byla
-            vyživená a plná života.</p>
-          <p>Jane Scrivner je exkluzivní britská značka, která si získala oblibu po celém světě a byla oceněna řadou
-            prestižních cen.
-            Její filozofie stojí na pečlivém výběru surovin a výrobě s důrazem na nejvyšší kvalitu.</p>
-          <p>Produkty Jane Scrivner posilují ochrannou bariéru pleti, udržují správné pH a dodávají potřebnou hydrataci
-            i výživu.
-            Nabízí kompletní péči – od odlíčení a čištění pleti až po hydratační a vyživující přípravky.</p>
-          <p>Součástí sortimentu jsou také originální bytové vůně a éterické oleje, které provoní váš domov a vytvoří
-            jedinečnou
-            atmosféru.</p>
+      <figure id="open-gallery-kosmetika">
+        <!--<i class="icon-photo-galery bi-camera-fill"></i>-->
+        <img src="./img/kosmetika.jpg" alt="Kosmetika">
+        <!--<figcaption>Kosmetika</figcaption>-->
+      </figure>
+
+      <div class="service-text">
+        <h3 style="margin-top:0px;">Profesionální kosmetické ošetření</h3>
+        <p>Značka Jane Scrivner „doopravdy“ vznikla v roce 2011, už dlouho předtím si ale Jane
+          sama míchala přípravky podle vlastní receptury a poskytovala luxusní kosmetická
+          ošetření obličeje i celého těla, která přinášela skvělé výsledky. Přírodní a účinné bio
+          oleje plné látek, které vyživují pleť, aby nevypadala bledě a nezdravě, ale byla
+          vyživená a plná života.</p>
+        <p>Jane Scrivner je exkluzivní britská značka, která si získala oblibu po celém světě a byla oceněna řadou
+          prestižních cen.
+          Její filozofie stojí na pečlivém výběru surovin a výrobě s důrazem na nejvyšší kvalitu.</p>
+        <p>Produkty Jane Scrivner posilují ochrannou bariéru pleti, udržují správné pH a dodávají potřebnou hydrataci
+          i výživu.
+          Nabízí kompletní péči – od odlíčení a čištění pleti až po hydratační a vyživující přípravky.</p>
+        <p>Součástí sortimentu jsou také originální bytové vůně a éterické oleje, které provoní váš domov a vytvoří
+          jedinečnou
+          atmosféru.</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!----------------------------------- Ceník -------------------------------->
+  <section class="price-section" id="cenik">
+    <h2 class="section-title dark-text">Ceník</h2>
+    <table class="price-table">
+      <tr>
+        <th>Permanentní make-up</th>
+        <th style="text-align:center;">Cena</th>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <strong style="float: left;">Obočí</strong>
+          <table class="inner-table">
+            <tr>
+              <td>
+                <span class="price-left pl">powder&thinsp;/&thinsp;hairstroke&thinsp;/&thinsp;combo</span>
+                <span class="price-right"><strong>4 800Kč</strong></span>
+                <span class="price-line ml"></span>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          <strong style="float: left;">Rty</strong>
+          <table class="inner-table">
+            <tr>
+              <td>
+                <span class="price-left pl">aquarel&thinsp;/&thinsp;dark lips</span>
+                <span class="price-right"><strong>4 800 Kč</strong></span>
+                <span class="price-line ml"></span>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          <strong style="float: left;">Oční linky</strong>
+          <table class="inner-table">
+            <tr>
+              <td>
+                <span class="price-left pl">meziřasové linky</span>
+                <span class="price-right"><strong>2 900 Kč</strong></span>
+                <span class="price-line ml"></span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="price-left pl">smokey eyes linky</span>
+                <span class="price-right"><strong>3 900 Kč</strong></span>
+                <span class="price-line ml"></span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="price-left pl">klasické horní linky</span>
+                <span class="price-right"><strong>3 500 Kč</strong></span>
+                <span class="price-line ml"></span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="price-left pl">dolní linky</span>
+                <span class="price-right"><strong>1 900 Kč</strong></span>
+                <span class="price-line ml"></span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="price-left pl">horní + dolní linky</span>
+                <span class=" price-right"><strong>4 800 Kč</strong></span>
+                <span class="price-line ml"></span>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" class="">
+          <span class="price-left" style="font-weight:900;">Korekce do 3 měsíců</span>
+          <span class="price-right"><strong>1 500 Kč</strong></span>
+          <span class="price-line"></span>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" class="">
+          <!--<span class="price-left" style="font-weight:900;">Odstranění permanentního make-upu</span>-->
+          <span class="price-left" style="font-weight:900;">Odstranění perm. make-upu</span>
+          <span class="price-right"><strong>od 1 000 Kč</strong></span>
+          <span class="price-line"></span>
+        </td>
+      </tr>
+
+      <tr>
+        <th>Kosmetika</th>
+        <th style="text-align:center;">Cena</th>
+      </tr>
+      <tr>
+
+        <td colspan="2">
+          <strong style="float: left;">Kosmetické ošetření dle typu pleti</strong>
+          <table class="inner-table">
+            <tr>
+              <td>
+                <span class="price-left pl">Ošetření pleti zaměřené na danou problematiku pleti</span>
+                <span class="price-right"><strong>2 900 Kč</strong></span>
+                <span></span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="price-left pl">(odlíčení, hloubkové čištění ultrazvukem, kosmetická masáž obličeje,
+                  maska, sérum, krém)</span>
+                <span class="price-right">cca&nbsp;90&nbsp;minut</span>
+                <span class="price-line ml"></span>
+              </td>
+            </tr>
+          </table>
+        </td>
+
+      </tr>
+      <tr>
+        <td colspan="2">
+          <strong style="float: left;">Kosmetické ošetření pro muže včetně relaxační masáže obličeje</strong>
+          <table class="inner-table">
+            <tr>
+              <td>
+                <span class="price-left pl">Relaxační a detoxikační ošetření navržené speciálně pro potřeby mužské
+                  pleti</span>
+                <span class="price-right"><strong>1 590 Kč</strong></span>
+                <span></span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="price-left pl">(pomáhá posílit
+                  obranyschopnost pleti, zklidnit podráždění, dodat zdravý upravený vzhled)</span>
+                <span class="price-right">cca&nbsp;90&nbsp;minut</span>
+                <span class="price-line ml"></span>
+              </td>
+            </tr>
+          </table>
+        </td>
+
+      </tr>
+
+      <tr>
+        <td colspan="2" class="">
+          <span class="price-left">
+            <span style="font-weight: 900;">Úprava a barvení obočí</span>
+            (pouze k celkovému ošetření)
+          </span>
+          <span class="price-right"><strong>250 Kč</strong></span>
+          <span class="price-line"></span>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" class="">
+          <span class="price-left">
+            <span style="font-weight: 900;">Epilace - obličej, ruce, hrudník</span>
+            (pouze k celkovému ošetření)
+          </span>
+          <span class="price-right"><strong>od&nbsp;250 Kč</strong></span>
+          <span class="price-line"></span>
+        </td>
+      </tr>
+    </table>
+  </section>
+
+  <!---------------------------- Reference ----------------------------------->
+  <section class="section" id="reference">
+    <h2 class="section-title">Reference klientek</h2>
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <div class="reference-card">Skvělý zážitek od začátku do konce. Petra je velmi pečlivá a profesionální. Moje
+          nové obočí vypadá naprosto přirozeně!<strong>– Martina P.</strong></div>
+        <div class="reference-card">Nechala jsem si udělat permanentní linky a jsem nadšená! Už žádné každodenní
+          líčení. Doporučuji každé ženě, co chce ušetřit čas.<strong>– Eva D.</strong></div>
+        <div class="reference-card">Petra má zlaté ruce! Obočí i rty jsou perfektní. Přesně pochopila, co chci, a
+          výsledek je lepší, než jsem si představovala.<strong>– Lucie V.</strong></div>
+        <div class="reference-card">Úžasný přístup, krásné prostředí a naprostá preciznost. Jsem maximálně
+          spokojená.<strong>– Andrea M.</strong></div>
+        <div class="reference-card">Měla jsem obavy z bolesti, ale díky citlivému přístupu Petry bylo vše naprosto v
+          pohodě. Rty vypadají fantasticky!<strong>– Kristýna L.</strong></div>
+        <div class="reference-card">Permanentní make-up mi doslova změnil život. Vypadám svěže hned po probuzení. Moc
+          děkuji!<strong>– Tereza K.</strong></div>
+        <div class="reference-card">Petra byla milá, vše mi dopodrobna vysvětlila a během zákroku jsem se cítila
+          skvěle. Výsledek? Perfektní!<strong>– Monika S.</strong></div>
+        <div class="reference-card">Po několika nepovedených zkušenostech jinde jsem konečně našla profesionálku. Moje
+          nové obočí mi každý chválí.<strong>– Renata N.</strong></div>
+        <div class="reference-card">Rty jsou jemné, plné a barva nádherná. Všechno proběhlo rychle a bez
+          komplikací.<strong>– Veronika H.</strong></div>
+        <div class="reference-card">Díky permanentnímu make-upu se cítím sebevědomější. Nejlepší rozhodnutí! Petra
+          odvedla úžasnou práci.<strong>– Alena J.</strong></div>
+        <div class="reference-card">Byla jsem mile překvapená, jak pohodlný byl celý proces. Výsledek stojí za
+          to!<strong>– Simona B.</strong></div>
+        <div class="reference-card">Petra je naprosto profesionální a přitom lidská. Její práce je precizní a citlivá
+          k přání klientek.<strong>– Denisa R.</strong></div>
+        <div class="reference-card">Make-up vydrží celý den a vypadá velmi přirozeně. Investice, která se opravdu
+          vyplatila.<strong>– Klára E.</strong></div>
+        <div class="reference-card">Už se nebudím s rozmazaným obočím. Permanent od Petry je top. Přijdu
+          zase!<strong>– Barbora C.</strong></div>
+        <div class="reference-card">Děkuji za nádherné linky! Petra mě přesvědčila, že krása může být i bez starostí.
+          Jsem nadšená.<strong>– Iveta F.</strong></div>
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button id="prev">&#10094;</button>
+      <button id="next">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- Kontakt + FAQ -->
+  <section class="contact-faq-section" id="kontakt">
+
+    <div class="cf-col">
+      <h2 class="section-subtitle">Kontakt</h2>
+      <div class="contact-box">
+        <h2>Napište zprávu</h2>
+        <div class="contact-details">
+          Perfect Look - beauty studio<br>
+          <a href="https://www.google.com/maps/search/?api=1&query=Černovická+10,+617+00+Brno" target="_blank"
+            rel="noopener">
+            Černovická 10, 617 00 Brno
+            <img src="./img/map.png" alt="Mapa" style="vertical-align:middle; width:20px; height:20px;">
+          </a><br>
+          <a href="tel:+420776285808">+420 776 285 808</a> |
+          <a href="mailto:petra.ludkova.studio@gmail.com">petra.ludkova.studio@gmail.com</a>
         </div>
+
+        <form id="contactForm" class="contact-form" autocomplete="off">
+          <input type="text" name="name" placeholder="Vaše jméno" required>
+          <input type="email" name="email" placeholder="Váš e-mail" required>
+          <textarea name="message" rows="4" placeholder="Zpráva" required></textarea>
+          <button type="submit">Odeslat</button>
+        </form>
+        <p id="formStatus" class="form-status" aria-live="polite"></p>
       </div>
-    </section>
+    </div>
 
+    <div class="cf-col">
+      <h2 class="section-subtitle">FAQ</h2>
+      <div class="faq-box">
+        <h2>Často kladené otázky</h2>
+        <ul class="faq-list">
 
+          <li class="faq-item">
+            <div class="faq-q">Jak se připravit na permanentní make-up?</div>
+            <div class="faq-a">
+              Aby byl výsledek co nejlepší a hojení probíhalo hladce, doporučuji dodržet několik jednoduchých
+              pravidel:
+              <br><br>
+              <strong>24 hodin před zákrokem:</strong>
+              <ul>
+                <li>Nepijte alkohol ani kávu</li>
+                <li>Vyhněte se lékům na ředění krve (např. Acylpyrin, Ibuprofen, injekce na ředění krve)</li>
+                <li>Neužívejte vitamín C, rybí olej ani jiné doplňky s účinkem na ředění krve</li>
+              </ul>
+              <strong>48 hodin před zákrokem:</strong>
+              <ul>
+                <li>Nevystavujte se přímému slunci ani soláriu</li>
+                <li>Nepodstupujte kosmetické peelingy, chemická ošetření či barvení obočí</li>
+                <li>Nenavštěvujte saunu ani wellness</li>
+              </ul>
+              <strong>Týden před zákrokem:</strong>
+              <ul>
+                <li>Ukončete používání retinolových a kyselinových produktů v oblasti obočí</li>
+                <li>Vyhněte se botoxu, výplním nebo jiným invazivním zákrokům v oblasti, kde bude PMU aplikován</li>
+              </ul>
+              <strong>V den zákroku:</strong>
+              <ul>
+                <li>Přijďte nenalíčená (zejména v oblasti, kde bude PMU aplikován)</li>
+                <li>Vyhněte se intenzivnímu cvičení a sauně</li>
+                <li>Dejte si dostatek vody a odpočinku – tělo pak lépe reaguje</li>
+              </ul>
+            </div>
+          </li>
 
-    <!----------------------------------- Ceník -------------------------------->
-    <section class="price-section" id="cenik">
-      <h2 class="section-title dark-text">Ceník</h2>
-      <table class="price-table">
-        <tr>
-          <th>Permanentní make-up</th>
-          <th style="text-align:end;">Cena</th>
-        </tr>
-        <tr>
-          <td>obočí (powder/hairstroke/combo)</td>
-          <td>4 800 Kč</td>
-        </tr>
-        <tr>
-          <td>rty</td>
-          <td>4 800 Kč</td>
-        </tr>
-        <tr>
-          <td>linky horní</td>
-          <td>3 500 Kč</td>
-        </tr>
-        <tr>
-          <td>linky dolní</td>
-          <td>1 900 Kč</td>
-        </tr>
-        <tr>
-          <td>linky (horní+dolní)</td>
-          <td>4 800 Kč</td>
-        </tr>
-        <tr>
-          <td>Korekce do 3 měsíců</td>
-          <td>1 500 Kč</td>
-        </tr>
-        <tr>
-          <td>Odstranění permanentního make-upu</td>
-          <td style="min-width:100px;">od 1 000 Kč</td>
-        </tr>
+          <li class="faq-item">
+            <div class="faq-q">Je nutná korekce?</div>
+            <div class="faq-a">
+              Ano, doporučuje se po 4–8 týdnech a je součástí celého procesu.
+              Slouží k doladění tvaru, hustoty i barevnosti a zajistí dlouhodobě krásný výsledek.
+            </div>
+          </li>
 
-        <tr>
-          <th>Kosmetika</th>
-          <th style="text-align:end;">Cena</th>
-        </tr>
-        <tr>
-          <td>
-            Kosmetické ošetření dle typu pleti
-            <p style="font-size: 11px; margin:0;">Ošetření pleti zaměřené na danou problematiku pleti (odlíčení,
-              hloubkové čištění ultrazvukem,
-              kosmetická masáž obličeje, maska, sérum, krém)</p>
-          </td>
-          <td>1 590 Kč
-            <p style="font-size: 11px; margin:0;"><strong>cca 90 minut</strong></p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Kosmetické ošetření pro muže včetně relaxační masáže obličeje
-            <p style="font-size: 11px; margin:0;">Relaxační a detoxikační ošetření navržené speciálně pro potřeby mužské
-              pleti, pomáhá posílit
-              obranyschopnost pleti, zklidnit podráždění a dodat jí zdravý, upravený vzhled.</p>
-          </td>
-          <td>1 590 Kč
-            <p style="font-size: 11px; margin:0;"><strong>cca 90 minut</strong></p>
-          </td>
-        </tr>
-        <tr>
-          <td>Úprava a barvení obočí (pouze k celkovému ošetření)</td>
-          <td>250 Kč</td>
-        </tr>
-        <tr>
-          <td>Epilace - obličej, ruce, hrudník (pouze k celkovému ošetření)</td>
-          <td>250 Kč</td>
-        </tr>
-      </table>
-    </section>
+          <li class="faq-item">
+            <div class="faq-q">Pro koho není permanentní make-up vhodný?</div>
+            <div class="faq-a">
+              PMU není vhodný v případě:
+              <ul>
+                <li>těhotenství nebo kojení</li>
+                <li>při nemoci či nachlazení</li>
+                <li>neléčené cukrovky</li>
+                <li>aktivního akné v oblasti obočí</li>
+                <li>čerstvého opálení, užívání léků na ředění krve</li>
+                <li>vážných kožních nebo autoimunitních onemocnění</li>
+              </ul>
+              V případě nejistoty je vždy vhodná konzultace.
+            </div>
+          </li>
 
-    <!---------------------------- Reference ----------------------------------->
-    <section class="section" id="reference">
-      <h2 class="section-title">Reference klientek</h2>
-      <div class="carousel-container">
-        <div class="carousel-track">
-          <div class="reference-card">Skvělý zážitek od začátku do konce. Petra je velmi pečlivá a profesionální. Moje
-            nové obočí vypadá naprosto přirozeně!<strong>– Martina P.</strong></div>
-          <div class="reference-card">Nechala jsem si udělat permanentní linky a jsem nadšená! Už žádné každodenní
-            líčení. Doporučuji každé ženě, co chce ušetřit čas.<strong>– Eva D.</strong></div>
-          <div class="reference-card">Petra má zlaté ruce! Obočí i rty jsou perfektní. Přesně pochopila, co chci, a
-            výsledek je lepší, než jsem si představovala.<strong>– Lucie V.</strong></div>
-          <div class="reference-card">Úžasný přístup, krásné prostředí a naprostá preciznost. Jsem maximálně
-            spokojená.<strong>– Andrea M.</strong></div>
-          <div class="reference-card">Měla jsem obavy z bolesti, ale díky citlivému přístupu Petry bylo vše naprosto v
-            pohodě. Rty vypadají fantasticky!<strong>– Kristýna L.</strong></div>
-          <div class="reference-card">Permanentní make-up mi doslova změnil život. Vypadám svěže hned po probuzení. Moc
-            děkuji!<strong>– Tereza K.</strong></div>
-          <div class="reference-card">Petra byla milá, vše mi dopodrobna vysvětlila a během zákroku jsem se cítila
-            skvěle. Výsledek? Perfektní!<strong>– Monika S.</strong></div>
-          <div class="reference-card">Po několika nepovedených zkušenostech jinde jsem konečně našla profesionálku. Moje
-            nové obočí mi každý chválí.<strong>– Renata N.</strong></div>
-          <div class="reference-card">Rty jsou jemné, plné a barva nádherná. Všechno proběhlo rychle a bez
-            komplikací.<strong>– Veronika H.</strong></div>
-          <div class="reference-card">Díky permanentnímu make-upu se cítím sebevědomější. Nejlepší rozhodnutí! Petra
-            odvedla úžasnou práci.<strong>– Alena J.</strong></div>
-          <div class="reference-card">Byla jsem mile překvapená, jak pohodlný byl celý proces. Výsledek stojí za
-            to!<strong>– Simona B.</strong></div>
-          <div class="reference-card">Petra je naprosto profesionální a přitom lidská. Její práce je precizní a citlivá
-            k přání klientek.<strong>– Denisa R.</strong></div>
-          <div class="reference-card">Make-up vydrží celý den a vypadá velmi přirozeně. Investice, která se opravdu
-            vyplatila.<strong>– Klára E.</strong></div>
-          <div class="reference-card">Už se nebudím s rozmazaným obočím. Permanent od Petry je top. Přijdu
-            zase!<strong>– Barbora C.</strong></div>
-          <div class="reference-card">Děkuji za nádherné linky! Petra mě přesvědčila, že krása může být i bez starostí.
-            Jsem nadšená.<strong>– Iveta F.</strong></div>
-        </div>
+          <li class="faq-item">
+            <div class="faq-q">Péče bezprostředně po aplikaci PMU</div>
+            <div class="faq-a">
+              Po zákroku je klíčová důkladná hygiena a ochrana pigmentu:
+              <ul>
+                <li>Nedotýkat se oblasti zbytečně rukama</li>
+                <li>Prvních 7–10 dní se vyhýbat vodě, sauně, make-upu a UV záření</li>
+                <li>Aplikovat hojivý krém dle doporučení</li>
+                <li>Neškrábat stroupky – nechte je samovolně odpadnout</li>
+              </ul>
+            </div>
+          </li>
+
+        </ul>
       </div>
-      <div class="carousel-controls">
-        <button id="prev">&#10094;</button>
-        <button id="next">&#10095;</button>
-      </div>
-    </section>
-
-    <!-- Kontakt + FAQ -->
-    <section class="contact-faq-section" id="kontakt">
-
-      <div class="cf-col">
-        <h2 class="section-subtitle">Kontakt</h2>
-        <div class="contact-box">
-          <h2>Napište zprávu</h2>
-          <div class="contact-details">
-            Perfect Look - beauty studio<br>
-            <a href="https://www.google.com/maps/search/?api=1&query=Černovická+10,+617+00+Brno" target="_blank"
-              rel="noopener">
-              Černovická 10, 617 00 Brno
-              <img src="./img/map.png" alt="Mapa" style="vertical-align:middle; width:20px; height:20px;">
-            </a><br>
-            <a href="tel:+420776285808">+420 776 285 808</a> |
-            <a href="mailto:petra.ludkova.studio@gmail.com">petra.ludkova.studio@gmail.com</a>
-          </div>
-
-          <form id="contactForm" class="contact-form" autocomplete="off">
-            <input type="text" name="name" placeholder="Vaše jméno" required>
-            <input type="email" name="email" placeholder="Váš e-mail" required>
-            <textarea name="message" rows="4" placeholder="Zpráva" required></textarea>
-            <button type="submit">Odeslat</button>
-          </form>
-          <p id="formStatus" class="form-status" aria-live="polite"></p>
-        </div>
-      </div>
-
-      <div class="cf-col">
-        <h2 class="section-subtitle">FAQ</h2>
-        <div class="faq-box">
-          <h2>Často kladené otázky</h2>
-          <ul class="faq-list">
-
-            <li class="faq-item">
-              <div class="faq-q">Jak se připravit na permanentní make-up?</div>
-              <div class="faq-a">
-                Aby byl výsledek co nejlepší a hojení probíhalo hladce, doporučuji dodržet několik jednoduchých
-                pravidel:
-                <br><br>
-                <strong>24 hodin před zákrokem:</strong>
-                <ul>
-                  <li>Nepijte alkohol ani kávu</li>
-                  <li>Vyhněte se lékům na ředění krve (např. Acylpyrin, Ibuprofen, injekce na ředění krve)</li>
-                  <li>Neužívejte vitamín C, rybí olej ani jiné doplňky s účinkem na ředění krve</li>
-                </ul>
-                <strong>48 hodin před zákrokem:</strong>
-                <ul>
-                  <li>Nevystavujte se přímému slunci ani soláriu</li>
-                  <li>Nepodstupujte kosmetické peelingy, chemická ošetření či barvení obočí</li>
-                  <li>Nenavštěvujte saunu ani wellness</li>
-                </ul>
-                <strong>Týden před zákrokem:</strong>
-                <ul>
-                  <li>Ukončete používání retinolových a kyselinových produktů v oblasti obočí</li>
-                  <li>Vyhněte se botoxu, výplním nebo jiným invazivním zákrokům v oblasti, kde bude PMU aplikován</li>
-                </ul>
-                <strong>V den zákroku:</strong>
-                <ul>
-                  <li>Přijďte nenalíčená (zejména v oblasti, kde bude PMU aplikován)</li>
-                  <li>Vyhněte se intenzivnímu cvičení a sauně</li>
-                  <li>Dejte si dostatek vody a odpočinku – tělo pak lépe reaguje</li>
-                </ul>
-              </div>
-            </li>
-
-            <li class="faq-item">
-              <div class="faq-q">Je nutná korekce?</div>
-              <div class="faq-a">
-                Ano, doporučuje se po 4–8 týdnech a je součástí celého procesu.
-                Slouží k doladění tvaru, hustoty i barevnosti a zajistí dlouhodobě krásný výsledek.
-              </div>
-            </li>
-
-            <li class="faq-item">
-              <div class="faq-q">Pro koho není permanentní make-up vhodný?</div>
-              <div class="faq-a">
-                PMU není vhodný v případě:
-                <ul>
-                  <li>těhotenství nebo kojení</li>
-                  <li>při nemoci či nachlazení</li>
-                  <li>neléčené cukrovky</li>
-                  <li>aktivního akné v oblasti obočí</li>
-                  <li>čerstvého opálení, užívání léků na ředění krve</li>
-                  <li>vážných kožních nebo autoimunitních onemocnění</li>
-                </ul>
-                V případě nejistoty je vždy vhodná konzultace.
-              </div>
-            </li>
-
-            <li class="faq-item">
-              <div class="faq-q">Péče bezprostředně po aplikaci PMU</div>
-              <div class="faq-a">
-                Po zákroku je klíčová důkladná hygiena a ochrana pigmentu:
-                <ul>
-                  <li>Nedotýkat se oblasti zbytečně rukama</li>
-                  <li>Prvních 7–10 dní se vyhýbat vodě, sauně, make-upu a UV záření</li>
-                  <li>Aplikovat hojivý krém dle doporučení</li>
-                  <li>Neškrábat stroupky – nechte je samovolně odpadnout</li>
-                </ul>
-              </div>
-            </li>
-
-          </ul>
-        </div>
-    </section>
+  </section>
 
 
-    <div id="fb-root"></div>
-    <div id="fb-customer-chat" class="fb-customerchat"></div>
-    <!-- Footer -->
-    <footer>
-      &copy; 2025 Studio Perfect Look &ndash; Permanentní make-up | beauty studio
-    </footer>
-  </div>
+  <div id="fb-root"></div>
+  <div id="fb-customer-chat" class="fb-customerchat"></div>
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Studio Perfect Look &ndash; Permanentní make-up | beauty studio
+  </footer>
+  <!--</div>-->
 
   <!----------------------- GALERIE ----------------------->
   <div class="wrapper">
@@ -521,6 +662,7 @@
       <img src="./gallery/ocni-linky/thumbs/02.png" data-large="gallery/ocni-linky/02.png" alt="Oční linky ukázka 2">
       <img src="./gallery/ocni-linky/thumbs/03.png" data-large="gallery/ocni-linky/03.png" alt="Oční linky ukázka 3">
       <img src="./gallery/ocni-linky/thumbs/04.png" data-large="gallery/ocni-linky/04.png" alt="Oční linky ukázka 4">
+      <img src="./gallery/ocni-linky/thumbs/05.png" data-large="gallery/ocni-linky/05.png" alt="Oční linky ukázka 5">
     </div>
 
     <div class="gallery" id="gallery-oboci">
@@ -536,20 +678,21 @@
       <img src="./gallery/rty/thumbs/02.png" data-large="gallery/rty/02.png" alt="Rty ukázka 2" />
       <img src="./gallery/rty/thumbs/03.png" data-large="gallery/rty/03.png" alt="Rty ukázka 3" />
       <img src="./gallery/rty/thumbs/04.png" data-large="gallery/rty/04.png" alt="Rty ukázka 4" />
+      <img src="./gallery/rty/thumbs/05.png" data-large="gallery/rty/05.png" alt="Rty ukázka 5" />
+      <img src="./gallery/rty/thumbs/06.png" data-large="gallery/rty/06.png" alt="Rty ukázka 6" />
     </div>
 
     <div class="gallery" id="gallery-kosmetika">
-      <img src="./gallery/kosmetika/thumbs/01.jpg" data-large="gallery/kosmetika/01.jpg" alt="Kosmetika 1" data-text="Pro zdravou pleť je důležitá ochranná kožní bariéra a kyselý plášť pleti. Stačí obě
-                tyto složky vyživovat a podporovat a výsledkem je dokonalá pleť, která překypuje
-                zdravím." />
-      <img src="./gallery/kosmetika/thumbs/02.jpg" data-large="gallery/kosmetika/02.jpg" data-text="Jemné oční linky"
-        alt="Kosmetika 2" />
-      <img src="./gallery/kosmetika/thumbs/03.jpg" data-large="gallery/kosmetika/03.jpg" data-text="Jemné oční linky"
-        alt="Kosmetika 3" />
-      <img src="./gallery/kosmetika/thumbs/04.jpg" data-large="gallery/kosmetika/04.jpg" data-text="Jemné oční linky"
-        alt="Kosmetika 4" />
-      <img src="./gallery/kosmetika/thumbs/05.png" data-large="gallery/kosmetika/05.png"
-        data-text="Tady muže být dlouhyyy tex o tom co a jak kde sk kdjvnjnvjwnw" alt="Kosmetika 5" />
+      <img src="./gallery/kosmetika/thumbs/01.jpg" data-large="gallery/kosmetika/01.jpg" alt="Kosmetika 1"
+        data-text="" />
+      <img src="./gallery/kosmetika/thumbs/02.jpg" data-large="gallery/kosmetika/02.jpg" alt="Kosmetika 2"
+        data-text="" />
+      <img src="./gallery/kosmetika/thumbs/03.jpg" data-large="gallery/kosmetika/03.jpg" alt="Kosmetika 3"
+        data-text="" />
+      <img src="./gallery/kosmetika/thumbs/04.jpg" data-large="gallery/kosmetika/04.jpg" alt="Kosmetika 4"
+        data-text="" />
+      <img src="./gallery/kosmetika/thumbs/05.png" data-large="gallery/kosmetika/05.png" alt="Kosmetika 5"
+        data-text="" />
     </div>
 
   </div>

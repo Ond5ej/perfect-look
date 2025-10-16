@@ -31,13 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Menu + dropdowny
   initMenu({
-    dropdownToggle: '.navbar-menu .dropdown-toggle',
-    dropdownItem: '.navbar-menu .has-dropdown',
-    navbarMenu: '.navbar-menu',
+    dropdownToggle: '.nav-desktop .dropdown-toggle',
+    dropdownItem: '.nav-desktop .has-dropdown',
+    navbarMenu: '#desktop-menu',              // <- jen desktop nav
+    topLevelLinks: '.nav-desktop > ul > li > a',
     headerSelector: 'header',
-    hamburgerToggle: '.navbar-toggle'
+    hamburgerToggle: '.navbar-toggle'         // nech klidně takhle (viz patch níž)
   });
-
   // Kontakt (fake submit)
   initContactForm({ form: '.contact-form' });
 
@@ -52,8 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Vývojový login gate
+  /*
   initDevLogin({
-    needPass: true,              // přepni na true, pokud chceš vyžadovat login
+    needPass: false, // přepni na true, pokud chceš vyžadovat login
     user: 'admin',
     pass: 'tajneheslo',
     loginBox: '#loginBox',
@@ -63,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     passInput: '#password',
     errorMsg: '#errorMsg'
   });
+  */
 
   // Lightbox / galerie
   initLightbox({

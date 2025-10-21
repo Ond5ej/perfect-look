@@ -177,11 +177,31 @@ export function initMenu ({
       if (toggleBtn) toggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     };
 
+    // -------- AUTO-CLOSE: nastavení --------
+    const AUTO_CLOSE_MS = 3000;      // po kolika ms se panel zavře (změň podle potřeby)
+    let autoCloseTimer = null;       // id timeoutu
+
+    const stopAutoClose = () => {    // zruš běžící časovač
+      clearTimeout(autoCloseTimer);
+      autoCloseTimer = null;
+    };
+
+    const restartAutoClose = () => { // spusť/obnov časovač, jen v off-canvas režimu
+      stopAutoClose();
+      if (!isOffcanvas()) return;    // na desktopu časovač nechceme
+      autoCloseTimer = setTimeout(() => setExpanded(false), AUTO_CLOSE_MS);
+    };
+    // --------------------------------------
+
     const setExpanded = (open) => {
       menuEl.classList.toggle('open', open);
       if (toggleBtn) toggleBtn.classList.toggle('active', open);
       document.body.classList.toggle('menu-open', open);
       updateMenuAria(open);
+
+      // AUTO-CLOSE: při otevření spustit/obnovit, při zavření zrušit
+      if (open) restartAutoClose();
+      else stopAutoClose();
     };
 
     // zpřístupníme zavírání i z horní části skriptu
@@ -204,12 +224,41 @@ export function initMenu ({
       if (e.key === 'Escape') setExpanded(false);
     });
 
-    // při přechodu z off-canvas na desktop panel zavřít
+
+    // AUTO-CLOSE: interakce v panelu = „uživatel je aktivní“ → restart časovače
+    ['click', 'touchstart', 'keydown'].forEach(evt => {
+      menuEl.addEventListener(evt, restartAutoClose, { passive: true });
+    });
+
+    // AUTO-CLOSE: klik na libovolný odkaz v mobilním menu → zavřít hned
+    /*
+    menuEl.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => setExpanded(false));
+    });
+    */
+    menuEl.addEventListener('click', (e) => {
+      const a = e.target.closest('a');
+      if (!a) return;
+      // volitelně vynech dropdown toggly:
+      if (a.classList.contains('dropdown-toggle')) return;
+      setExpanded(false);
+    });
+
+
+    // AUTO-CLOSE: backdrop (pokud existuje) → zavřít
+    const backdrop = document.querySelector('.menu-backdrop');
+    backdrop?.addEventListener('click', () => setExpanded(false));
+
+    // při přechodu z off-canvas na desktop panel zavřít + zastavit časovač
     let wasOffcanvas = isOffcanvas();
     window.addEventListener('resize', () => {
       const nowOffcanvas = isOffcanvas();
       if (!nowOffcanvas && wasOffcanvas) {
+        stopAutoClose();
         setExpanded(false);
+      } else if (nowOffcanvas && menuEl.classList.contains('open')) {
+        // zůstáváme v off-canvas a panel je otevřený → znovu nastartuj timer
+        restartAutoClose();
       }
       wasOffcanvas = nowOffcanvas;
       updateHeaderOffset(); // aktualizuj výšku headeru pro scroll-spy

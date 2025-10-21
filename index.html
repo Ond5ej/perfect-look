@@ -12,7 +12,8 @@
   <!-- Základní SEO -->
   <meta name="description"
     content="Perfect Look – permanentní make-up (obočí, oční linky, rty) a kosmetická péče v Brně. Konzultace zdarma, precizní práce, dárkové poukazy, přírodní britská kosmetika Jane Scrivner.">
-  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+
   <meta name="author" content="Studio Perfect Look">
   <meta name="theme-color" content="#ffffff">
 
@@ -49,10 +50,12 @@
 
 
   <!-- FONTS -->
+  <!--
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Baskervville&display=swap"
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+  -->
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap" rel="stylesheet">
 
   <!-- ICONS -->
@@ -72,7 +75,7 @@
   <link rel="stylesheet" href="./css/99-aurora.css">
 
   <!-- Javascript -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
   <script type="module" src="./javascript/main.js"></script>
 
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
@@ -94,7 +97,7 @@
     "logo": "https://www.perfect-look.cz/img/logo-with-border.svg",
     "telephone": "+420776285808",
     "email": "petra.ludkova.studio@gmail.com",
-    "priceRange": "Kč",
+    "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Černovická 10",
@@ -318,15 +321,15 @@
           </li>
           <li class="lvl2">
             <i class="bi bi-camera"></i>
-            <a href="#permanentni-make-up" id="open-gallery-oboci-menu">Obočí</a>
+            <a href="#permanentni-make-up" id="open-gallery-oboci-menu-mobile">Obočí</a>
           </li>
           <li class="lvl2">
             <i class="bi bi-camera"></i>
-            <a href="#permanentni-make-up" id="open-gallery-ocni-linky-menu">Oční linky</a>
+            <a href="#permanentni-make-up" id="open-gallery-ocni-linky-menu-mobile">Oční linky</a>
           </li>
           <li class="lvl2">
             <i class="bi bi-camera"></i>
-            <a href="#permanentni-make-up" id="open-gallery-rty-menu">Rty</a>
+            <a href="#permanentni-make-up" id="open-gallery-rty-menu-mobile">Rty</a>
           </li>
           <li class="lvl1"><a href="#kosmetika"><b>Kosmetika</b></a></li>
 
@@ -387,7 +390,9 @@
       </span>
       <span>kosmetika</span>
     </h1>
-    <h1 style="margin-bottom: 70px; font-size: 40px;"><span class="aurora-text">beauty studio</span></h1>
+    <span class="aurora-text"
+      style="letter-spacing: 1.5px; margin-bottom: 70px; font-size: 50px; font-family: var(--font-title);">beauty
+      studio</span>
 
     <p>Perfect Look beauty studio nabízí svým klientům profesionální péči a individuální přístup. Před ošetřením
       probíhá konzultace zdarma, kde zjistíme vaše požadavky a potřeby na míru pro vaši maximální spokojenost.</p>
@@ -442,7 +447,7 @@
         <div class="service-item-text">powder&thinsp;/&thinsp;hairstroke&thinsp;/&thinsp;combo</div>
         <figure id="open-gallery-oboci">
           <!--<i class="icon-photo-galery bi-camera-fill"></i>-->
-          <img class="img-oboci" src="./img/oboci.png" alt="Obočí">
+          <img class="img-oboci" src="./img/oboci.png" alt="Obočí" loading="lazy">
         </figure>
       </div>
 
@@ -456,7 +461,7 @@
         <div class="service-item-text">meziřasové&thinsp;/&thinsp;klasické&thinsp;/&thinsp;smokey eyes</div>
         <figure id="open-gallery-ocni-linky">
           <!--<i class="icon-photo-galery bi-camera-fill"></i>-->
-          <img class="img-ocni-linky" src="./img/ocni-linky.png" alt="Oční linky">
+          <img class="img-ocni-linky" src="./img/ocni-linky.png" alt="Oční linky" loading="lazy">
         </figure>
       </div>
 
@@ -470,7 +475,7 @@
         <div class="service-item-text">dark lips&thinsp;/&thinsp;aquarel</div>
         <figure id="open-gallery-rty">
           <!--<i class="icon-photo-galery bi bi-camera-fill"></i>-->
-          <img class="img-rty" src="./img/rty.png" alt="Rty">
+          <img class="img-rty" src="./img/rty.png" alt="Rty" loading="lazy">
         </figure>
       </div>
 
@@ -485,7 +490,7 @@
 
       <figure id="open-gallery-kosmetika">
         <!--<i class="icon-photo-galery bi-camera-fill"></i>-->
-        <img src="./img/kosmetika.jpg" alt="Kosmetika">
+        <img src="./img/kosmetika.jpg" alt="Kosmetika" loading="lazy">
         <!--<figcaption>Kosmetika</figcaption>-->
       </figure>
 
@@ -849,28 +854,33 @@
   <div class="wrapper">
 
     <div class="gallery" id="gallery-ocni-linky">
-      <img src="./gallery/ocni-linky/thumbs/01.png" data-large="gallery/ocni-linky/01.png" alt="Oční linky ukázka 1">
-      <img src="./gallery/ocni-linky/thumbs/02.png" data-large="gallery/ocni-linky/02.png" alt="Oční linky ukázka 2">
-      <img src="./gallery/ocni-linky/thumbs/03.png" data-large="gallery/ocni-linky/03.png" alt="Oční linky ukázka 3">
-      <img src="./gallery/ocni-linky/thumbs/04.png" data-large="gallery/ocni-linky/04.png" alt="Oční linky ukázka 4">
-      <img src="./gallery/ocni-linky/thumbs/05.png" data-large="gallery/ocni-linky/05.png" alt="Oční linky ukázka 5">
+      <img src="./gallery/ocni-linky/thumbs/01.png" data-large="gallery/ocni-linky/01.png" alt="Oční linky ukázka 1"
+        loading="lazy" />
+      <img src="./gallery/ocni-linky/thumbs/02.png" data-large="gallery/ocni-linky/02.png" alt="Oční linky ukázka 2"
+        loading="lazy" />
+      <img src="./gallery/ocni-linky/thumbs/03.png" data-large="gallery/ocni-linky/03.png" alt="Oční linky ukázka 3"
+        loading="lazy" />
+      <img src="./gallery/ocni-linky/thumbs/04.png" data-large="gallery/ocni-linky/04.png" alt="Oční linky ukázka 4"
+        loading="lazy" />
+      <img src="./gallery/ocni-linky/thumbs/05.png" data-large="gallery/ocni-linky/05.png" alt="Oční linky ukázka 5"
+        loading="lazy" />
     </div>
 
     <div class="gallery" id="gallery-oboci">
-      <img src="./gallery/oboci/thumbs/01.png" data-large="gallery/oboci/01.png" alt="Obočí ukázka 1">
-      <!--<img src="./gallery/oboci/thumbs/02.png" data-large="gallery/oboci/02.png" alt="Obočí ukázka 2">-->
-      <img src="./gallery/oboci/thumbs/03.png" data-large="gallery/oboci/03.png" alt="Obočí ukázka 3">
-      <img src="./gallery/oboci/thumbs/04.png" data-large="gallery/oboci/04.png" alt="Obočí ukázka 4">
-      <img src="./gallery/oboci/thumbs/05.png" data-large="gallery/oboci/05.png" alt="Obočí ukázka 5">
+      <img src="./gallery/oboci/thumbs/01.png" data-large="gallery/oboci/01.png" alt="Obočí ukázka 1" loading="lazy" />
+      <!--<img src="./gallery/oboci/thumbs/02.png" data-large="gallery/oboci/02.png" alt="Obočí ukázka 2"  loading="lazy">-->
+      <img src="./gallery/oboci/thumbs/03.png" data-large="gallery/oboci/03.png" alt="Obočí ukázka 3" loading="lazy" />
+      <img src="./gallery/oboci/thumbs/04.png" data-large="gallery/oboci/04.png" alt="Obočí ukázka 4" loading="lazy" />
+      <img src="./gallery/oboci/thumbs/05.png" data-large="gallery/oboci/05.png" alt="Obočí ukázka 5" loading="lazy" />
     </div>
 
     <div class="gallery" id="gallery-rty">
-      <img src="./gallery/rty/thumbs/01.png" data-large="gallery/rty/01.png" alt="Rty ukázka 1" />
-      <img src="./gallery/rty/thumbs/02.png" data-large="gallery/rty/02.png" alt="Rty ukázka 2" />
-      <img src="./gallery/rty/thumbs/03.png" data-large="gallery/rty/03.png" alt="Rty ukázka 3" />
-      <img src="./gallery/rty/thumbs/04.png" data-large="gallery/rty/04.png" alt="Rty ukázka 4" />
-      <img src="./gallery/rty/thumbs/05.png" data-large="gallery/rty/05.png" alt="Rty ukázka 5" />
-      <img src="./gallery/rty/thumbs/06.png" data-large="gallery/rty/06.png" alt="Rty ukázka 6" />
+      <img src="./gallery/rty/thumbs/01.png" data-large="gallery/rty/01.png" alt="Rty ukázka 1" loading="lazy" />
+      <img src="./gallery/rty/thumbs/02.png" data-large="gallery/rty/02.png" alt="Rty ukázka 2" loading="lazy" />
+      <img src="./gallery/rty/thumbs/03.png" data-large="gallery/rty/03.png" alt="Rty ukázka 3" loading="lazy" />
+      <img src="./gallery/rty/thumbs/04.png" data-large="gallery/rty/04.png" alt="Rty ukázka 4" loading="lazy" />
+      <img src="./gallery/rty/thumbs/05.png" data-large="gallery/rty/05.png" alt="Rty ukázka 5" loading="lazy" />
+      <img src="./gallery/rty/thumbs/06.png" data-large="gallery/rty/06.png" alt="Rty ukázka 6" loading="lazy" />
     </div>
 
     <div class="gallery" id="gallery-kosmetika">

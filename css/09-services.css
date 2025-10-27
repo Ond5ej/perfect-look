@@ -28,7 +28,8 @@ figure {
   border-radius: 1rem;
   overflow: hidden;
   width: 350px;
-  height: 350px;
+  /*height: 350px;*/
+  aspect-ratio: 1 / 1;  /* čtverec; změňte dle potřeby, např. 4/5 */
   margin: 0;
   cursor: pointer;
   box-shadow:
@@ -48,11 +49,9 @@ figure img{
   object-fit: cover;
 }
 
-figure:hover img{
+figure:hover img {
   transform: scale(1.2);
 }
-
-
 
 .icon-photo-galery {
   position: absolute;
@@ -65,7 +64,6 @@ figure:hover img{
 }
 
 
-
 /* MOBIL */ 
 @media (max-width: 768px) {
   .services {
@@ -73,40 +71,28 @@ figure:hover img{
     justify-content: center; /* zarovnání na střed */
   }
 
+  .service-item {
+    flex: 1 1 calc(50% - 1rem);
+    max-width: calc(50% - 1rem);
+  }
+
   .services figure {
-    position: relative; /* potřebné pro absolutní pozicování dovnitř */
-    width: 45%;
-    height: 180px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
   }
 
-  .services figure img {
-    object-fit: cover;
+  .img-oboci {
+    object-position: 50% 30%;
   }
 
-    figure img.img-oboci {
-      transform: translate(0px, -35px);
-    }
-  
-    figure:hover img.img-oboci {
-      transform: scale(1.2) translate(0px, -35px);
-    }
-  
-    figure img.img-ocni-linky {
-      transform: translate(0px, -60px);
-    }
-  
-    figure:hover img.img-ocni-linky {
-      transform: scale(1.2) translate(0px, -60px);
-    }
-  
-    figure img.img-rty {
-      transform: translate(0px, -80px);
-    }
-  
-    figure:hover img.img-rty {
-      /* tady jsi měl chybějící tečku */
-      transform: scale(1.2) translate(0px, -80px);
-    }
+  /* lehce nahoru */
+  .img-ocni-linky {
+    object-position: 50% 40%;
+  }
+
+  .img-rty {
+    object-position: 50% 45%;
+  }
 }
 
 /* Extra malé displeje (např. < 480px) – radši jen 1 sloupec */

@@ -69,16 +69,25 @@ figure:hover img {
   .services {
     gap: 1rem;
     justify-content: center; /* zarovnání na střed */
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
   }
 
   .service-item {
-    flex: 1 1 calc(50% - 1rem);
-    max-width: calc(50% - 1rem);
+    width: 90%;
+    max-width: 400px;  
   }
 
   .services figure {
     width: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 3 / 2;  /* obdélník (šířka : výška) */
+    height: auto;
+  }
+  figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .img-oboci {
@@ -97,9 +106,12 @@ figure:hover img {
 
 /* Extra malé displeje (např. < 480px) – radši jen 1 sloupec */
 @media (max-width: 480px) {
+  .service-item {
+    max-width: 320px;
+  }
+
   .services figure {
-    width: 90%;
-    height: 200px;
+    aspect-ratio: 4 / 3;  /* trošku vyšší na úzkých displejích */
   }
 }
 

@@ -1,11 +1,20 @@
 /* ZÁKLADNÍ NASTAVENÍ A UTILITIES */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
+  overflow-x: hidden;
   font-family: var(--font-main);
   background: var(--antracit);
   color: var(--beige-light);
   line-height: 1.7;
-  
   padding: 0;
 }
 

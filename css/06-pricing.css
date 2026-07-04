@@ -65,7 +65,8 @@ table.price-table {
 /* mobil / tablet */
 @media (max-width: 950px) {
   table.price-table {
-    width: 98vw;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 
@@ -107,3 +108,54 @@ table.price-table {
 
 
 
+
+/* Pomocné třídy ceníku */
+.price-note {
+  font-size: 0.88em;
+  color: rgba(58,58,66,0.58);
+  font-weight: 400;
+}
+
+.price-validity {
+  padding-top: 0.4rem;
+  padding-bottom: 0.7rem;
+  color: rgba(58,58,66,0.55);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.price-subtitle {
+  padding-top: 0;
+  padding-bottom: 0.6rem;
+  color: rgba(58,58,66,0.52);
+  font-size: 0.85rem;
+}
+
+/* Mobilní opravy ceníku – zabránit přetečení */
+@media (max-width: 600px) {
+  .price-table th,
+  .price-table td {
+    padding: 0.65em 0.6em;
+  }
+
+  .price-left {
+    max-width: 62%;
+    font-size: 0.92rem;
+  }
+
+  .price-right {
+    font-size: 0.92rem;
+  }
+
+  .price-left.pl {
+    padding-left: 8px;
+  }
+
+  .inner-table {
+    font-size: 0.88rem;
+  }
+
+  .price-line.ml {
+    margin-left: 8px;
+  }
+}

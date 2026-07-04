@@ -1,0 +1,568 @@
+/* ============================================================
+   10-sections.css  –  Sjednocení sekcí podle Hero estetiky
+   v14: opravy nadpisů tmavých sekcí, fonty, PMU redesign
+   ============================================================ */
+
+/* ---- Společné tokeny pro obě varianty ---- */
+.pl-section {
+  position: relative;
+  width: 100%;
+  padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 5vw, 5rem);
+  overflow: hidden;
+}
+
+/* Dekorativní zlatá linka nahoře (jako v hero::after) */
+.pl-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: clamp(1.25rem, 6vw, 6.5rem);
+  width: min(40vw, 480px);
+  height: 1px;
+  background: linear-gradient(90deg, rgba(191,167,111,0.45), rgba(191,167,111,0));
+  pointer-events: none;
+}
+
+/* Vnitřní kontejner */
+.pl-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ---- Eyebrow label (jako v hero) ---- */
+.pl-eyebrow {
+  display: inline-block;
+  margin-bottom: clamp(1.1rem, 2.2vw, 1.8rem);
+  color: var(--accent);
+  font-family: var(--font-main);
+  font-size: clamp(0.68rem, 0.74vw, 0.86rem);
+  font-weight: 800;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+}
+
+.pl-eyebrow::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 1px;
+  margin-top: 0.9rem;
+  background: var(--accent);
+}
+
+/* ---- Sjednocený nadpis sekce (přepíše .section-title ze 01-base.css) ---- */
+.section-title {
+  font-family: var(--font-title);
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  text-align: center;
+  margin: 0 0 clamp(1.6rem, 3vw, 2.6rem) 0;
+}
+
+/* ============================================================
+   SVĚTLÁ SEKCE
+   ============================================================ */
+.pl-light {
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(255,255,255,0.72) 0%, transparent 60%),
+    linear-gradient(160deg, var(--off-white) 0%, #f0e8d8 100%);
+  color: var(--antracit);
+}
+
+/* ============================================================
+   TMAVÁ SEKCE
+   ============================================================ */
+.pl-dark {
+  background:
+    radial-gradient(ellipse at 100% 100%, rgba(191,167,111,0.09) 0%, transparent 60%),
+    linear-gradient(160deg, #2a2a32 0%, var(--antracit) 100%);
+  color: var(--beige-light);
+}
+
+.pl-dark .pl-eyebrow::after {
+  opacity: 0.7;
+}
+
+/* ============================================================
+   O MNĚ  –  tmavá
+   ============================================================ */
+#omne {
+  padding: 0;
+  min-height: unset;
+  background: none;
+}
+
+#omne.pl-section {
+  padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 5vw, 5rem);
+  background:
+    radial-gradient(ellipse at 100% 100%, rgba(191,167,111,0.09) 0%, transparent 60%),
+    linear-gradient(160deg, #2a2a32 0%, var(--antracit) 100%);
+  color: var(--beige-light);
+}
+
+#omne .section-title {
+  color: var(--beige-light);
+  text-align: center;
+}
+
+#omne .about-subtitle,
+#omne .about-body p {
+  color: rgba(245,240,230,0.85);
+  font-family: var(--font-main);
+}
+
+#omne .about-subtitle span {
+  color: var(--beige-light);
+  font-family: var(--font-title);
+}
+
+/* ============================================================
+   GLOBÁLNÍ OSTRÉ ROHY – ladit s Hero tlačítkem (0–2px)
+   ============================================================ */
+#omne .about-photo-box {
+  border-radius: 2px;
+  box-shadow:
+    0 0 0 1px rgba(191,167,111,0.3),
+    0 24px 48px rgba(0,0,0,0.35);
+}
+
+/* ============================================================
+   PERMANENTNÍ MAKE-UP  –  světlá, čistý layout
+   ============================================================ */
+#permanentni-make-up {
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(255,255,255,0.72) 0%, transparent 60%),
+    linear-gradient(160deg, var(--off-white) 0%, #f0e8d8 100%);
+  padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 5vw, 5rem);
+  left: auto; right: auto; margin-left: 0; margin-right: 0;
+  border: none; border-radius: 0; box-shadow: none;
+  width: 100%;
+  color: var(--antracit);
+}
+
+/* Nadpis sekce – stejný styl jako ostatní sekce */
+#permanentni-make-up .section-title {
+  color: var(--antracit);
+}
+
+/* Mřížka 3 sloupce – žádné boxy */
+.pmu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.8rem);
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* Jeden sloupeček */
+.pmu-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  cursor: pointer;
+}
+
+/* Popisek nad fotkou */
+.pmu-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding-left: 0;
+  padding-bottom: 0.85rem;
+  position: relative;
+}
+
+/* Zlatá linka vlevo – ODSTRANĚNA */
+.pmu-label::before {
+  display: none;
+}
+
+.pmu-name {
+  font-family: var(--font-title);
+  font-size: clamp(1.2rem, 1.6vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--antracit);
+  line-height: 1;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(191,167,111,0.55);
+  display: inline-block;
+}
+
+/* Techniky – čistý text, žádné buňky */
+.pmu-tech {
+  display: block;
+}
+
+.pmu-tech-tag {
+  display: inline;
+  background: none;
+  border: none;
+  padding: 0;
+  color: rgba(58,58,66,0.52);
+  font-family: var(--font-main);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+}
+
+.pmu-tech-tag + .pmu-tech-tag::before {
+  content: ' · ';
+  color: rgba(191,167,111,0.6);
+}
+
+/* Fotka – velká, bez rámečku */
+.pmu-figure {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  margin: 0;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.pmu-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s ease;
+}
+
+.pmu-item:hover .pmu-figure img {
+  transform: scale(1.04);
+}
+
+/* Overlay ikona při hoveru */
+.pmu-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(30,25,20,0);
+  transition: background 0.35s ease;
+  pointer-events: none;
+}
+
+.pmu-overlay i {
+  font-size: 2rem;
+  color: rgba(255,255,255,0);
+  transition: color 0.35s ease, transform 0.35s ease;
+  transform: scale(0.85);
+}
+
+.pmu-item:hover .pmu-overlay {
+  background: rgba(30,25,20,0.26);
+}
+
+.pmu-item:hover .pmu-overlay i {
+  color: rgba(255,255,255,0.88);
+  transform: scale(1);
+}
+
+/* Tablet */
+@media (max-width: 860px) {
+  .pmu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.4rem;
+  }
+}
+
+/* Mobil */
+@media (max-width: 540px) {
+  .pmu-grid {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+    max-width: 380px;
+  }
+
+  .pmu-figure {
+    aspect-ratio: 4 / 3;
+  }
+
+  .pmu-label::before {
+    display: none;
+  }
+
+  .pmu-label {
+    padding-left: 0;
+  }
+}
+
+/* ============================================================
+   KOSMETIKA  –  tmavá
+   ============================================================ */
+#kosmetika {
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(191,167,111,0.08) 0%, transparent 55%),
+    linear-gradient(160deg, #2a2a32 0%, var(--antracit) 100%);
+  color: var(--beige-light);
+  padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 5vw, 5rem);
+  min-height: unset;
+}
+
+#kosmetika .section-title {
+  color: var(--beige-light);
+  text-align: center;
+}
+
+#kosmetika .service-text h3 {
+  color: var(--beige-light);
+  font-family: var(--font-title);
+  font-size: clamp(1.15rem, 1.6vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-top: 0;
+}
+
+#kosmetika .service-text p {
+  color: rgba(245,240,230,0.82);
+  font-family: var(--font-main);
+  font-size: clamp(0.92rem, 0.96vw, 1.02rem);
+  line-height: 1.75;
+}
+
+#kosmetika figure {
+  border-radius: 0;
+  box-shadow:
+    0 0 0 1px rgba(191,167,111,0.22),
+    0 32px 64px rgba(0,0,0,0.32);
+}
+
+/* ============================================================
+   CENÍK  –  světlá
+   ============================================================ */
+#cenik {
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(255,255,255,0.72) 0%, transparent 60%),
+    linear-gradient(160deg, var(--off-white) 0%, #f0e8d8 100%);
+  padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 5vw, 5rem);
+  left: auto; right: auto; margin-left: 0; margin-right: 0;
+  border: none; border-radius: 0; box-shadow: none;
+  width: 100%;
+  overflow-x: hidden;
+  color: var(--antracit);
+}
+
+#cenik .section-title,
+#cenik .price-title {
+  color: var(--antracit);
+  text-align: center;
+}
+
+/* tabulka ceníku */
+table.price-table {
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(4px);
+  border-radius: 0;
+  box-shadow:
+    0 0 0 1px rgba(191,167,111,0.18),
+    0 12px 32px rgba(58,58,66,0.07);
+  font-family: var(--font-main);
+}
+
+.price-table th {
+  background: linear-gradient(90deg, #a98248 0%, #c5a56c 100%);
+  color: #fff;
+  font-family: var(--font-main);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.price-table td {
+  font-family: var(--font-main);
+  color: var(--antracit);
+}
+
+/* ============================================================
+   REFERENCE  –  tmavá
+   ============================================================ */
+#reference {
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(191,167,111,0.08) 0%, transparent 55%),
+    linear-gradient(160deg, #2a2a32 0%, var(--antracit) 100%);
+  color: var(--beige-light);
+  padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 5vw, 5rem);
+  min-height: unset;
+}
+
+#reference .section-title {
+  color: var(--beige-light);
+  text-align: center;
+}
+
+#reference .reference-card {
+  background: rgba(255,255,255,0.05);
+  border-left: 3px solid var(--accent);
+  border-radius: 0;
+  color: rgba(245,240,230,0.85);
+  font-family: var(--font-main);
+  box-shadow: none;
+  backdrop-filter: blur(2px);
+}
+
+#reference .reference-card strong {
+  color: var(--accent);
+  font-family: var(--font-title);
+}
+
+#reference .carousel-controls button {
+  background: transparent;
+  border: 1px solid rgba(191,167,111,0.45);
+  color: var(--accent);
+  border-radius: 0;
+  font-size: 1.2rem;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+#reference .carousel-controls button:hover {
+  background: rgba(191,167,111,0.1);
+  border-color: var(--accent);
+}
+
+/* ============================================================
+   KONTAKT + FAQ  –  světlá
+   ============================================================ */
+#kontakt {
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(255,255,255,0.6) 0%, transparent 55%),
+    linear-gradient(160deg, var(--off-white) 0%, #f0e8d8 100%);
+  padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 5vw, 5rem);
+  left: auto; right: auto; margin-left: 0; margin-right: 0;
+  width: 100%;
+  color: var(--antracit);
+}
+
+#kontakt .section-subtitle {
+  color: var(--antracit);
+  font-family: var(--font-title);
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.2rem 0;
+  text-align: center;
+}
+
+#kontakt .contact-box {
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(191,167,111,0.2);
+  border-radius: 0;
+  box-shadow: 0 8px 24px rgba(58,58,66,0.07);
+}
+
+#kontakt .contact-box h2 {
+  color: var(--antracit);
+  font-family: var(--font-title);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+#kontakt .contact-details {
+  color: rgba(58,58,66,0.78);
+  font-family: var(--font-main);
+}
+
+#kontakt .contact-form input,
+#kontakt .contact-form textarea {
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(191,167,111,0.3);
+  border-radius: 0;
+  font-family: var(--font-main);
+  color: var(--antracit);
+}
+
+#kontakt .contact-form input:focus,
+#kontakt .contact-form textarea:focus {
+  border-color: var(--accent);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(191,167,111,0.15);
+}
+
+#kontakt .contact-form button {
+  background: linear-gradient(135deg, #a98248 0%, #c5a56c 100%);
+  color: #fff;
+  border-radius: 0;
+  font-family: var(--font-main);
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.8em 2.2em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 20px rgba(169,130,72,0.22);
+}
+
+#kontakt .contact-form button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(169,130,72,0.3);
+}
+
+#kontakt .faq-box {
+  background: var(--antracit);
+  border: 1px solid rgba(191,167,111,0.28);
+  border-radius: 0;
+  box-shadow: 0 8px 32px rgba(58,58,66,0.14);
+}
+
+#kontakt .faq-box h2 {
+  color: var(--beige);
+  font-family: var(--font-title);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+#kontakt .faq-q {
+  font-family: var(--font-main);
+}
+
+#kontakt .faq-a {
+  font-family: var(--font-main);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: #111116;
+  color: rgba(245,240,230,0.55);
+  border-top: 1px solid rgba(191,167,111,0.18);
+  font-family: var(--font-main);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  padding: 1.6rem 2rem;
+  text-align: center;
+}
+
+/* ============================================================
+   RESPONZIVITA
+   ============================================================ */
+@media (max-width: 768px) {
+  .pl-section,
+  #omne.pl-section,
+  #permanentni-make-up,
+  #kosmetika,
+  #cenik,
+  #reference,
+  #kontakt {
+    padding: clamp(3rem, 10vw, 4.5rem) 1.15rem;
+  }
+}
+
+/* ============================================================
+   GLOBÁLNÍ OVERRIDE: ostré rohy pro figure a about-photo-box
+   ============================================================ */
+figure {
+  border-radius: 0 !important;
+}
+
+.about-photo-box {
+  border-radius: 2px !important;
+}

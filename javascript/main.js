@@ -29,14 +29,24 @@ document.addEventListener('DOMContentLoaded', () => {
     autoMs: 20000
   });
 
-  // Menu + dropdowny
+  // Menu + dropdowny – desktop
   initMenu({
     dropdownToggle: '.nav-desktop .dropdown-toggle',
     dropdownItem: '.nav-desktop .has-dropdown',
-    navbarMenu: '#desktop-menu',              // <- jen desktop nav
+    navbarMenu: '#desktop-menu',
     topLevelLinks: '.nav-desktop > ul > li > a',
     headerSelector: 'header',
-    hamburgerToggle: '.navbar-toggle'         // nech klidně takhle (viz patch níž)
+    hamburgerToggle: '.navbar-toggle'
+  });
+
+  // Menu – mobilní off-canvas
+  initMenu({
+    dropdownToggle: '.nav-mobile .dropdown-toggle',
+    dropdownItem: '.nav-mobile .has-dropdown',
+    navbarMenu: '#mobile-menu',
+    topLevelLinks: '.nav-mobile > ul > li > a',
+    headerSelector: 'header',
+    hamburgerToggle: '.navbar-toggle'
   });
   // Kontakt (fake submit)
   initContactForm({ form: '.contact-form' });
@@ -65,6 +75,10 @@ document.addEventListener('DOMContentLoaded', () => {
     errorMsg: '#errorMsg'
   });
   */
+
+  // Dynamický rok ve footeru
+  const yearEl = document.getElementById('footer-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   // Lightbox / galerie
   initLightbox({

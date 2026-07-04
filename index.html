@@ -56,7 +56,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   -->
-  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:400,500,600,700,700italic&display=swap" rel="stylesheet">
 
   <!-- ICONS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -73,6 +73,7 @@
   <link rel="stylesheet" href="./css/09-services.css">
 
   <link rel="stylesheet" href="./css/99-aurora.css">
+  <link rel="stylesheet" href="./css/10-sections.css">
 
   <!-- Javascript -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
@@ -256,116 +257,80 @@
   <!-- Header & Navigation -->
   <header>
     <div class="navbar">
-      <!-- HAMBURGER jen pro mobil -->
-      <button class="navbar-toggle" aria-label="Otevřít menu" aria-expanded="false" aria-controls="primary-menu">
+      <button class="navbar-toggle" aria-label="Otevřít menu" aria-expanded="false" aria-controls="mobile-menu">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
 
-      <!-- MENU (off-canvas pro mobil/tablet) -->
-      <!-- DESKTOP MENU (#1) -->
       <nav class="navbar-menu nav-desktop" id="desktop-menu" aria-label="Hlavní navigace">
         <ul>
           <li><a href="#uvod">ÚVOD</a></li>
-          <li><a href="#omne">O&nbsp;MNĚ</a></li>
-
+          <li><a href="#omne">O MNĚ</a></li>
           <li class="has-dropdown" id="menu-sluzby">
-            <a href="#sluzby" class="dropdown-toggle">
-              SLUŽBY&nbsp;<span class="dropdown-arrow">&#9662;</span>
+            <a href="#sluzby" class="dropdown-toggle" aria-expanded="false">
+              SLUŽBY <span class="dropdown-arrow">⌄</span>
             </a>
-
             <ul class="dropdown">
               <li>
-                <a href="#permanentni-make-up"><b>Permanetní make-up</b></a>
+                <a href="#permanentni-make-up"><b>Permanentní make-up</b></a>
                 <ul class="submenu">
-                  <li>
-                    <a href="#permanentni-make-up" id="open-gallery-oboci-menu">
-                      <i class="bi bi-camera"></i>&nbsp;Obočí
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#permanentni-make-up" id="open-gallery-ocni-linky-menu">
-                      <i class="bi bi-camera"></i>&nbsp;Oční linky
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#permanentni-make-up" id="open-gallery-rty-menu">
-                      <i class="bi bi-camera"></i>&nbsp;Rty
-                    </a>
-                  </li>
+                  <li><a href="#permanentni-make-up" id="open-gallery-oboci-menu"><i class="bi bi-camera"></i> Obočí</a></li>
+                  <li><a href="#permanentni-make-up" id="open-gallery-ocni-linky-menu"><i class="bi bi-camera"></i> Oční linky</a></li>
+                  <li><a href="#permanentni-make-up" id="open-gallery-rty-menu"><i class="bi bi-camera"></i> Rty</a></li>
                 </ul>
               </li>
-              <li>
-                <a href="#kosmetika"><b>Kosmetika</b></a>
-              </li>
+              <li><a href="#kosmetika"><b>Kosmetika</b></a></li>
             </ul>
           </li>
-
-          <li><a href="#cenik">CENÍK</a></li>
-          <li><a href="#reference">REFERENCE</a></li>
-          <li><a href="#kontakt">KONTAKT&nbsp;/&nbsp;FAQ</a></li>
-        </ul>
-      </nav>
-
-      <!-- MOBILNÍ MENU (#2) – off-canvas, zploštělé -->
-      <nav class="navbar-menu nav-mobile" id="mobile-menu" aria-label="Hlavní navigace (mobil)">
-        <ul>
-          <li><a href="#uvod">ÚVOD</a></li>
-          <li><a href="#omne">O MNĚ</a></li>
-
-          <!-- SLUŽBY – zploštělé, „fake“ v jedné úrovni -->
-          <li><a href="#permanentni-make-up">SLUŽBY</a></li>
-          <li class="lvl1">
-            <a href="#permanentni-make-up"><b>Permanentní make-up</b></a>
-          </li>
-          <li class="lvl2">
-            <i class="bi bi-camera"></i>
-            <a href="#permanentni-make-up" id="open-gallery-oboci-menu-mobile">Obočí</a>
-          </li>
-          <li class="lvl2">
-            <i class="bi bi-camera"></i>
-            <a href="#permanentni-make-up" id="open-gallery-ocni-linky-menu-mobile">Oční linky</a>
-          </li>
-          <li class="lvl2">
-            <i class="bi bi-camera"></i>
-            <a href="#permanentni-make-up" id="open-gallery-rty-menu-mobile">Rty</a>
-          </li>
-          <li class="lvl1"><a href="#kosmetika"><b>Kosmetika</b></a></li>
-
           <li><a href="#cenik">CENÍK</a></li>
           <li><a href="#reference">REFERENCE</a></li>
           <li><a href="#kontakt">KONTAKT / FAQ</a></li>
         </ul>
       </nav>
 
-      <!-- Poloprůhledná vrstva pro off-canvas (zobrazí se, když je <body> .menu-open) -->
+      <nav class="navbar-menu nav-mobile" id="mobile-menu" aria-label="Hlavní navigace mobil">
+        <ul>
+          <li><a href="#uvod">ÚVOD</a></li>
+          <li><a href="#omne">O MNĚ</a></li>
+          <li><a href="#permanentni-make-up">SLUŽBY</a></li>
+          <li class="lvl1"><a href="#permanentni-make-up"><b>Permanentní make-up</b></a></li>
+          <li class="lvl2"><i class="bi bi-camera"></i><a href="#permanentni-make-up" id="open-gallery-oboci-menu-mobile">Obočí</a></li>
+          <li class="lvl2"><i class="bi bi-camera"></i><a href="#permanentni-make-up" id="open-gallery-ocni-linky-menu-mobile">Oční linky</a></li>
+          <li class="lvl2"><i class="bi bi-camera"></i><a href="#permanentni-make-up" id="open-gallery-rty-menu-mobile">Rty</a></li>
+          <li class="lvl1"><a href="#kosmetika"><b>Kosmetika</b></a></li>
+          <li><a href="#cenik">CENÍK</a></li>
+          <li><a href="#reference">REFERENCE</a></li>
+          <li><a href="#kontakt">KONTAKT / FAQ</a></li>
+        </ul>
+      </nav>
+
       <div class="menu-backdrop" hidden></div>
 
-      <!-- LOGO -->
-      <a href="#" class="brand">
-        <img src="./img/logo-with-border.svg" alt="Logo">
+      <a href="#uvod" class="brand" aria-label="Perfect Look beauty studio – úvod">
+        <img src="./img/logo-compact.png" alt="Perfect Look beauty studio">
       </a>
 
-      <!-- KONTAKTY -->
-      <div class="navbar-contact">
+      <div class="navbar-contact" aria-label="Kontaktní informace">
         <div class="navbar-contact-social">
-          <div class="contact-row">
-            <a href="https://www.facebook.com/profile.php?id=61576232891523" target="_blank" class="facebook"
-              title="Facebook">
-              <i class="bi bi-facebook"></i>
-            </a>
-            <a href="mailto:petra.ludkova.studio@gmail.com">
-              <i class="icon bi bi-envelope-fill"></i><span class="hide-mobile">petra.ludkova.studio@gmail.com</span>
-            </a>
-          </div>
-          <div class="contact-row">
-            <a href="https://www.instagram.com/perfect_look_beauty_studio/" target="_blank" class="instagram"
-              title="Instagram">
+          <div class="contact-row contact-socials">
+            <a href="https://www.instagram.com/perfect_look_beauty_studio/" target="_blank" rel="noopener" class="instagram" title="Instagram" aria-label="Instagram">
               <i class="bi bi-instagram"></i>
             </a>
+            <a href="https://www.facebook.com/profile.php?id=61576232891523" target="_blank" rel="noopener" class="facebook" title="Facebook" aria-label="Facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+          </div>
+          <div class="contact-row contact-phone">
             <a href="tel:+420776285808">
-              <i class="icon bi bi-telephone-fill"></i><span class="hide-mobile">+420 776 285 808</span>
+              <i class="icon bi bi-telephone-fill"></i>
+              <span class="contact-text">+420 776 285 808</span>
+            </a>
+          </div>
+          <div class="contact-row contact-email">
+            <a href="mailto:petra.ludkova.studio@gmail.com">
+              <i class="icon bi bi-envelope"></i>
+              <span class="contact-text">petra.ludkova.studio@gmail.com</span>
             </a>
           </div>
         </div>
@@ -375,32 +340,49 @@
 
 
   <!-- Hero Section -->
-  <section id="uvod" class="light-section" style="text-align: center;" ;>
-    <!--
-      <div style="text-align: center; padding:10px; border:1px solid black; width:40%;">
-        <h1 style="padding:0; margin:0;">P<span style="font-weight: 100; margin:0 10px;">|</span>L</h1>
-        <h1 style="padding:0; margin:0;">Perfect Look</h1>
-        <p style="padding:0; margin:0; font-weight: 100;">beauty studio</p>
-      </div>
-      -->
-    <h1 style="margin-bottom: 10px;">
-      <span>Permanentní make-up</span>
-      <span style="font-family: serif; padding: 0px 10px; font-weight: 100; font-size: 40px">
-        <br class="br-show" />&<br class="br-show" />
-      </span>
-      <span>kosmetika</span>
-    </h1>
-    <span class="aurora-text"
-      style="letter-spacing: 1.5px; margin-bottom: 70px; font-size: 50px; font-family: var(--font-title);">beauty
-      studio</span>
+  <section id="uvod" class="light-section hero-section" aria-label="Úvodní sekce Perfect Look">
+    <div class="hero-content">
+      <div class="hero-copy">
+        <p class="hero-eyebrow">Permanentní make-up</p>
 
-    <p>Perfect Look beauty studio nabízí svým klientům profesionální péči a individuální přístup. Před ošetřením
-      probíhá konzultace zdarma, kde zjistíme vaše požadavky a potřeby na míru pro vaši maximální spokojenost.</p>
-    <p>Ve studiu je možné zakoupení dárkových poukazů a přírodní luxusní britské kosmetiky Jane Scrivner</p>
+        <h1>
+          Přirozená krása,<br>
+          která <em>vydrží</em>
+        </h1>
+
+        <p class="hero-text">
+          Zvýrazním vaše rysy jemně, precizně a s důrazem na přirozený výsledek.
+          Permanentní make-up, díky kterému se budete cítit sebevědomě každý den.
+        </p>
+
+        <div class="hero-actions">
+          <a class="hero-button" href="#kontakt">Objednat konzultaci <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="hero-benefits" aria-label="Hlavní benefity">
+          <div class="hero-benefit">
+            <i class="bi bi-feather"></i>
+            <span>Přirozený<br>výsledek</span>
+          </div>
+          <div class="hero-benefit">
+            <i class="bi bi-shield-check"></i>
+            <span>Bezpečné<br>a hygienické</span>
+          </div>
+          <div class="hero-benefit">
+            <i class="bi bi-clock"></i>
+            <span>Šetří čas<br>každý den</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <img src="./img/hero-face.jpg" alt="" loading="eager">
+      </div>
+    </div>
   </section>
 
   <!-- O MNĚ -->
-  <section id="omne" class="section about">
+  <section id="omne" class="section about pl-section">
     <h2 class="section-title">O mně</h2>
 
     <div class="about-grid">
@@ -435,33 +417,52 @@
   <!-- Služby -->
   <!-- Permanentní make-up -->
   <section class="price-section" id="permanentni-make-up">
-    <h2 class="section-title dark-text">Permanentní make-up<br />galerie</h2>
-    <div class="services">
 
-      <div class="service-item">
-        <div class="service-item-title">obočí</div>
-        <div class="service-item-text">powder&thinsp;/&thinsp;hairstroke&thinsp;/&thinsp;combo</div>
-        <figure id="open-gallery-oboci">
-          <!--<i class="icon-photo-galery bi-camera-fill"></i>-->
-          <img class="img-oboci" src="./img/oboci.png" alt="Obočí" loading="lazy">
+    <h2 class="section-title">Galerie</h2>
+
+    <div class="pmu-grid">
+
+      <div class="pmu-item" id="open-gallery-oboci">
+        <div class="pmu-label">
+          <span class="pmu-name">Obočí</span>
+          <div class="pmu-tech">
+            <span class="pmu-tech-tag">powder</span>
+            <span class="pmu-tech-tag">hairstroke</span>
+            <span class="pmu-tech-tag">combo</span>
+          </div>
+        </div>
+        <figure class="pmu-figure">
+          <img class="img-oboci" src="./img/oboci.png" alt="Obočí – permanentní make-up" loading="lazy">
+          <div class="pmu-overlay"><i class="bi bi-images"></i></div>
         </figure>
       </div>
 
-      <div class="service-item">
-        <div class="service-item-title">oční linky</div>
-        <div class="service-item-text">meziřasové&thinsp;<b>/</b>&thinsp;klasické&thinsp;/&thinsp;smokey&nbsp;eyes</div>
-        <figure id="open-gallery-ocni-linky">
-          <!--<i class="icon-photo-galery bi-camera-fill"></i>-->
-          <img class="img-ocni-linky" src="./img/ocni-linky.png" alt="Oční linky" loading="lazy">
+      <div class="pmu-item" id="open-gallery-ocni-linky">
+        <div class="pmu-label">
+          <span class="pmu-name">Oční linky</span>
+          <div class="pmu-tech">
+            <span class="pmu-tech-tag">meziřasové</span>
+            <span class="pmu-tech-tag">klasické</span>
+            <span class="pmu-tech-tag">smokey eyes</span>
+          </div>
+        </div>
+        <figure class="pmu-figure">
+          <img class="img-ocni-linky" src="./img/ocni-linky.png" alt="Oční linky – permanentní make-up" loading="lazy">
+          <div class="pmu-overlay"><i class="bi bi-images"></i></div>
         </figure>
       </div>
 
-      <div class="service-item">
-        <div class="service-item-title">rty</div>
-        <div class="service-item-text">dark lips&thinsp;/&thinsp;aquarel</div>
-        <figure id="open-gallery-rty">
-          <!--<i class="icon-photo-galery bi bi-camera-fill"></i>-->
-          <img class="img-rty" src="./img/rty.png" alt="Rty" loading="lazy">
+      <div class="pmu-item" id="open-gallery-rty">
+        <div class="pmu-label">
+          <span class="pmu-name">Rty</span>
+          <div class="pmu-tech">
+            <span class="pmu-tech-tag">dark lips</span>
+            <span class="pmu-tech-tag">aquarel</span>
+          </div>
+        </div>
+        <figure class="pmu-figure">
+          <img class="img-rty" src="./img/rty.png" alt="Rty – permanentní make-up" loading="lazy">
+          <div class="pmu-overlay"><i class="bi bi-images"></i></div>
         </figure>
       </div>
 
@@ -506,178 +507,188 @@
   <section class="price-section" id="cenik">
     <h2 class="section-title dark-text">Ceník</h2>
     <table class="price-table">
-      <tr>
-        <th>Permanentní make-up</th>
-        <th style="text-align:center;">Cena</th>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <strong style="float: left;">Obočí</strong>
-          <table class="inner-table">
-            <tr>
-              <td>
-                <span class="price-left pl">powder&thinsp;/&thinsp;hairstroke&thinsp;/&thinsp;combo</span>
-                <span class="price-right"><strong>4 800Kč</strong></span>
-                <span class="price-line ml"></span>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
 
-      <tr>
-        <td colspan="2">
-          <strong style="float: left;">Rty</strong>
-          <table class="inner-table">
-            <tr>
-              <td>
-                <span class="price-left pl">aquarel&thinsp;/&thinsp;dark lips</span>
-                <span class="price-right"><strong>4 800 Kč</strong></span>
-                <span class="price-line ml"></span>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
+      <!-- PERMANENTNÍ MAKE-UP -->
+      <tr><th>Permanentní make-up</th><th style="text-align:right;">Cena</th></tr>
 
-      <tr>
-        <td colspan="2">
-          <strong style="float: left;">Oční linky</strong>
-          <table class="inner-table">
-            <tr>
-              <td>
-                <span class="price-left pl">meziřasové linky</span>
-                <span class="price-right"><strong>2 900 Kč</strong></span>
-                <span class="price-line ml"></span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <span class="price-left pl">smokey eyes linky</span>
-                <span class="price-right"><strong>3 900 Kč</strong></span>
-                <span class="price-line ml"></span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <span class="price-left pl">klasické horní linky</span>
-                <span class="price-right"><strong>3 500 Kč</strong></span>
-                <span class="price-line ml"></span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <span class="price-left pl">dolní linky</span>
-                <span class="price-right"><strong>1 900 Kč</strong></span>
-                <span class="price-line ml"></span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <span class="price-left pl">klasické horní + dolní linky</span>
-                <span class=" price-right"><strong>4 800 Kč</strong></span>
-                <span class="price-line ml"></span>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
+      <tr><td colspan="2">
+        <strong>Obočí</strong>
+        <table class="inner-table">
+          <tr><td><span class="price-left pl">Pudrové</span><span class="price-right"><strong>4&nbsp;800&nbsp;Kč</strong></span><span class="price-line ml"></span></td></tr>
+          <tr><td><span class="price-left pl">Hairstroke (vláskování)</span><span class="price-right"><strong>5&nbsp;500&nbsp;Kč</strong></span><span class="price-line ml"></span></td></tr>
+          <tr><td><span class="price-left pl">Combo (pudrové + vláskování)</span><span class="price-right"><strong>5&nbsp;500&nbsp;Kč</strong></span><span class="price-line ml"></span></td></tr>
+        </table>
+      </td></tr>
 
-      <tr>
-        <td colspan="2" class="">
-          <span class="price-left" style="font-weight:900;">Korekce do 3 měsíců</span>
-          <span class="price-right"><strong>1 500 Kč</strong></span>
-          <span class="price-line"></span>
-        </td>
-      </tr>
+      <tr><td colspan="2">
+        <strong>Rty</strong>
+        <table class="inner-table">
+          <tr><td><span class="price-left pl">Aquarel</span><span class="price-right"><strong>5&nbsp;500&nbsp;Kč</strong></span><span class="price-line ml"></span></td></tr>
+          <tr><td><span class="price-left pl">Velvet lips</span><span class="price-right"><strong>5&nbsp;500&nbsp;Kč</strong></span><span class="price-line ml"></span></td></tr>
+          <tr><td><span class="price-left pl">Dark lips (efekt rtěnky)</span><span class="price-right"><strong>5&nbsp;500&nbsp;Kč</strong></span><span class="price-line ml"></span></td></tr>
+        </table>
+      </td></tr>
 
-      <tr>
-        <td colspan="2" class="">
-          <!--<span class="price-left" style="font-weight:900;">Odstranění permanentního make-upu</span>-->
-          <span class="price-left" style="font-weight:900;">Odstranění perm. make-upu</span>
-          <span class="price-right"><strong>od 1 000 Kč</strong></span>
-          <span class="price-line"></span>
-        </td>
-      </tr>
+      <tr><td colspan="2">
+        <strong>Oční linky</strong>
+        <table class="inner-table">
+          <tr><td><span class="price-left pl">Meziřasové linky</span><span class="price-right"><strong>2&nbsp;900&nbsp;Kč</strong></span><span class="price-line ml"></span></td></tr>
+          <tr><td><span class="price-left pl">Klasické horní linky</span><span class="price-right"><strong>3&nbsp;500&nbsp;Kč</strong></span><span class="price-line ml"></span></td></tr>
+          <tr><td><span class="price-left pl">Dolní linky</span><span class="price-right"><strong>1&nbsp;900&nbsp;Kč</strong></span><span class="price-line ml"></span></td></tr>
+          <tr><td><span class="price-left pl">Klasické horní + dolní linky</span><span class="price-right"><strong>5&nbsp;000&nbsp;Kč</strong></span><span class="price-line ml"></span></td></tr>
+          <tr><td><span class="price-left pl">Smokey eyes linky</span><span class="price-right"><strong>4&nbsp;900&nbsp;Kč</strong></span><span class="price-line ml"></span></td></tr>
+        </table>
+      </td></tr>
 
-      <tr>
-        <th>Kosmetika</th>
-        <th style="text-align:center;">Cena</th>
-      </tr>
-      <tr>
+      <tr><td colspan="2">
+        <span class="price-left"><strong>Korekce do 3 měsíců</strong></span>
+        <span class="price-right"><strong>1&nbsp;500&nbsp;Kč</strong></span>
+        <span class="price-line"></span>
+      </td></tr>
 
-        <td colspan="2">
-          <strong style="float: left;">Kosmetické ošetření dle typu pleti</strong>
-          <table class="inner-table">
-            <tr>
-              <td>
-                <span class="price-left pl">Ošetření pleti zaměřené na danou problematiku pleti</span>
-                <span class="price-right"><strong>1 590 Kč</strong></span>
-                <span></span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <span class="price-left pl">(odlíčení, hloubkové čištění ultrazvukem, kosmetická masáž obličeje,
-                  maska, sérum, krém)</span>
-                <span class="price-right">cca&nbsp;90&nbsp;minut</span>
-                <span class="price-line ml"></span>
-              </td>
-            </tr>
-          </table>
-        </td>
+      <tr><td colspan="2">
+        <span class="price-left"><strong>Korekce do 6 měsíců</strong></span>
+        <span class="price-right"><strong>2&nbsp;500&nbsp;Kč</strong></span>
+        <span class="price-line"></span>
+      </td></tr>
 
-      </tr>
-      <tr>
-        <td colspan="2">
-          <strong style="float: left;">Kosmetické ošetření pro muže včetně relaxační masáže obličeje</strong>
-          <table class="inner-table">
-            <tr>
-              <td>
-                <span class="price-left pl">Relaxační a detoxikační ošetření navržené speciálně pro potřeby mužské
-                  pleti</span>
-                <span class="price-right"><strong>1 590 Kč</strong></span>
-                <span></span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <span class="price-left pl">(pomáhá posílit
-                  obranyschopnost pleti, zklidnit podráždění, dodat zdravý upravený vzhled)</span>
-                <span class="price-right">cca&nbsp;90&nbsp;minut</span>
-                <span class="price-line ml"></span>
-              </td>
-            </tr>
-          </table>
-        </td>
+      <!-- KOSMETIKA -->
+      <tr><th>Kosmetika</th><th style="text-align:right;">Cena</th></tr>
 
-      </tr>
+      <tr><td colspan="2">
+        <strong>Kosmetické ošetření pro dámy</strong>
+        <table class="inner-table">
+          <tr><td>
+            <span class="price-left pl">odlíčení, hloubkové čištění ultrazvukovou špachtlí, kosmetická masáž obličeje, maska, sérum, krém</span>
+            <span class="price-right"><strong>1&nbsp;590&nbsp;Kč</strong></span>
+            <span class="price-line ml"></span>
+          </td></tr>
+          <tr><td><span class="price-left pl price-note">cca 90 minut</span></td></tr>
+        </table>
+      </td></tr>
 
-      <tr>
-        <td colspan="2" class="">
-          <span class="price-left">
-            <span style="font-weight: 900;">Úprava a barvení obočí</span>
-            (pouze k celkovému ošetření)
-          </span>
-          <span class="price-right"><strong>250 Kč</strong></span>
-          <span class="price-line"></span>
-        </td>
-      </tr>
+      <tr><td colspan="2">
+        <strong>Kosmetické ošetření pro pány</strong>
+        <table class="inner-table">
+          <tr><td>
+            <span class="price-left pl">hloubkové čištění ultrazvukovou špachtlí, kosmetická masáž obličeje, maska, sérum, krém</span>
+            <span class="price-right"><strong>1&nbsp;590&nbsp;Kč</strong></span>
+            <span class="price-line ml"></span>
+          </td></tr>
+          <tr><td><span class="price-left pl price-note">cca 90 minut</span></td></tr>
+        </table>
+      </td></tr>
 
-      <tr>
-        <td colspan="2" class="">
-          <span class="price-left">
-            <span style="font-weight: 900;">Epilace - obličej, ruce, hrudník</span>
-            (pouze k celkovému ošetření)
-          </span>
-          <span class="price-right"><strong>od&nbsp;250 Kč</strong></span>
-          <span class="price-line"></span>
-        </td>
-      </tr>
+      <tr><td colspan="2">
+        <span class="price-left"><strong>Úprava a barvení obočí</strong> <span class="price-note">(pouze k celkovému ošetření)</span></span>
+        <span class="price-right"><strong>250&nbsp;Kč</strong></span>
+        <span class="price-line"></span>
+      </td></tr>
+
+      <tr><td colspan="2">
+        <span class="price-left"><strong>Epilace</strong> – obličej, ruce, hrudník <span class="price-note">(pouze k celkovému ošetření)</span></span>
+        <span class="price-right"><strong>od&nbsp;250&nbsp;Kč</strong></span>
+        <span class="price-line"></span>
+      </td></tr>
+
+      <!-- OBOČÍ A ŘASY -->
+      <tr><th>Obočí a řasy</th><th style="text-align:right;">Cena</th></tr>
+
+      <tr><td colspan="2">
+        <span class="price-left"><strong>Lash Lifting</strong></span>
+        <span class="price-right"><strong>1&nbsp;000&nbsp;Kč</strong></span>
+        <span class="price-line"></span>
+      </td></tr>
+
+      <tr><td colspan="2">
+        <span class="price-left"><strong>Lash Lifting + barvení</strong></span>
+        <span class="price-right"><strong>1&nbsp;150&nbsp;Kč</strong></span>
+        <span class="price-line"></span>
+      </td></tr>
+
+      <tr><td colspan="2">
+        <span class="price-left"><strong>Laminace obočí</strong></span>
+        <span class="price-right"><strong>900&nbsp;Kč</strong></span>
+        <span class="price-line"></span>
+      </td></tr>
+
+      <tr><td colspan="2">
+        <span class="price-left"><strong>Laminace obočí + barvení</strong></span>
+        <span class="price-right"><strong>1&nbsp;050&nbsp;Kč</strong></span>
+        <span class="price-line"></span>
+      </td></tr>
+
+      <tr><td colspan="2">
+        <span class="price-left"><strong>Lash Lifting + Laminace obočí</strong></span>
+        <span class="price-right"><strong>1&nbsp;600&nbsp;Kč</strong></span>
+        <span class="price-line"></span>
+      </td></tr>
+
+      <!-- MEZOTERAPIE -->
+      <tr><th>Mezoterapie / Microneedling / Mikrojehličkování</th><th style="text-align:right;">Cena</th></tr>
+      <tr><td colspan="2" class="price-subtitle"><em>Lososí DNA / hydratace / omlazení pleti</em></td></tr>
+
+      <tr><td colspan="2">
+        <span class="price-left"><strong>Obličej</strong></span>
+        <span class="price-right"><strong>2&nbsp;500&nbsp;Kč</strong></span>
+        <span class="price-line"></span>
+      </td></tr>
+
+      <tr><td colspan="2">
+        <span class="price-left"><strong>Krk</strong></span>
+        <span class="price-right"><strong>1&nbsp;900&nbsp;Kč</strong></span>
+        <span class="price-line"></span>
+      </td></tr>
+
+      <tr><td colspan="2">
+        <span class="price-left"><strong>Dekolt</strong></span>
+        <span class="price-right"><strong>1&nbsp;900&nbsp;Kč</strong></span>
+        <span class="price-line"></span>
+      </td></tr>
+
+      <tr><td colspan="2">
+        <span class="price-left"><strong>Balíček 3 ošetření</strong> <span class="price-note">(obličej)</span></span>
+        <span class="price-right"><strong>6&nbsp;500&nbsp;Kč</strong></span>
+        <span class="price-line"></span>
+      </td></tr>
+
+      <tr><td colspan="2">
+        <span class="price-left"><strong>Balíček 3 ošetření</strong> <span class="price-note">(krk nebo dekolt)</span></span>
+        <span class="price-right"><strong>5&nbsp;000&nbsp;Kč</strong></span>
+        <span class="price-line"></span>
+      </td></tr>
+
+      <tr><td colspan="2">
+        <span class="price-left"><strong>Balíček 1 ošetření</strong> <span class="price-note">(obličej, krk, dekolt)</span></span>
+        <span class="price-right"><strong>5&nbsp;500&nbsp;Kč</strong></span>
+        <span class="price-line"></span>
+      </td></tr>
+
+      <!-- PLAZMA PEN -->
+      <tr><th>Plazma Pen</th><th style="text-align:right;">Cena</th></tr>
+
+      <tr><td colspan="2">
+        <span class="price-left"><strong>Horní víčka</strong></span>
+        <span class="price-right"><strong>3&nbsp;500&nbsp;Kč</strong></span>
+        <span class="price-line"></span>
+      </td></tr>
+
+      <tr><td colspan="2">
+        <span class="price-left"><strong>Dolní víčka</strong></span>
+        <span class="price-right"><strong>2&nbsp;500&nbsp;Kč</strong></span>
+        <span class="price-line"></span>
+      </td></tr>
+
+      <tr><td colspan="2">
+        <span class="price-left"><strong>Horní + dolní víčka</strong></span>
+        <span class="price-right"><strong>5&nbsp;000&nbsp;Kč</strong></span>
+        <span class="price-line"></span>
+      </td></tr>
+
     </table>
   </section>
 
-  <!---------------------------- Reference ----------------------------------->
+    <!---------------------------- Reference ----------------------------------->
   <section class="section" id="reference">
     <h2 class="section-title">Reference klientek</h2>
     <div class="carousel-container">
@@ -832,7 +843,7 @@
   <div id="fb-customer-chat" class="fb-customerchat"></div>
   <!-- Footer -->
   <footer>
-    &copy; 2025 Studio Perfect Look &ndash; Permanentní make-up | beauty studio
+    &copy; <span id="footer-year">2025</span> Studio Perfect Look &ndash; Permanentní make-up | beauty studio
   </footer>
   <!--</div>-->
 

@@ -165,14 +165,18 @@
       "name": "Permanentní make-up – obočí (powder/hairstroke/combo)",
       "areaServed": "Brno, CZ",
       "provider": {"@id": "https://www.perfect-look.cz/#studio"},
-      "offers": {"@type":"Offer","priceCurrency":"CZK","price":"4800","availability":"https://schema.org/InStock"}
+      "offers": [
+        {"@type":"Offer","priceCurrency":"CZK","price":"4800","name":"Pudrové","availability":"https://schema.org/InStock"},
+        {"@type":"Offer","priceCurrency":"CZK","price":"5500","name":"Hairstroke (vláskování)","availability":"https://schema.org/InStock"},
+        {"@type":"Offer","priceCurrency":"CZK","price":"5500","name":"Combo","availability":"https://schema.org/InStock"}
+      ]
     },
     {
       "@type": "Service",
-      "name": "Permanentní make-up – rty (aquarel/dark lips)",
+      "name": "Permanentní make-up – rty (aquarel/velvet lips/dark lips)",
       "areaServed": "Brno, CZ",
       "provider": {"@id": "https://www.perfect-look.cz/#studio"},
-      "offers": {"@type":"Offer","priceCurrency":"CZK","price":"4800","availability":"https://schema.org/InStock"}
+      "offers": {"@type":"Offer","priceCurrency":"CZK","price":"5500","availability":"https://schema.org/InStock"}
     },
     {
       "@type": "Service",
@@ -181,10 +185,10 @@
       "provider": {"@id": "https://www.perfect-look.cz/#studio"},
       "offers": [
         {"@type":"Offer","priceCurrency":"CZK","price":"2900","name":"Meziřasové linky"},
-        {"@type":"Offer","priceCurrency":"CZK","price":"3900","name":"Smokey eyes linky"},
+        {"@type":"Offer","priceCurrency":"CZK","price":"4900","name":"Smokey eyes linky"},
         {"@type":"Offer","priceCurrency":"CZK","price":"3500","name":"Klasické horní linky"},
         {"@type":"Offer","priceCurrency":"CZK","price":"1900","name":"Dolní linky"},
-        {"@type":"Offer","priceCurrency":"CZK","price":"4800","name":"Klasické horní + dolní linky"}
+        {"@type":"Offer","priceCurrency":"CZK","price":"5000","name":"Klasické horní + dolní linky"}
       ]
     },
     {
@@ -195,10 +199,11 @@
     },
     {
       "@type": "Service",
-      "name": "Odstranění permanentního make-upu",
+      "name": "Korekce do 6 měsíců",
       "provider": {"@id": "https://www.perfect-look.cz/#studio"},
-      "offers": {"@type":"Offer","priceCurrency":"CZK","price":"1000","priceSpecification":{"@type":"PriceSpecification","minPrice":"1000","priceCurrency":"CZK"}}
+      "offers": {"@type":"Offer","priceCurrency":"CZK","price":"2500"}
     },
+
     {
       "@type": "Service",
       "name": "Kosmetické ošetření dle typu pleti",
@@ -224,6 +229,41 @@
       "name": "Epilace – obličej, ruce, hrudník (k celkovému ošetření)",
       "provider": {"@id": "https://www.perfect-look.cz/#studio"},
       "offers": {"@type":"Offer","priceCurrency":"CZK","price":"250","priceSpecification":{"@type":"PriceSpecification","minPrice":"250","priceCurrency":"CZK"}}
+    },
+    {
+      "@type": "Service",
+      "name": "Lash Lifting",
+      "provider": {"@id": "https://www.perfect-look.cz/#studio"},
+      "offers": {"@type":"Offer","priceCurrency":"CZK","price":"1000","availability":"https://schema.org/InStock"}
+    },
+    {
+      "@type": "Service",
+      "name": "Lash Lifting + barvení",
+      "provider": {"@id": "https://www.perfect-look.cz/#studio"},
+      "offers": {"@type":"Offer","priceCurrency":"CZK","price":"1150","availability":"https://schema.org/InStock"}
+    },
+    {
+      "@type": "Service",
+      "name": "Laminace obočí",
+      "provider": {"@id": "https://www.perfect-look.cz/#studio"},
+      "offers": {"@type":"Offer","priceCurrency":"CZK","price":"900","availability":"https://schema.org/InStock"}
+    },
+    {
+      "@type": "Service",
+      "name": "Mezoterapie / Microneedling – obličej",
+      "description": "Lososí DNA / hydratace / omlazení pleti",
+      "provider": {"@id": "https://www.perfect-look.cz/#studio"},
+      "offers": {"@type":"Offer","priceCurrency":"CZK","price":"2500","availability":"https://schema.org/InStock"}
+    },
+    {
+      "@type": "Service",
+      "name": "Plazma Pen – víčka",
+      "provider": {"@id": "https://www.perfect-look.cz/#studio"},
+      "offers": [
+        {"@type":"Offer","priceCurrency":"CZK","price":"3500","name":"Horní víčka"},
+        {"@type":"Offer","priceCurrency":"CZK","price":"2500","name":"Dolní víčka"},
+        {"@type":"Offer","priceCurrency":"CZK","price":"5000","name":"Horní + dolní víčka"}
+      ]
     }
   ]
 }
@@ -376,7 +416,7 @@
       </div>
 
       <div class="hero-visual" aria-hidden="true">
-        <img src="./img/hero-face.jpg" alt="" loading="eager">
+        <img src="./img/hero-face.jpg" alt="Permanentní make-up – Studio Perfect Look Brno" loading="eager" fetchpriority="high">
       </div>
     </div>
   </section>
@@ -737,7 +777,7 @@
     <div class="cf-col">
       <h2 class="section-subtitle">Kontakt</h2>
       <div class="contact-box">
-        <h2>Napište zprávu</h2>
+        <h3>Napište zprávu</h3>
         <div class="contact-details">
           Perfect Look - beauty studio<br>
           <a href="https://www.google.com/maps/search/?api=1&query=Černovická+10,+617+00+Brno" target="_blank"
@@ -762,7 +802,7 @@
     <div class="cf-col">
       <h2 class="section-subtitle">FAQ</h2>
       <div class="faq-box">
-        <h2>Často kladené otázky</h2>
+        <h3>Často kladené otázky</h3>
         <ul class="faq-list">
 
           <li class="faq-item">
